@@ -1,10 +1,10 @@
 {
   "name": "Managing Packages with npm",
+  "isUpcomingChange": false,
   "dashedName": "managing-packages-with-npm",
-  "order": 1,
+  "order": 0,
   "time": "5 hours",
-  "superBlock": "apis-and-microservices",
-  "superOrder": 5,
+  "superBlock": "back-end-development-and-apis",
   "challengeOrder": [
     [
       "587d7fb3367417b2b2512bfb",

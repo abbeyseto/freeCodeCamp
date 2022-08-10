@@ -2,50 +2,111 @@
   overflow: hidden !important;
 }
 
-.editor {
-  height: 100%;
-}
-
-.instructions-panel {
-  padding: 0 10px;
-  height: calc(100vh - 38px);
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-@media screen and (max-width: 767px) {
-  .instructions-panel {
-    height: calc(100vh - 112px);
-  }
-}
-
-.react-monaco-editor-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: end;
-}
-
 .monaco-menu .action-label {
-  color: #a2bd9b;
+  color: var(--highlight-color);
   letter-spacing: 0.02em;
 }
 
-#challege-page-tabs .nav-tabs {
+.monaco-aria-container {
+  top: -999em;
+}
+
+.monaco-editor .editor-widget {
+  display: none !important;
+}
+
+.monaco-menu .monaco-action-bar.vertical .action-item:nth-last-child(n + 5),
+.monaco-menu .monaco-action-bar.vertical .action-item:last-child,
+.monaco-menu .monaco-action-bar.vertical .action-label.separator {
+  display: none !important;
+}
+
+.action-row {
+  padding: 10px;
+  border-bottom: 1px solid var(--quaternary-background);
+}
+
+.monaco-editor-tabs [aria-expanded='true'],
+.action-row [aria-expanded='true'] {
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--secondary-background);
+}
+
+.tabs-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tabs-row button,
+.monaco-editor-tabs button {
+  padding: 6px 12px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.monaco-editor-tabs {
+  display: flex;
+  margin-right: auto;
+}
+
+.monaco-editor-tabs button:not(:first-child) {
+  border-left: none;
+}
+
+.panel-display-tabs button:first-child,
+.tabs-row > button:first-child {
+  margin: 0 10px 0 0;
+}
+
+.restart-step-tab {
+  margin: 0 auto;
+}
+
+#mobile-layout .nav-tabs {
   margin-left: 2px;
   display: flex;
 }
 
-#challege-page-tabs .nav-tabs > li {
+#mobile-layout .nav-tabs > li {
   flex: 1;
   text-align: center;
 }
 
-#challege-page-tabs .nav-tabs > li > a {
+#mobile-layout .nav-tabs > li > a {
   padding: 5px 10px;
+  text-decoration: none;
+  font-size: 0.8em;
 }
 
-.challege-edittor-wrapper {
-  height: calc(100vh - 112px);
+#mobile-layout .nav-tabs > li > a:hover {
+  color: var(--gray-85);
+}
+
+#mobile-layout .tab-content {
+  height: calc(
+    100vh - var(--header-height, 0px) - var(--flash-message-height, 0px) - 69px
+  );
+  overflow-y: auto;
+}
+
+#mobile-layout .tab-pane {
+  height: 100%;
   overflow: hidden;
+}
+
+#mobile-layout .nav-tabs > li.active > a {
+  color: var(--quaternary-color);
+  background-color: var(--quaternary-background);
+}
+
+#mobile-layout .monaco-editor-tabs {
+  padding: 10px;
+  width: 100%;
+}
+
+#mobile-layout .monaco-editor-tabs button {
+  flex: 1;
+  max-width: 50%;
 }

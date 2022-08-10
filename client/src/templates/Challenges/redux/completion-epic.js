@@ -1,74 +1,97 @@
-import { of, empty } from 'rxjs';
-import {
-  switchMap,
-  retry,
-  catchError,
-  concat,
-  filter,
-  tap
-} from 'rxjs/operators';
-import { ofType } from 'redux-observable';
 import { navigate } from 'gatsby';
+import { omit } from 'lodash-es';
+import { ofType } from 'redux-observable';
+import { of, empty } from 'rxjs';
+import { switchMap, retry, catchError, concat, tap } from 'rxjs/operators';
 
-import {
-  backendFormValuesSelector,
-  projectFormValuesSelector,
-  types,
-  challengeMetaSelector,
-  challengeTestsSelector,
-  closeModal,
-  challengeFilesSelector,
-  updateProjectFormValues
-} from './';
+import { challengeTypes, submitTypes } from '../../../../utils/challenge-types';
 import {
   userSelector,
   isSignedInSelector,
-  openDonationModal,
-  showDonationSelector,
   submitComplete,
   updateComplete,
   updateFailed
 } from '../../../redux';
 
-import postUpdate$ from '../utils/postUpdate$';
-import { challengeTypes, submitTypes } from '../../../../utils/challengeTypes';
+import postUpdate$ from '../utils/post-update';
+import { mapFilesToChallengeFiles } from '../../../utils/ajax';
+import { standardizeRequestBody } from '../../../utils/challenge-request-helpers';
+import { actionTypes as submitActionTypes } from '../../../redux/action-types';
+import { actionTypes } from './action-types';
+import {
+  projectFormValuesSelector,
+  challengeMetaSelector,
+  challengeTestsSelector,
+  closeModal,
+  challengeFilesSelector,
+  updateSolutionFormValues
+} from './';
 
 function postChallenge(update, username) {
   const saveChallenge = postUpdate$(update).pipe(
     retry(3),
-    switchMap(({ points }) =>
-      of(
+    switchMap(({ data }) => {
+      const { savedChallenges, points } = data;
+      const payloadWithClientProperties = {
+        ...omit(update.payload, ['files'])
+      };
+      if (update.payload.files) {
+        payloadWithClientProperties.challengeFiles = update.payload.files.map(
+          ({ key, ...rest }) => ({
+            ...rest,
+            fileKey: key
+          })
+        );
+      }
+      return of(
         submitComplete({
-          username,
-          points,
-          ...update.payload
+          submittedChallenge: {
+            username,
+            points,
+            ...payloadWithClientProperties
+          },
+          savedChallenges: mapFilesToChallengeFiles(savedChallenges)
         }),
         updateComplete()
-      )
-    ),
+      );
+    }),
     catchError(() => of(updateFailed(update)))
   );
   return saveChallenge;
 }
 
 function submitModern(type, state) {
+  const challengeType = state.challenge.challengeMeta.challengeType;
   const tests = challengeTestsSelector(state);
-  if (tests.length > 0 && tests.every(test => test.pass && !test.err)) {
-    if (type === types.checkChallenge) {
+  if (
+    challengeType === 11 ||
+    (tests.length > 0 && tests.every(test => test.pass && !test.err))
+  ) {
+    if (type === actionTypes.checkChallenge) {
       return of({ type: 'this was a check challenge' });
     }
 
-    if (type === types.submitChallenge) {
-      const { id } = challengeMetaSelector(state);
-      const files = challengeFilesSelector(state);
+    if (type === actionTypes.submitChallenge) {
+      const { id, block } = challengeMetaSelector(state);
+      const challengeFiles = challengeFilesSelector(state);
       const { username } = userSelector(state);
-      const challengeInfo = {
-        id,
-        files
-      };
+
+      let body;
+      if (
+        block === 'javascript-algorithms-and-data-structures-projects' ||
+        challengeType === challengeTypes.multifileCertProject
+      ) {
+        body = standardizeRequestBody({ id, challengeType, challengeFiles });
+      } else {
+        body = {
+          id,
+          challengeType
+        };
+      }
+
       const update = {
         endpoint: '/modern-challenge-completed',
-        payload: challengeInfo
+        payload: body
       };
       return postChallenge(update, username);
     }
@@ -77,7 +100,7 @@ function submitModern(type, state) {
 }
 
 function submitProject(type, state) {
-  if (type === types.checkChallenge) {
+  if (type === actionTypes.checkChallenge) {
     return empty();
   }
 
@@ -94,19 +117,19 @@ function submitProject(type, state) {
     payload: challengeInfo
   };
   return postChallenge(update, username).pipe(
-    concat(of(updateProjectFormValues({})))
+    concat(of(updateSolutionFormValues({})))
   );
 }
 
 function submitBackendChallenge(type, state) {
   const tests = challengeTestsSelector(state);
   if (tests.length > 0 && tests.every(test => test.pass && !test.err)) {
-    if (type === types.submitChallenge) {
+    if (type === actionTypes.submitChallenge) {
       const { id } = challengeMetaSelector(state);
       const { username } = userSelector(state);
       const {
         solution: { value: solution }
-      } = backendFormValuesSelector(state);
+      } = projectFormValuesSelector(state);
       const challengeInfo = { id, solution };
 
       const update = {
@@ -126,20 +149,14 @@ const submitters = {
   'project.backEnd': submitProject
 };
 
-function shouldShowDonate(state) {
-  return showDonationSelector(state) ? of(openDonationModal()) : empty();
-}
-
 export default function completionEpic(action$, state$) {
   return action$.pipe(
-    ofType(types.submitChallenge),
+    ofType(actionTypes.submitChallenge),
     switchMap(({ type }) => {
       const state = state$.value;
       const meta = challengeMetaSelector(state);
-      const { isDonating } = userSelector(state);
-      const { nextChallengePath, introPath, challengeType } = meta;
-      const showDonate = isDonating ? empty() : shouldShowDonate(state);
-      const closeChallengeModal = of(closeModal('completion'));
+      const { nextChallengePath, challengeType, superBlock } = meta;
+
       let submitter = () => of({ type: 'no-user-signed-in' });
       if (
         !(challengeType in submitTypes) ||
@@ -154,12 +171,26 @@ export default function completionEpic(action$, state$) {
         submitter = submitters[submitTypes[challengeType]];
       }
 
+      const pathToNavigateTo = () => {
+        return findPathToNavigateTo(nextChallengePath, superBlock);
+      };
+
       return submitter(type, state).pipe(
-        tap(() => navigate(introPath ? introPath : nextChallengePath)),
-        concat(closeChallengeModal),
-        concat(showDonate),
-        filter(Boolean)
+        tap(res => {
+          if (res.type !== submitActionTypes.updateFailed) {
+            navigate(pathToNavigateTo());
+          }
+        }),
+        concat(of(closeModal('completion')))
       );
     })
   );
+}
+
+function findPathToNavigateTo(nextChallengePath, superBlock) {
+  if (nextChallengePath.includes(superBlock)) {
+    return nextChallengePath;
+  } else {
+    return `/learn/${superBlock}/#${superBlock}-projects`;
+  }
 }

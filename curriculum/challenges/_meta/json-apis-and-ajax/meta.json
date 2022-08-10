@@ -1,7 +1,8 @@
 {
   "name": "JSON APIs and AJAX",
+  "isUpcomingChange": false,
   "dashedName": "json-apis-and-ajax",
-  "order": 2,
+  "order": 1,
   "time": "2 hours",
   "template": "",
   "required": [
@@ -10,7 +11,6 @@
     }
   ],
   "superBlock": "data-visualization",
-  "superOrder": 4,
   "challengeOrder": [
     [
       "587d7fad367417b2b2512be1",
@@ -23,6 +23,10 @@
     [
       "587d7fae367417b2b2512be3",
       "Get JSON with the JavaScript XMLHttpRequest Method"
+    ],
+    [
+      "5ccfad82bb2dc6c965a848e5",
+      "Get JSON with the JavaScript fetch method"
     ],
     [
       "587d7fae367417b2b2512be4",
@@ -48,7 +52,4 @@
       "587d7faf367417b2b2512be9",
       "Post Data with the JavaScript XMLHttpRequest Method"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "04-data-visualization/json-apis-and-ajax.json"
-}
+  ]}

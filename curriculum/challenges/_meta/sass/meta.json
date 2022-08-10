@@ -1,12 +1,12 @@
 {
   "name": "Sass",
+  "isUpcomingChange": false,
   "dashedName": "sass",
-  "order": 4,
+  "order": 2,
   "time": "5 hours",
   "template": "",
   "required": [],
-  "superBlock": "front-end-libraries",
-  "superOrder": 3,
+  "superBlock": "front-end-development-libraries",
   "challengeOrder": [
     [
       "587d7dbd367417b2b2512bb4",
@@ -44,7 +44,4 @@
       "587d7fa5367417b2b2512bbd",
       "Extend One Set of CSS Styles to Another Element"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "03-front-end-libraries/sass.json"
-}
+  ]}

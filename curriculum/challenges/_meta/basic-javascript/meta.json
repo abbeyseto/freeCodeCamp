@@ -1,12 +1,12 @@
 {
   "name": "Basic JavaScript",
+  "isUpcomingChange": false,
   "dashedName": "basic-javascript",
-  "order": 1,
+  "order": 0,
   "time": "10 hours",
   "template": "",
   "required": [],
   "superBlock": "javascript-algorithms-and-data-structures",
-  "superOrder": 2,
   "challengeOrder": [
     [
       "bd7123c9c441eddfaeb4bdef",
@@ -21,8 +21,16 @@
       "Storing Values with the Assignment Operator"
     ],
     [
+      "5ee127a03c3b35dd45426493",
+      "Assigning the Value of One Variable to Another"
+    ],
+    [
       "56533eb9ac21ba0edf2244a9",
       "Initializing Variables with the Assignment Operator"
+    ],
+    [
+      "bd7123c9c444eddfaeb5bdef",
+      "Declare String Variables"
     ],
     [
       "56533eb9ac21ba0edf2244aa",
@@ -31,6 +39,14 @@
     [
       "56533eb9ac21ba0edf2244ab",
       "Understanding Case Sensitivity in Variables"
+    ],
+    [
+      "587d7b87367417b2b2512b3f",
+      "Explore Differences Between the var and let Keywords"
+    ],
+    [
+      "587d7b87367417b2b2512b41",
+      "Declare a Read-Only Variable with the const Keyword"
     ],
     [
       "cf1111c1c11feddfaeb3bdef",
@@ -87,10 +103,6 @@
     [
       "56533eb9ac21ba0edf2244b2",
       "Compound Assignment With Augmented Division"
-    ],
-    [
-      "bd7123c9c444eddfaeb5bdef",
-      "Declare String Variables"
     ],
     [
       "56533eb9ac21ba0edf2244b5",
@@ -197,6 +209,10 @@
       "Passing Values to Functions with Arguments"
     ],
     [
+      "56533eb9ac21ba0edf2244c2",
+      "Return a Value from a Function with Return"
+    ],
+    [
       "56533eb9ac21ba0edf2244be",
       "Global Scope and Functions"
     ],
@@ -207,10 +223,6 @@
     [
       "56533eb9ac21ba0edf2244c0",
       "Global vs. Local Scope in Functions"
-    ],
-    [
-      "56533eb9ac21ba0edf2244c2",
-      "Return a Value from a Function with Return"
     ],
     [
       "598e8944f009e646fc236146",
@@ -405,6 +417,10 @@
       "Iterate with JavaScript Do...While Loops"
     ],
     [
+      "5cfa3679138e7d9595b9d9d4",
+      "Replace Loops using Recursion"
+    ],
+    [
       "5688e62ea601b2482ff8422b",
       "Profile Lookup"
     ],
@@ -435,8 +451,13 @@
     [
       "587d7b7e367417b2b2512b21",
       "Use Multiple Conditional (Ternary) Operators"
+    ],
+    [
+      "5cd9a70215d3c4e65518328f",
+      "Use Recursion to Create a Countdown"
+    ],
+    [
+      "5cc0bd7a49b71cb96132e54c",
+      "Use Recursion to Create a Range of Numbers"
     ]
-  ],
-  "helpRoom": "HelpJavaScript",
-  "fileName": "02-javascript-algorithms-and-data-structures/basic-javascript.json"
-}
+  ]}

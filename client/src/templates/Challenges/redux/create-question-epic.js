@@ -1,71 +1,110 @@
+import dedent from 'dedent';
+import i18next from 'i18next';
 import { ofType } from 'redux-observable';
+import { tap, mapTo } from 'rxjs/operators';
+import envData from '../../../../../config/env.json';
 import {
-  types,
   closeModal,
   challengeFilesSelector,
-  challengeMetaSelector
+  challengeMetaSelector,
+  projectFormValuesSelector
 } from '../redux';
-import { tap, mapTo } from 'rxjs/operators';
-import { helpCategory } from '../../../../utils/challengeTypes';
+import { transformEditorLink } from '../utils';
+import { actionTypes } from './action-types';
 
-function filesToMarkdown(files = {}) {
-  const moreThenOneFile = Object.keys(files).length > 1;
-  return Object.keys(files).reduce((fileString, key) => {
-    const file = files[key];
-    if (!file) {
+const { forumLocation } = envData;
+
+function filesToMarkdown(challengeFiles = {}) {
+  const moreThanOneFile = challengeFiles?.length > 1;
+  return challengeFiles.reduce((fileString, challengeFile) => {
+    if (!challengeFile) {
       return fileString;
     }
-    const fileName = moreThenOneFile ? `\\ file: ${file.contents}` : '';
-    const fileType = file.ext;
-    return (
-      fileString +
-      '```' +
-      fileType +
-      '\n' +
-      fileName +
-      '\n' +
-      file.contents +
-      '\n' +
-      '```\n\n'
-    );
+    const fileName = moreThanOneFile
+      ? `/* file: ${challengeFile.name}.${challengeFile.ext} */\n`
+      : '';
+    const fileType = challengeFile.ext;
+    return `${fileString}\`\`\`${fileType}\n${fileName}${challengeFile.contents}\n\`\`\`\n\n`;
   }, '\n');
 }
 
 function createQuestionEpic(action$, state$, { window }) {
   return action$.pipe(
-    ofType(types.createQuestion),
+    ofType(actionTypes.createQuestion),
     tap(() => {
       const state = state$.value;
-      const files = challengeFilesSelector(state);
-      const { title: challengeTitle, challengeType } = challengeMetaSelector(
-        state
-      );
+      const challengeFiles = challengeFilesSelector(state);
+      const {
+        title: challengeTitle,
+        superBlock,
+        block,
+        helpCategory
+      } = challengeMetaSelector(state);
       const {
         navigator: { userAgent },
-        location: { href }
+        location: { pathname, origin }
       } = window;
-      const textMessage = [
-        "**Tell us what's happening:**\n\n\n\n",
-        '**Your code so far**\n',
-        filesToMarkdown(files),
-        '**Your browser information:**\n\n',
-        'User Agent is: <code>',
-        userAgent,
-        '</code>.\n\n',
-        '**Challenge:**\n',
-        challengeTitle,
-        '\n**Link to the challenge:**\n',
-        href
-      ].join('');
-      window.open(
-        'https://forum.freecodecamp.org/new-topic' +
-          '?category=' +
-          window.encodeURIComponent(helpCategory[challengeType] || 'Help') +
-          '&title=' +
-          '&body=' +
-          window.encodeURIComponent(textMessage),
-        '_blank'
+      // Removes query params
+      const challengeUrl = new URL(pathname, origin).href;
+      const projectFormValues = Object.entries(
+        projectFormValuesSelector(state)
       );
+      const endingText = dedent(
+        `${i18next.t('forum-help.browser-info')}\n\n${i18next.t(
+          'forum-help.user-agent',
+          { userAgent }
+        )}\n\n${i18next.t('forum-help.challenge')} ${i18next.t(
+          `intro:${superBlock}.blocks.${block}.title`
+        )} - ${challengeTitle}\n\n${i18next.t(
+          'forum-help.challenge-link'
+        )}\n${challengeUrl}`
+      );
+
+      let textMessage = dedent(`${i18next.t(
+        'forum-help.whats-happening'
+      )}\n${i18next.t('forum-help.describe')}\n\n
+        ${
+          projectFormValues.length
+            ? `${i18next.t('forum-help.camper-project')}\n`
+            : i18next.t('forum-help.camper-code')
+        }
+        ${
+          projectFormValues
+            ?.map(([key, val]) => `${key}: ${transformEditorLink(val)}\n`)
+            ?.join('') || filesToMarkdown(challengeFiles)
+        }\n\n
+        ${endingText}`);
+
+      const altTextMessage = dedent(
+        `${i18next.t('forum-help.whats-happening')}\n\n\n\n${i18next.t(
+          'forum-help.camper-code'
+        )}\n\n${i18next.t('forum-help.warning')}\n\n${i18next.t(
+          'forum-help.too-long-one'
+        )}\n\n${i18next.t('forum-help.too-long-two')}\n\n${i18next.t(
+          'forum-help.too-long-three'
+        )}\n\n\`\`\`\n${i18next.t('forum-help.add-code-one')}\n${i18next.t(
+          'forum-help.add-code-two'
+        )}\n${i18next.t('forum-help.add-code-three')}\n\n\`\`\`\n${endingText}`
+      );
+
+      const titleText = dedent(
+        `${i18next.t(
+          `intro:${superBlock}.blocks.${block}.title`
+        )} - ${challengeTitle}`
+      );
+
+      const category = window.encodeURIComponent(
+        i18next.t('links:help.' + helpCategory || 'Help')
+      );
+
+      const studentCode = window.encodeURIComponent(textMessage);
+      const altStudentCode = window.encodeURIComponent(altTextMessage);
+
+      const baseURI = `${forumLocation}/new-topic?category=${category}&title=${titleText}&body=`;
+      const defaultURI = `${baseURI}${studentCode}`;
+      const altURI = `${baseURI}${altStudentCode}`;
+
+      window.open(defaultURI.length < 8000 ? defaultURI : altURI, '_blank');
     }),
     mapTo(closeModal('help'))
   );

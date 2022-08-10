@@ -1,13 +1,13 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
+import { getSessionUser, getUserProfile } from '../utils/ajax';
+import { jwt } from './cookieValues';
 import {
   fetchUserComplete,
   fetchUserError,
   fetchProfileForUserError,
   fetchProfileForUserComplete
 } from './';
-import { getSessionUser, getUserProfile } from '../utils/ajax';
-import { jwt } from './cookieValues';
 
 function* fetchSessionUser() {
   if (!jwt) {
@@ -23,15 +23,18 @@ function* fetchSessionUser() {
       fetchUserComplete({ user: appUser, username: result, sessionMeta })
     );
   } catch (e) {
+    console.log('failed to fetch user', e);
     yield put(fetchUserError(e));
   }
 }
 
-function* fetchOtherUser({ payload: maybeUser }) {
+function* fetchOtherUser({ payload: maybeUser = '' }) {
   try {
-    const { data } = yield call(getUserProfile, maybeUser);
+    const maybeUserLC = maybeUser.toLowerCase();
 
-    const { entities: { user = {} } = {}, result = '' } = data;
+    const {
+      data: { entities: { user = {} } = {}, result = '' }
+    } = yield call(getUserProfile, maybeUserLC);
     const otherUser = user[result] || {};
     yield put(
       fetchProfileForUserComplete({ user: otherUser, username: result })

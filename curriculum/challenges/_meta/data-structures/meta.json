@@ -1,12 +1,12 @@
 {
   "name": "Data Structures",
+  "isUpcomingChange": false,
   "dashedName": "data-structures",
-  "order": 2,
+  "order": 1,
   "time": "",
   "template": "",
   "required": [],
   "superBlock": "coding-interview-prep",
-  "superOrder": 8,
   "challengeOrder": [
     [
       "587d8253367417b2b2512c6a",
@@ -121,16 +121,20 @@
       "Reverse a Doubly Linked List"
     ],
     [
-      "587d8256367417b2b2512c7a",
-      "Find the Minimum and Maximum Value in a Binary Search Tree"
-    ],
-    [
       "587d8257367417b2b2512c7b",
       "Add a New Element to a Binary Search Tree"
     ],
     [
+      "587d8256367417b2b2512c7a",
+      "Find the Minimum and Maximum Value in a Binary Search Tree"
+    ],
+    [
       "587d8257367417b2b2512c7c",
       "Check if an Element is Present in a Binary Search Tree"
+    ],
+    [
+      "5cc0c1b32479e176caf3b422",
+      "Check if Tree is Binary Search Tree"
     ],
     [
       "587d8257367417b2b2512c7d",
@@ -196,7 +200,4 @@
       "587d825d367417b2b2512c96",
       "Depth-First Search"
     ]
-  ],
-  "helpRoom": "HelpJavaScript",
-  "fileName": "08-coding-interview-prep/data-structures.json"
-}
+  ]}

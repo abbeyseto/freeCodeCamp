@@ -1,12 +1,12 @@
 {
   "name": "Data Visualization Projects",
+  "isUpcomingChange": false,
   "dashedName": "data-visualization-projects",
-  "order": 3,
+  "order": 2,
   "time": "150 hours",
   "template": "",
   "required": [],
   "superBlock": "data-visualization",
-  "superOrder": 4,
   "challengeOrder": [
     [
       "bd7168d8c242eddfaeb5bd13",
@@ -28,7 +28,4 @@
       "587d7fa6367417b2b2512bc0",
       "Visualize Data with a Treemap Diagram"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "04-data-visualization/data-visualization-projects.json"
-}
+  ]}

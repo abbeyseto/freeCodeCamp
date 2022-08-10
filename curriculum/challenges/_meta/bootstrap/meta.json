@@ -1,7 +1,8 @@
 {
   "name": "Bootstrap",
+  "isUpcomingChange": false,
   "dashedName": "bootstrap",
-  "order": 2,
+  "order": 0,
   "time": "5 hours",
   "template": "",
   "required": [
@@ -9,8 +10,7 @@
       "link": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css"
     }
   ],
-  "superBlock": "front-end-libraries",
-  "superOrder": 3,
+  "superBlock": "front-end-development-libraries",
   "challengeOrder": [
     [
       "bad87fee1348bd9acde08712",
@@ -136,7 +136,4 @@
       "bad87fee1348bd9aec908857",
       "Use Comments to Clarify Code"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "03-front-end-libraries/bootstrap.json"
-}
+  ]}

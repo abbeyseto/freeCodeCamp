@@ -1,10 +1,10 @@
 import { createAction, handleActions } from 'redux-actions';
-
-import { createTypes, createAsyncTypes } from '../../utils/createTypes';
+import { actionTypes as types, ns } from './action-types';
+import { createDangerZoneSaga } from './danger-zone-saga';
 import { createSettingsSagas } from './settings-sagas';
 import { createUpdateMyEmailSaga } from './update-email-saga';
 
-export const ns = 'settings';
+export { ns };
 
 const defaultFetchState = {
   pending: false,
@@ -20,22 +20,10 @@ const initialState = {
   }
 };
 
-export const types = createTypes(
-  [
-    ...createAsyncTypes('validateUsername'),
-    ...createAsyncTypes('submitNewAbout'),
-    ...createAsyncTypes('submitNewUsername'),
-    ...createAsyncTypes('updateMyEmail'),
-    ...createAsyncTypes('updateUserFlag'),
-    ...createAsyncTypes('submitProfileUI'),
-    ...createAsyncTypes('verifyCert')
-  ],
-  ns
-);
-
 export const sagas = [
   ...createSettingsSagas(types),
-  ...createUpdateMyEmailSaga(types)
+  ...createUpdateMyEmailSaga(types),
+  ...createDangerZoneSaga(types)
 ];
 
 const checkForSuccessPayload = ({ type, payload }) =>
@@ -75,6 +63,63 @@ export const updateUserFlagComplete = createAction(
 );
 export const updateUserFlagError = createAction(types.updateUserFlagError);
 
+export const updateMySocials = createAction(types.updateMySocials);
+export const updateMySocialsComplete = createAction(
+  types.updateMySocialsComplete,
+  checkForSuccessPayload
+);
+export const updateMySocialsError = createAction(types.updateMySocialsError);
+
+export const updateMySound = createAction(types.updateMySound);
+export const updateMySoundComplete = createAction(
+  types.updateMySoundComplete,
+  checkForSuccessPayload
+);
+export const updateMySoundError = createAction(types.updateMySoundError);
+
+export const updateMyTheme = createAction(types.updateMyTheme);
+export const updateMyThemeComplete = createAction(
+  types.updateMyThemeComplete,
+  checkForSuccessPayload
+);
+export const updateMyThemeError = createAction(types.updateMyThemeError);
+
+export const updateMyKeyboardShortcuts = createAction(
+  types.updateMyKeyboardShortcuts
+);
+export const updateMyKeyboardShortcutsComplete = createAction(
+  types.updateMyKeyboardShortcutsComplete,
+  checkForSuccessPayload
+);
+export const updateMyKeyboardShortcutsError = createAction(
+  types.updateMyKeyboardShortcutsError
+);
+
+export const updateMyHonesty = createAction(types.updateMyHonesty);
+export const updateMyHonestyComplete = createAction(
+  types.updateMyHonestyComplete,
+  checkForSuccessPayload
+);
+export const updateMyHonestyError = createAction(types.updateMyHonestyError);
+
+export const updateMyQuincyEmail = createAction(types.updateMyQuincyEmail);
+export const updateMyQuincyEmailComplete = createAction(
+  types.updateMyQuincyEmailComplete,
+  checkForSuccessPayload
+);
+export const updateMyQuincyEmailError = createAction(
+  types.updateMyQuincyEmailError
+);
+
+export const updateMyPortfolio = createAction(types.updateMyPortfolio);
+export const updateMyPortfolioComplete = createAction(
+  types.updateMyPortfolioComplete,
+  checkForSuccessPayload
+);
+export const updateMyPortfolioError = createAction(
+  types.updateMyPortfolioError
+);
+
 export const validateUsername = createAction(types.validateUsername);
 export const validateUsernameComplete = createAction(
   types.validateUsernameComplete
@@ -87,6 +132,12 @@ export const verifyCertComplete = createAction(
   checkForSuccessPayload
 );
 export const verifyCertError = createAction(types.verifyCertError);
+
+export const resetProgress = createAction(types.resetProgress);
+export const resetProgressError = createAction(types.resetProgressError);
+
+export const deleteAccount = createAction(types.deleteAccount);
+export const deleteAccountError = createAction(types.deleteAccountError);
 
 export const usernameValidationSelector = state => state[ns].usernameValidation;
 

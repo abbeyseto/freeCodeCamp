@@ -1,12 +1,12 @@
 {
   "name": "Take Home Projects",
+  "isUpcomingChange": false,
   "dashedName": "take-home-projects",
-  "order": 4,
+  "order": 2,
   "time": "",
   "template": "",
   "required": [],
   "superBlock": "coding-interview-prep",
-  "superOrder": 8,
   "challengeOrder": [
     [
       "bd7158d8c442eddfaeb5bd10",
@@ -34,7 +34,7 @@
     ],
     [
       "bd7156d8c242eddfaeb5bd13",
-      "Build a Camper Leaderboard"
+      "Build a freeCodeCamp Forum Homepage"
     ],
     [
       "bd7155d8c242eddfaeb5bd13",
@@ -88,7 +88,4 @@
       "5a5d02bd919fcf9ca8cf46cb",
       "Build a Light-Bright App"
     ]
-  ],
-  "helpRoom": "HelpFrontEnd",
-  "fileName": "08-coding-interview-prep/take-home-projects.json"
-}
+  ]}

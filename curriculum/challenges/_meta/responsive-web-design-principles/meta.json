@@ -1,12 +1,12 @@
 {
   "name": "Responsive Web Design Principles",
+  "isUpcomingChange": false,
   "dashedName": "responsive-web-design-principles",
   "order": 4,
   "time": "1 hour",
   "template": "",
   "required": [],
   "superBlock": "responsive-web-design",
-  "superOrder": 1,
   "challengeOrder": [
     [
       "587d78b0367417b2b2512b08",
@@ -24,7 +24,4 @@
       "587d78b1367417b2b2512b0c",
       "Make Typography Responsive"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "01-responsive-web-design/responsive-web-design.json"
-}
+  ]}

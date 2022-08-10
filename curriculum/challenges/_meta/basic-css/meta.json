@@ -1,12 +1,12 @@
 {
   "name": "Basic CSS",
+  "isUpcomingChange": false,
   "dashedName": "basic-css",
   "order": 1,
   "time": "5 hours",
   "template": "",
   "required": [],
   "superBlock": "responsive-web-design",
-  "superOrder": 1,
   "challengeOrder": [
     [
       "bad87fee1348bd9aedf08803",
@@ -174,7 +174,7 @@
     ],
     [
       "5a9d7295424fe3d0e10cad14",
-      "Cascading CSS variables"
+      "Inherit CSS Variables"
     ],
     [
       "5a9d72a1424fe3d0e10cad15",
@@ -184,7 +184,4 @@
       "5a9d72ad424fe3d0e10cad16",
       "Use a media query to change a variable"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "01-responsive-web-design/basic-css.json"
-}
+  ]}

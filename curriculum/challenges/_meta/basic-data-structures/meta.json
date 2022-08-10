@@ -1,12 +1,12 @@
 {
   "name": "Basic Data Structures",
+  "isUpcomingChange": false,
   "dashedName": "basic-data-structures",
-  "order": 5,
+  "order": 4,
   "time": "1 hour",
   "template": "",
   "required": [],
   "superBlock": "javascript-algorithms-and-data-structures",
-  "superOrder": 2,
   "challengeOrder": [
     [
       "587d7b7e367417b2b2512b20",
@@ -88,7 +88,4 @@
       "587d7b7d367417b2b2512b1f",
       "Modify an Array Stored in an Object"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "02-javascript-algorithms-and-data-structures/basic-data-structures.json"
-}
+  ]}

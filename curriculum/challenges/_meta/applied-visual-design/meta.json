@@ -1,12 +1,12 @@
 {
   "name": "Applied Visual Design",
+  "isUpcomingChange": false,
   "dashedName": "applied-visual-design",
   "order": 2,
   "time": "5 hours",
   "template": "",
   "required": [],
   "superBlock": "responsive-web-design",
-  "superOrder": 1,
   "challengeOrder": [
     [
       "587d7791367417b2b2512ab3",
@@ -46,7 +46,7 @@
     ],
     [
       "587d781b367417b2b2512abd",
-      "Adjust the Size of a Header Versus a Paragraph Tag"
+      "Adjust the Size of a Heading Element Versus a Paragraph Element"
     ],
     [
       "587d781b367417b2b2512abe",
@@ -216,7 +216,4 @@
       "587d78a9367417b2b2512aea",
       "Make Motion More Natural Using a Bezier Curve"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "01-responsive-web-design/applied-visual-design.json"
-}
+  ]}

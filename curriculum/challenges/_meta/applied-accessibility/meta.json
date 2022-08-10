@@ -1,12 +1,12 @@
 {
   "name": "Applied Accessibility",
+  "isUpcomingChange": false,
   "dashedName": "applied-accessibility",
   "order": 3,
   "time": "5 hours",
   "template": "",
   "required": [],
   "superBlock": "responsive-web-design",
-  "superOrder": 1,
   "challengeOrder": [
     [
       "587d774c367417b2b2512a9c",
@@ -86,7 +86,7 @@
     ],
     [
       "587d7790367417b2b2512aaf",
-      "Make Links Navigatable with HTML Access Keys"
+      "Make Links Navigable with HTML Access Keys"
     ],
     [
       "587d7790367417b2b2512ab0",
@@ -96,7 +96,4 @@
       "587d7790367417b2b2512ab1",
       "Use tabindex to Specify the Order of Keyboard Focus for Several Elements"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "01-responsive-web-design/applied-accessibility.json"
-}
+  ]}

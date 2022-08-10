@@ -1,12 +1,12 @@
 {
   "name": "Advanced Node and Express",
+  "isUpcomingChange": false,
   "dashedName": "advanced-node-and-express",
-  "order": 3,
+  "order": 1,
   "time": "5 hours",
   "template": "",
   "required": [],
-  "superBlock": "information-security-and-quality-assurance",
-  "superOrder": 6,
+  "superBlock": "quality-assurance",
   "challengeOrder": [
     [
       "5895f700f9fc0f352b528e63",
@@ -96,7 +96,4 @@
       "589fc832f9fc0f352b528e79",
       "Send and Display Chat Messages"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "06-information-security-and-quality-assurance/advanced-express-tools.json"
-}
+  ]}

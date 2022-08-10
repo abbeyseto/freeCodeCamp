@@ -1,7 +1,8 @@
 {
   "name": "React",
+  "isUpcomingChange": false,
   "dashedName": "react",
-  "order": 5,
+  "order": 3,
   "time": "5 hours",
   "template": "<body><div id='root'></div><div id='challenge-node'></div>${ source || '' }</body>",
   "required": [
@@ -12,8 +13,7 @@
       "src": "https://unpkg.com/react-dom@16.4.0/umd/react-dom.production.min.js"
     }
   ],
-  "superBlock": "front-end-libraries",
-  "superOrder": 3,
+  "superBlock": "front-end-development-libraries",
   "challengeOrder": [
     [
       "587d7dbc367417b2b2512bb1",
@@ -152,10 +152,6 @@
       "Add Event Listeners"
     ],
     [
-      "5a24c314108439a4d403617f",
-      "Manage Updates with Lifecycle Methods"
-    ],
-    [
       "5a24c314108439a4d4036180",
       "Optimize Re-Renders with shouldComponentUpdate"
     ],
@@ -207,7 +203,4 @@
       "5a24c314108439a4d403618d",
       "Render React on the Server with renderToString"
     ]
-  ],
-  "helpRoom": "Help",
-  "fileName": "03-front-end-libraries/react.json"
-}
+  ]}
