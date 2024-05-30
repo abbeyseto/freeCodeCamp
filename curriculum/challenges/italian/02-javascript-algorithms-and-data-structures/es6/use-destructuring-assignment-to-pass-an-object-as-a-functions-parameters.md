@@ -8,7 +8,7 @@ dashedName: use-destructuring-assignment-to-pass-an-object-as-a-functions-parame
 
 # --description--
 
-In alcuni casi, è possibile destrutturare l'oggetto in un argomento funzione.
+In alcuni casi, è possibile destrutturare l'oggetto in un argomento di una funzione.
 
 Considera il codice qui sotto:
 
@@ -19,7 +19,7 @@ const profileUpdate = (profileData) => {
 }
 ```
 
-Questo destruttura efficacemente l'oggetto passato alla funzione. Questo può anche essere fatto sul posto:
+Questo codice destruttura efficacemente l'oggetto passato alla funzione. Può anche essere fatto sul posto:
 
 ```js
 const profileUpdate = ({ name, age, nationality, location }) => {
@@ -50,13 +50,13 @@ assert(half(stats) === 28.015);
 Dovresti ricorrere alla destrutturazione.
 
 ```js
-assert(__helpers.removeWhiteSpace(code).match(/half=\({\w+,\w+}\)/));
+assert(__helpers.removeWhiteSpace(__helpers.removeJSComments(code)).match(/half=\({\w+,\w+}\)/));
 ```
 
 Dovresti utilizzare il parametro destrutturato.
 
 ```js
-assert(!code.match(/stats\.max|stats\.min/));
+assert(!__helpers.removeJSComments(code).match(/stats\.max|stats\.min/));
 ```
 
 # --seed--

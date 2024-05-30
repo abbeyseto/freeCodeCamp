@@ -8,21 +8,30 @@ dashedName: secure-real-time-multiplayer-game
 
 # --description--
 
-HTML Canvas API と [Socket.io](https://socket.io/) を使用して、<https://secure-real-time-multiplayer-game.freecodecamp.rocks/> と同様の機能を持つ 2D リアルタイムマルチプレイヤーゲームを開発します。 プロジェクトに取り組むにあたり、以下の方法のうち1つを用いてコードを記述します。
+HTML Canvas API と Socket.io を使用して、<a href="https://secure-real-time-multiplayer-game.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://secure-real-time-multiplayer-game.freecodecamp.rocks/</a> と同じような機能を持つ 2D リアルタイムマルチプレイヤーゲームを開発します。 プロジェクトに取り組むにあたり、以下の方法のうち1つを用いてコードを記述します。
 
--   [GitHub リポジトリ](https://github.com/freeCodeCamp/boilerplate-project-secure-real-time-multiplayer-game/)をクローンし、ローカル環境でプロジェクトを完了させる。
--   [Replit 始動プロジェクト](https://replit.com/github/freeCodeCamp/boilerplate-project-secure-real-time-multiplayer-game)を使用して、プロジェクトを完了させる。
+-   <a href="https://github.com/freeCodeCamp/boilerplate-project-secure-real-time-multiplayer-game/" target="_blank" rel="noopener noreferrer nofollow">GitHub リポジトリ</a>をクローンし、ローカル環境でチャレンジを完了させる。
+-   Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-project-secure-real-time-multiplayer-game/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete your project.
 -   使い慣れたサイトビルダーを使用してプロジェクトを完了させる。 必ず GitHub リポジトリのすべてのファイルを取り込む。
-
-完了したら、プロジェクトの動作デモをどこか公開の場にホストしてください。 そして、`Solution Link` フィールドでデモへの URL を送信してください。 必要に応じて、`GitHub Link` フィールドでプロジェクトのソースコードへのリンクを送信してください。
 
 # --instructions--
 
-**メモ**: ユーザーストーリーの実行には `helmet@^3.21.3` が必要です。 このため、ユーザーストーリーを実現するための情報として、Helmet の旧バージョンのドキュメントを参照する必要があります。
+セキュアなマルチプレイヤーゲームを作成してください。このゲームでは、各プレイヤーがアバターを動かすことができます。また、少なくとも 1 つの収集可能なアイテムがあり、プレイヤーのランクが各自のスコアに基づいて計算されます。
+
+詳細については、以下のテストを参照してください。
+
+ゲームは必ずセキュアにしてください！ 以下のセキュリティ対策を組み込んでください:
+
+- クライアントが MIME タイプを推測またはスニッフィング (盗み見) できないようにする
+- XSS 攻撃を防止する
+- クライアントにウェブサイトから何もキャッシュさせないようにする
+- ヘッダーに、このサイトで `PHP 7.4.3` が使用されていることを記述する
+
+**注**: このユーザーストーリーには `helmet@^3.21.3` が必要です。 そのため、ユーザーストーリーを実現するための情報として、Helmet の旧バージョンのドキュメントを参照する必要があります。
 
 # --hints--
 
-サンプルの URL ではなく、自分で作成したプロジェクトを提供することができます。
+サンプルの URL ではなく、自分で作成したプロジェクトを提出してください。
 
 ```js
 (getUserInput) => {
@@ -76,13 +85,13 @@ HTML Canvas API と [Socket.io](https://socket.io/) を使用して、<https://s
 
 ```
 
-`movePlayer` メソッドは、"up"、"down"、"left"、"right " のいずれかの文字列と、プレーヤーの位置を変更するピクセル量を表す数値の、2 つの引数を受け取る必要があります。 `movePlayer` は、呼び出し元のプレイヤーオブジェクトの `x` 座標と `y` 座標を調整する必要があります。
+`movePlayer` メソッドは、"up"、"down"、"left"、"right" のいずれかの文字列と、プレーヤーの位置を変更するピクセル量を表す数値の、2 つの引数を受け取る必要があります。 `movePlayer` は、呼び出し元のプレイヤーオブジェクトの `x` 座標と `y` 座標を調整する必要があります。
 
 ```js
 
 ```
 
-プレーヤーのスコアを使用して、他のプレーヤーとの相対順位を計算する必要があります。 それを実装するために、`Player` で `calculateRank` メソッドを作成してください。
+プレーヤーのスコアを使用して、他のプレーヤーとの相対順位を計算する必要があります。 それを実装するために、`Player` クラスの `calculateRank` メソッドを完成させてください。
 
 ```js
 

@@ -13,7 +13,7 @@ dashedName: generate-random-fractions-with-javascript
 
 在 JavaScript 中，可以用 `Math.random()` 生成一個在`0`（包括 0）到 `1`（不包括 1）之間的隨機小數。 因此 `Math.random()` 可能返回 `0`，但絕不會返回 `1`。
 
-**提示：**[使用賦值運算符存儲值](/learn/javascript-algorithms-and-data-structures/basic-javascript/storing-values-with-the-assignment-operator)這一節講過，所有函數調用將在 `return` 執行之前結束，因此我們可以 `return`（返回）`Math.random()` 函數的值。
+**提示：**<a href="/learn/javascript-algorithms-and-data-structures/basic-javascript/storing-values-with-the-assignment-operator" target="_blank" rel="noopener noreferrer nofollow">使用賦值運算符存儲值</a>這一節講過，所有函數調用將在 `return` 執行之前結束，因此我們可以 `return`（返回）`Math.random()` 函數的值。
 
 # --instructions--
 
@@ -36,7 +36,7 @@ assert((randomFraction() + '').match(/\./g));
 需要使用 `Math.random` 生成隨機的小數。
 
 ```js
-assert(code.match(/Math\.random/g).length >= 0);
+assert(__helpers.removeJSComments(code).match(/Math\.random/g).length >= 0);
 ```
 
 # --seed--

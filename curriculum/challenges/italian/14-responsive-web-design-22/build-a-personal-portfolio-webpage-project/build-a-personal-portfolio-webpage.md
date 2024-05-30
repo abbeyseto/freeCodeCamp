@@ -8,7 +8,8 @@ dashedName: build-a-personal-portfolio-webpage
 
 # --description--
 
-**Obiettivo:** crea un'app funzionalmente simile a <a href="https://personal-portfolio.freecodecamp.rocks" target="_blank" rel="noopener noreferrer nofollow">https://personal-portfolio.freecodecamp.rocks</a>
+**Objective:** Build an app that is functionally similar to <a href="https://personal-portfolio.freecodecamp.rocks" target="_blank" rel="noopener noreferrer nofollow">https://personal-portfolio.freecodecamp.rocks</a>. **Do not copy this demo project**.
+
 
 **User story:**
 
@@ -91,7 +92,7 @@ L'elemento `#navbar` dovrebbe contenere almeno un elemento `a` il cui attributo 
 
 ```js
 const links = [...document.querySelectorAll('#navbar a')].filter(
-  (nav) => (nav?.getAttribute('href') || '').substr(0, 1) === '#'
+  (nav) => (nav?.getAttribute('href') || '').substring(0, 1) === '#'
 );
 
 assert.isAbove(
@@ -165,7 +166,7 @@ L'elemento `#navbar` dovrebbe sempre essere in cima al viewport.
 
 ```
 
-## --solutions--
+# --solutions--
 
 ```html
 <!DOCTYPE html>

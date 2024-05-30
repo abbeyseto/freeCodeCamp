@@ -17,7 +17,7 @@ dashedName: global-scope-and-functions
 
 使用 `let` 或 `const`，在任何函数之外声明一个名为 `myGlobal` 的全局变量。 并给它一个初始值 `10`。
 
-在函数 `fun1` 中，***不要*** 使用 `let` 或 `const` 关键字，将 `5` 分配给 `oopsGlobal` 。
+在函数 `fun1`中，赋值 `5` 给 `oopsGlobal`，***不使用*** `var`、`let` 或 `const` 关键字。
 
 # --hints--
 
@@ -36,7 +36,7 @@ assert(myGlobal === 10);
 `myGlobal` 应该使用 `let` 或 `const` 关键字声明
 
 ```js
-assert(/(let|const)\s+myGlobal/.test(code));
+assert(/(let|const)\s+myGlobal/.test(__helpers.removeJSComments(code)));
 ```
 
 `oopsGlobal` 应为全局变量，值为 `5`。
@@ -88,14 +88,14 @@ uncapture();
 
 
 function fun1() {
-  // Assign 5 to oopsGlobal Here
+  // Assign 5 to oopsGlobal here
 
 }
 
 // Only change code above this line
 
 function fun2() {
-  var output = "";
+  let output = "";
   if (typeof myGlobal != "undefined") {
     output += "myGlobal: " + myGlobal;
   }
@@ -116,7 +116,7 @@ function fun1() {
 }
 
 function fun2() {
-  var output = "";
+  let output = "";
   if(typeof myGlobal != "undefined") {
     output += "myGlobal: " + myGlobal;
   }

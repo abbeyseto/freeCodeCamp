@@ -7,7 +7,7 @@ dashedName: step-10
 
 # --description--
 
-次に、`div` 内に別の `div` 要素を追加し、それに `marker` のクラスを設定してください。
+次に、その `div` 要素内に別の `div` 要素を追加して、`marker` のクラスを設定してください。
 
 # --hints--
 

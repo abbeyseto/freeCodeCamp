@@ -10,17 +10,17 @@ dashedName: how-to-use-package-json-the-core-of-any-node-js-project-or-npm-packa
 
 Trabajar en estos desafíos implica escribir tu código usando uno de los siguientes métodos:
 
-- Clona [este repositorio de Github](https://github.com/freeCodeCamp/boilerplate-npm/) y completa estos desafíos localmente.
-- Usa [nuestro proyecto modelo de Replit](https://replit.com/github/freeCodeCamp/boilerplate-npm) para completar estos retos.
+- Clone este repositorio de <a href="https://github.com/freeCodeCamp/boilerplate-npm/" target="_blank" rel="noopener noreferrer nofollow"> GitHub</a> y complete estos desafíos localmente.
+- Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-npm/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete these challenges.
 - Utiliza un constructor de sitios de tu elección para completar el proyecto. Asegúrate de incorporar todos los archivos de nuestro repositorio de GitHub.
 
-Cuando hayas terminado, asegúrate de que un demo funcional de tu proyecto esté alojado en algún lugar público. Luego, envía la URL en el campo `Solution Link`. Opcionalmente, también envía un enlace al código fuente de tu proyecto en el campo `GitHub Link`.
+El archivo `package.json` es el centro de cualquier proyecto Node.js o paquete npm. It stores information about your project. Está formado por un único objeto JSON donde se guarda la información en pares clave-valor. There are only two required fields; `name` and `version`, but it’s good practice to provide additional information.
 
-El archivo `package.json` es el centro de cualquier proyecto Node.js o paquete npm. Almacena información sobre tu proyecto, similar a cómo la sección &lt;head> de un documento HTML describe el contenido de una página web. Consiste en un único objeto JSON donde la información se almacena en pares clave-valor. Sólo hay dos campos obligatorios; "name" y "version", pero es una buena práctica proporcionar información adicional sobre tu proyecto que podría ser útil para futuros usuarios o mantenedores.
+You can create the `package.json` file from the terminal using the `npm init` command. This will run a guided setup. Using `npm init` with the `-y` flag will generate the file without having it ask any questions, `npm init -y`.
 
-Si miras el árbol de archivos de tu proyecto, encontrarás el archivo package.json en el nivel superior del árbol. Este es el archivo que mejorarás en el próximo par de desafíos.
+Observando el árbol de ficheros del proyecto, se puede ver que `package.json` está en la raíz. Este es el archivo que mejorarás en el próximo par de desafíos.
 
-Una de las piezas de información más comunes en este archivo es el campo `author`. Este especifica quién creó el proyecto, y puede consistir en una cadena u objeto con contacto u otros detalles. Se recomienda un objeto para proyectos más grandes, pero una simple cadena como el siguiente ejemplo funcionará para este proyecto.
+Uno de los datos más comunes de este archivo es el campo `author`. Específica quién creó el proyecto, y puede consistir en una cadena o un objeto con datos de contacto u otros detalles. Un objeto es recomendable para proyectos de cierta importancia; para nuestro proyecto de prueba, servirá con una simple cadena como la siguiente.
 
 ```json
 "author": "Jane Doe",
@@ -28,13 +28,15 @@ Una de las piezas de información más comunes en este archivo es el campo `auth
 
 # --instructions--
 
-Añade tu nombre como el `author` del proyecto en el archivo package.json.
+Agrega tu nombre como `author` del proyecto en el fichero `package.json`.
 
-**Nota:** Recuerda que estás escribiendo JSON, por lo que todos los nombres de campos deben usar comillas dobles (") y separarse con una coma (,).
+**Nota:** Recuerda que estás escribiendo JSON, de manera que todos los nombres de campos deben ir entre comillas dobles (") y separados por una coma (,).
+
+If you are using Gitpod, make sure the app is running and the preview window is open. Copy the preview window's URL and paste it into the Solution Link input below.
 
 # --hints--
 
-el archivo package.json debe tener una clave "author" válida
+`package.json` debe tener una clave válida "author"
 
 ```js
 (getUserInput) =>

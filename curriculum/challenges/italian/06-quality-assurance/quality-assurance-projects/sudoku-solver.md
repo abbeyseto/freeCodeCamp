@@ -11,10 +11,8 @@ dashedName: sudoku-solver
 Costruisci un'app JavaScript full-stack che sia funzionalmente simile a questa: <a href="https://sudoku-solver.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://sudoku-solver.freecodecamp.rocks/</a>. Lavorare su questo progetto ti porterà a scrivere il tuo codice utilizzando uno dei seguenti metodi:
 
 -   Clonare <a href="https://github.com/freecodecamp/boilerplate-project-sudoku-solver" target="_blank" rel="noopener noreferrer nofollow">questo repository GitHub</a> e completare il tuo progetto localmente.
--   Usare <a href="https://replit.com/github/freeCodeCamp/boilerplate-project-sudoku-solver" target="_blank" rel="noopener noreferrer nofollow">la nostra bozza di progetto su Replit</a> per completare il tuo progetto.
+-   Use <a href="https://gitpod.io/?autostart=true#https://github.com/freecodecamp/boilerplate-project-sudoku-solver" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete your project.
 -   Usare un costruttore di siti a tua scelta per completare il progetto. Assicurati di incorporare tutti i file del nostro repository GitHub.
-
-Quando hai finito, assicurati che una demo funzionante del tuo progetto sia ospitata in qualche percorso pubblico. Quindi invia l'URL nel campo `Solution Link`. Facoltativamente, invia anche un link al codice sorgente del tuo progetto nel campo `GitHub Link`.
 
 # --instructions--
 
@@ -25,7 +23,7 @@ Quando hai finito, assicurati che una demo funzionante del tuo progetto sia ospi
 - Tutta la logica di routing può entrare in `/routes/api.js`
 - Vedi il file `puzzle-strings.js` in `/controllers` per alcuni puzzle di esempio che la tua applicazione dovrebbe risolvere
 - Per eseguire i test su questa pagina, imposta `NODE_ENV` a `test` senza virgolette nel file `.env`
-- Per eseguire i test nella console, utilizza il comando `npm run test`. Per aprire la console di Replit, premi Ctrl+Maiusc+P (Cmd se su un Mac) e digita "open shell"
+- Per eseguire i test nella console, utilizza il comando `npm run test`.
 
 Scrivi i seguenti test in `tests/1_unit-tests.js`:
 
@@ -346,7 +344,7 @@ async (getUserInput) => {
 };
 ```
 
-Tutti i 12 test funzionali richiesti sono completi e superati. Vedi `/tests/1_unit-tests.js` per il comportamento previsto per il quale dovresti scrivere dei test.
+Tutti i 12 test funzionali richiesti sono completati e superati.
 
 ```js
 async (getUserInput) => {
@@ -371,7 +369,7 @@ async (getUserInput) => {
 };
 ```
 
-Tutti i 14 test funzionali richiesti sono completi e superati. Vedi `/tests/2_functional-tests.js` per le funzionalità attese per le quali dovresti scrivere dei test.
+Tutti i 14 test funzionali richiesti sono completati e superati.
 
 ```js
 async (getUserInput) => {

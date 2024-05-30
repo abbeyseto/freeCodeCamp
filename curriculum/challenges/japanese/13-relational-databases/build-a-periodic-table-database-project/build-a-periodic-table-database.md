@@ -3,7 +3,7 @@ id: 602d9ff222201c65d2a019f2
 title: 周期表データベースを構築する
 challengeType: 13
 helpCategory: Backend Development
-url: https://github.com/freeCodeCamp/learn-periodic-table-database
+url: freeCodeCamp/learn-periodic-table-database
 dashedName: build-a-periodic-table-database
 ---
 
@@ -13,11 +13,11 @@ dashedName: build-a-periodic-table-database
 
 # --instructions--
 
-**重要:** プロジェクトのテストすべてに合格した後に、データベースのダンプを `elements.sql` ファイルに保存し、あわせて `periodic_table` フォルダー全体も保存することで、ステップ 2 を完了できます。 仮想マシン内にその方法についての説明があります。
+**重要:** プロジェクトのテストがすべて成功した後に、データベースのダンプを `periodic_table.sql` ファイルに保存し、あわせて `element.sh` ファイルも保存することで、ステップ 2 を完了できます。 仮想マシン内にその方法についての説明があります。
 
 # --notes--
 
-必須のファイル: `elements.sql` と `periodic_table` フォルダー全体
+必須のファイル: `periodic_table.sql`, `element.sh`
 
 # --hints--
 

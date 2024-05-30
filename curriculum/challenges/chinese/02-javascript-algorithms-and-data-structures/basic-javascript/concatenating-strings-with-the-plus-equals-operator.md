@@ -28,6 +28,12 @@ ourStr += "I come second.";
 
 # --hints--
 
+`myStr` 应该在两个字符串之间有一个空格字符。
+
+```js
+assert(/sentence\. This/.test(myStr));
+```
+
 `myStr` 的值应该是字符串 `This is the first sentence. This is the second sentence.`
 
 ```js
@@ -37,7 +43,7 @@ assert(myStr === 'This is the first sentence. This is the second sentence.');
 应该使用 `+=` 操作符创建 `myStr` 变量。
 
 ```js
-assert(code.match(/myStr\s*\+=\s*(["']).*\1/g));
+assert(__helpers.removeJSComments(code).match(/myStr\s*\+=\s*(["']).*\1/g));
 ```
 
 # --seed--

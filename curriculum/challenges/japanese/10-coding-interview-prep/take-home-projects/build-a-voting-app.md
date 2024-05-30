@@ -8,7 +8,7 @@ dashedName: build-a-voting-app
 
 # --description--
 
-<https://voting-app.freecodecamp.rocks/> と同じような機能を持つ、フルスタック JavaScript アプリを構築してください。 その際に、ご自身で選択したサイトビルダーを使用して、プロジェクトを完了させてください。
+<a href="https://voting-app.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://voting-app.freecodecamp.rocks/</a> と同じような機能を持つ、フルスタック JavaScript アプリを構築してください。 その際に、ご自身で選択したサイトビルダーを使用して、プロジェクトを完了させてください。
 
 このプロジェクトに実装する必要がある、具体的なユーザーストーリーはこちらです:
 
@@ -28,7 +28,7 @@ dashedName: build-a-voting-app
 
 **ユーザーストーリー:** 認証済みのユーザーである時に、アンケートのオプションに気に入るものが無い場合は、新しいオプションを作成できます。
 
-完了したら、プロジェクトの動作デモが、どこか公の場でホストされていることを確認してください。 次に、`Solution Link` フィールドへプロジェクトの URL を提出してください。 必要に応じて、プロジェクトのソースコードへのリンクも、`GitHub Link` フィールドへ提出してください。
+完了したら、プロジェクトの動作デモが、どこか公の場でホストされていることを確認してください。 そして「回答のリンク」欄に、デモの URL を提出してください。 必要に応じて、プロジェクトのソースコードへのリンクも「GitHub のリンク」欄に提出してください。
 
 # --solutions--
 

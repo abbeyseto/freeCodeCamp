@@ -8,12 +8,13 @@ dashedName: demographic-data-analyzer
 
 # --description--
 
-你將通過使用我們的[Replit 入門代碼](https://replit.com/github/freeCodeCamp/boilerplate-demographic-data-analyzer)來完成本項目。
+You will be <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-demographic-data-analyzer/" target="_blank" rel="noopener noreferrer nofollow">working on this project with our Gitpod starter code</a>.
 
 我們仍在開發 Python 課程的交互式教學部分。 目前，你可以在 YouTube 上通過 freeCodeCamp.org 上傳的一些視頻學習這個項目相關的知識。
 
-- [Python for Everybody 視頻課程](https://www.freecodecamp.org/news/python-for-everybody/)（14 小時）
-- [Learn Python 視頻課程](https://www.freecodecamp.org/news/learn-python-video-course/)（10 小時）
+- <a href="https://www.freecodecamp.org/news/python-for-everybody/" target="_blank" rel="noopener noreferrer nofollow">給所有人的 Python 課程</a>（14 小時）
+
+- <a href="https://www.freecodecamp.org/news/how-to-analyze-data-with-python-pandas/" target="_blank" rel="noopener noreferrer nofollow">如何使用 Python Pandas 分析數據</a>（10 小時）
 
 # --instructions--
 
@@ -34,24 +35,22 @@ dashedName: demographic-data-analyzer
 - 這個數據集中每個種族有多少人？ 這應該是一個以種族名稱作爲索引標籤的 Pandas 系列。 （`race` 欄）
 - 男性的平均年齡是多少？
 - 擁有學士學位的人的百分比是多少？
-- 受過高等教育（`Bachelors`, `Masters`, or `Doctorate`）收入超過 50K 的人佔多大比例？
-- 沒有受過高等教育的人的收入超過 50K 的比例是多少？
+- 受過高等教育（`Bachelors`、`Masters` 或 `Doctorate`）且收入超過 50K 的人佔多大比例？
+- 沒有受過高等教育且收入超過 50K 的人的比例是多少？
 - 一個人每週最少工作多少小時？
 - 每週工作最少小時數的人中有多少人的工資超過 50K？
 - 哪個國家/地區的收入 >50K 的人口比例最高，該比例是多少？
-- 確定印度收入 >50K 的人最受歡迎的職業。
+- 找出印度收入 >50K 的人最受歡迎的職業。
 
-使用文件 `demographic_data_analyzer` 中的啓動代碼。 更新代碼，以便將所有設置爲“None”的變量設置爲適當的計算或代碼。 將所有小數四捨五入到最接近的十分之一。
-
-單元測試是在 `test_module.py` 下爲你編寫的。
+Use the starter code in the file `demographic_data_analyzer.py`. Update the code so all variables set to `None` are set to the appropriate calculation or code. 將所有小數四捨五入到最接近的十分之一。
 
 ## 開發
 
-對於開發，你可以使用 `main.py` 來測試你的函數。 單擊“運行”按鈕，`main.py` 將運行。
+Write your code in `demographic_data_analyzer.py`. For development, you can use `main.py` to test your code.
 
 ## 測試
 
-爲了你的方便，我們將測試從 `test_module.py` 導入到 `main.py`。 只要你點擊“運行”按鈕，測試就會自動運行。
+The unit tests for this project are in `test_module.py`. 爲了你的方便，我們將測試從 `test_module.py` 導入到 `main.py`。
 
 ## 提交
 
@@ -59,7 +58,7 @@ dashedName: demographic-data-analyzer
 
 ## 數據集源
 
-Dua, D. and Graff, C. (2019). [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science.
+Dua, D. and Graff, C. (2019). <a href="http://archive.ics.uci.edu/ml" target="_blank" rel="noopener noreferrer nofollow">UCI Machine Learning Repository</a>. Irvine, CA: University of California, School of Information and Computer Science.
 
 # --hints--
 

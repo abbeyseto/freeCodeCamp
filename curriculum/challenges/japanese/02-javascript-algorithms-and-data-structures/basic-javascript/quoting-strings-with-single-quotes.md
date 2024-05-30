@@ -47,7 +47,7 @@ const badStr = 'Finn responds, "Let's go!"';
 
 ```js
 assert(
-  !/\\/g.test(code) &&
+  !/\\/g.test(__helpers.removeJSComments(code)) &&
     myStr.match(
       '\\s*<a href\\s*=\\s*"http://www.example.com"\\s*target\\s*=\\s*"_blank">\\s*Link\\s*</a>\\s*'
     )
@@ -57,16 +57,10 @@ assert(
 2 つのシングルクォート `'` と 4 つのダブルクォート `"` を使用する必要があります。
 
 ```js
-assert(code.match(/"/g).length === 4 && code.match(/'/g).length === 2);
+assert(__helpers.removeJSComments(code).match(/"/g).length === 4 && __helpers.removeJSComments(code).match(/'/g).length === 2);
 ```
 
 # --seed--
-
-## --after-user-code--
-
-```js
-(function() { return "myStr = " + myStr; })();
-```
 
 ## --seed-contents--
 

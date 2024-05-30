@@ -26,16 +26,16 @@ Cambia el `0` para que la diferencia sea `12`.
 
 # --hints--
 
-La variable `difference` debe ser igual a 12.
+La variable `difference` debe ser igual a `12`.
 
 ```js
 assert(difference === 12);
 ```
 
-Sólo debes restar un número de 45.
+Solo debes restar un número de `45`.
 
 ```js
-assert(/difference=45-33;?/.test(__helpers.removeWhiteSpace(code)));
+assert(/difference=45-33;?/.test(__helpers.removeWhiteSpace(__helpers.removeJSComments(code))));
 ```
 
 # --seed--

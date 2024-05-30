@@ -8,11 +8,11 @@ dashedName: test-if-a-value-is-an-array
 
 # --description--
 
-請注意，本項目在[這個 Replit 項目](https://replit.com/github/freeCodeCamp/boilerplate-mochachai)的基礎上進行開發。你也可以從 [GitHub](https://repl.it/github/freeCodeCamp/boilerplate-mochachai) 上克隆。
+As a reminder, this project is being built upon the following starter project on <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-mochachai/" target="_blank" rel="noopener noreferrer nofollow">Gitpod</a>, or cloned from <a href="https://github.com/freeCodeCamp/boilerplate-mochachai/" target="_blank" rel="noopener noreferrer nofollow">GitHub</a>.
 
 # --instructions--
 
-在 `tests/1_unit-tests.js` 中，`Arrays` 套件裏標有 `#11` 的測試下，將每個 `assert` 改成 `assert.isArray` 或 `assert.isNotArray` 方法，通過測試（結果應該返回 `true`）。 不要改變傳入斷言的參數。
+Within `tests/1_unit-tests.js` under the test labeled `#11` in the `Arrays` suite, change each `assert` to either `assert.isArray` or `assert.isNotArray` to make the test pass (should evaluate to `true`). 不要改變傳入斷言的參數。
 
 # --hints--
 

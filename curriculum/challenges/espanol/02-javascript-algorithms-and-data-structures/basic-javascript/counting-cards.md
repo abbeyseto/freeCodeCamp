@@ -13,7 +13,7 @@ En el juego de casino Blackjack, un jugador puede determinar si tiene una ventaj
 
 Tener más cartas altas en la baraja es una ventaja para el jugador. Se le asigna un valor a cada carta de acuerdo a la siguiente tabla. Cuando el conteo es positivo, el jugador debería apostar alto. Cuando el conteo da 0 o negativo, el jugador debería apostar bajo.
 
-<table class='table table-striped'><thead><tr><th>Cambios del conteo</th><th>Cartas</th></tr></thead><tbody><tr><td>+1</td><td>2, 3, 4, 5, 6</td></tr><tr><td>0</td><td>7, 8, 9</td></tr><tr><td>-1</td><td>10, 'J', 'Q', 'K', 'A'</td></tr></tbody></table>
+<table><thead><tr><th>Cambios del conteo</th><th>Cartas</th></tr></thead><tbody><tr><td>+1</td><td>2, 3, 4, 5, 6</td></tr><tr><td>0</td><td>7, 8, 9</td></tr><tr><td>-1</td><td>10, 'J', 'Q', 'K', 'A'</td></tr></tbody></table>
 
 Escribirás una función para contar cartas. Recibirá un parámetro `card` (carta) que puede ser un número o una cadena y aumentar o reducir la variable global `count` (conteo) de acuerdo al valor de la carta (observa la tabla). La función devolverá una cadena con el conteo actual y la cadena `Bet` (Apuesta) si el conteo es positivo, o `Hold` (Espera) si el conteo es cero o negativo. El conteo actual y la decisión del jugador (`Bet` o `Hold`) deben estar separados por un solo espacio.
 
@@ -24,6 +24,19 @@ NO reinicies `count` a 0 cuando el valor sea 7, 8 o 9. NO devuelvas un arreglo.
 NO incluyas comillas (individuales o dobles) en el resultado.
 
 # --hints--
+
+Su función debe devolver un valor para el conteo y el texto (`Bet` o `Hold`) con un carácter de espacio entre ellos.
+
+```js
+assert(//
+  (function () {
+    count = 0;
+    let out = cc(10);
+    const hasSpace = /-?\d+ (Bet|Hold)/.test('' + out);
+    return hasSpace;
+  })()
+);
+```
 
 La secuencia de cartas 2, 3, 4, 5, 6 debe devolver la cadena `5 Bet`
 

@@ -8,7 +8,7 @@ dashedName: create-a-module-script
 
 # --description--
 
-JavaScript ha iniziato con un piccolo ruolo da giocare in un web fatto per lo di HTML. Oggi è enorme, e alcuni siti web sono costruiti quasi interamente con JavaScript. Per rendere JavaScript più modulare, pulito e mantenibile; ES6 ha introdotto un modo per condividere facilmente il codice tra i file JavaScript. Ciò comporta l'esportazione di parti di un file per l'utilizzo in uno o più altri file, e l'importazione delle parti di cui hai bisogno, dove ne hai bisogno. Per sfruttare questa funzionalità, devi creare uno script nel tuo documento HTML con un `type` di `module`. Ecco un esempio:
+JavaScript ha iniziato con un piccolo ruolo da giocare in un web fatto per lo più di HTML. Oggi è enorme, e alcuni siti web sono costruiti quasi interamente con JavaScript. Per rendere JavaScript più modulare, pulito e mantenibile; ES6 ha introdotto un modo per condividere facilmente il codice tra i file JavaScript. Ciò comporta l'esportazione di parti di un file per l'utilizzo in uno o più altri file, e l'importazione delle parti di cui hai bisogno, dove ne hai bisogno. Per sfruttare questa funzionalità, devi creare uno script nel tuo documento HTML con un `type` di `module`. Ecco un esempio:
 
 ```html
 <script type="module" src="filename.js"></script>
@@ -25,14 +25,14 @@ Aggiungi al documento HTML uno script di tipo `module` e dagli `index.js` come f
 Dovresti creare un tag `script`.
 
 ```js
-assert(code.match(/<\s*script[^>]*>\s*<\/\s*script\s*>/g));
+assert(__helpers.removeJSComments(code).match(/<\s*script[^>]*>\s*<\/\s*script\s*>/g));
 ```
 
 Il tuo tag `script` dovrebbe avere l'attributo `type` con un valore di `module`.
 
 ```js
 assert(
-  code.match(
+  __helpers.removeJSComments(code).match(
     /<\s*script\s+[^t]*type\s*=\s*('|")module\1[^>]*>\s*<\/\s*script\s*>/g
   )
 );
@@ -42,7 +42,7 @@ Il tuo tag `script` dovrebbe avere una `src` impostata su `index.js`.
 
 ```js
 assert(
-  code.match(
+  __helpers.removeJSComments(code).match(
     /<\s*script\s+[^s]*src\s*=\s*('|")index\.js\1[^>]*>\s*<\/\s*script\s*>/g
   )
 );

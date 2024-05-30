@@ -9,7 +9,7 @@ dashedName: constructing-strings-with-variables
 
 # --description--
 
-有時候你需要創建一個類似 [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs)（填詞遊戲）風格的字符串。 通過使用連接運算符（`+`），你可以插入一個或多個變量來組成一個字符串。
+有時候你需要構建一個字符串。 通過使用連接運算符（`+`），你可以插入一個或多個變量來組成一個字符串。
 
 例如：
 
@@ -35,7 +35,7 @@ assert(typeof myName !== 'undefined' && myName.length > 2);
 使用兩個 `+` 操作符創建包含 `myName` 的 `myStr` 變量。
 
 ```js
-assert(code.match(/["']\s*\+\s*myName\s*\+\s*["']/g).length > 0);
+assert(__helpers.removeJSComments(code).match(/["']\s*\+\s*myName\s*\+\s*["']/g).length > 0);
 ```
 
 # --seed--

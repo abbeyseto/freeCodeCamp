@@ -47,7 +47,7 @@ Debes eliminar todas las barras invertidas (`\`).
 
 ```js
 assert(
-  !/\\/g.test(code) &&
+  !/\\/g.test(__helpers.removeJSComments(code)) &&
     myStr.match(
       '\\s*<a href\\s*=\\s*"http://www.example.com"\\s*target\\s*=\\s*"_blank">\\s*Link\\s*</a>\\s*'
     )
@@ -57,16 +57,10 @@ assert(
 Debes tener dos comillas simples `'` y cuatro comillas dobles `"`.
 
 ```js
-assert(code.match(/"/g).length === 4 && code.match(/'/g).length === 2);
+assert(__helpers.removeJSComments(code).match(/"/g).length === 4 && __helpers.removeJSComments(code).match(/'/g).length === 2);
 ```
 
 # --seed--
-
-## --after-user-code--
-
-```js
-(function() { return "myStr = " + myStr; })();
-```
 
 ## --seed-contents--
 

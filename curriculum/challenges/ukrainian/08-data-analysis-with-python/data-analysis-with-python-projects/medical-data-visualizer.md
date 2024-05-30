@@ -1,6 +1,6 @@
 ---
 id: 5e46f7f8ac417301a38fb92a
-title: Medical Data Visualizer
+title: Візуалізатор медичних даних
 challengeType: 10
 forumTopicId: 462368
 dashedName: medical-data-visualizer
@@ -8,74 +8,99 @@ dashedName: medical-data-visualizer
 
 # --description--
 
-You will be [working on this project with our Replit starter code](https://replit.com/github/freeCodeCamp/boilerplate-medical-data-visualizer).
+Ви будете <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-medical-data-visualizer/" target="_blank" rel="noopener noreferrer nofollow">працювати над цим проєктом з нашим стартовим кодом Gitpod</a>.
 
-We are still developing the interactive instructional part of the Python curriculum. For now, here are some videos on the freeCodeCamp.org YouTube channel that will teach you everything you need to know to complete this project:
+Ми досі розробляємо інтерактивну частину навчальної програми з Python. Наразі є декілька відео на ютуб-каналі freeCodeCamp.org, які навчать всього необхідного для виконання цього проєкту:
 
-- [Python for Everybody Video Course](https://www.freecodecamp.org/news/python-for-everybody/) (14 hours)
-- [Learn Python Video Course](https://www.freecodecamp.org/news/learn-python-video-course/) (10 hours)
+- <a href="https://www.freecodecamp.org/news/python-for-everybody/" target="_blank" rel="noopener noreferrer nofollow">Python for Everybody Video Course</a> (14 годин)
+
+- <a href="https://www.freecodecamp.org/news/how-to-analyze-data-with-python-pandas/" target="_blank" rel="noopener noreferrer nofollow">How to Analyze Data with Python Pandas</a> (10 годин)
 
 # --instructions--
 
-In this project, you will visualize and make calculations from medical examination data using matplotlib, seaborn, and pandas. The dataset values were collected during medical examinations.
+У цьому проєкті ви візуалізуєте і зробите підрахунки на основі даних медичного обстеження, використовуючи `matplotlib`, `seaborn` та `pandas`. Значення набору даних були зібрані під час медичних оглядів.
 
-## Data description
+## Опис даних
 
-The rows in the dataset represent patients and the columns represent information like body measurements, results from various blood tests, and lifestyle choices. You will use the dataset to explore the relationship between cardiac disease, body measurements, blood markers, and lifestyle choices.
+Рядки в наборі даних представляють пацієнтів, а стовпці інформацію, як-от вимірювання тіла, результати різних аналізів крові та вибір способу життя. Ви будете використовувати набір даних, щоб дослідити зв’язок між серцевими захворюваннями, розмірами тіла, маркерами крові та вибором способу життя.
 
-File name: medical_examination.csv
+Назва файлу: medical_examination.csv
 
-| Feature | Variable Type | Variable      | Value Type |
-|:-------:|:------------:|:-------------:|:----------:|
-| Age | Objective Feature | age | int (days) |
-| Height | Objective Feature | height | int (cm) |
-| Weight | Objective Feature | weight | float (kg) |
-| Gender | Objective Feature | gender | categorical code |
-| Systolic blood pressure | Examination Feature | ap_hi | int |
-| Diastolic blood pressure | Examination Feature | ap_lo | int |
-| Cholesterol | Examination Feature | cholesterol | 1: normal, 2: above normal, 3: well above normal |
-| Glucose | Examination Feature | gluc | 1: normal, 2: above normal, 3: well above normal |
-| Smoking | Subjective Feature | smoke | binary |
-| Alcohol intake | Subjective Feature | alco | binary |
-| Physical activity | Subjective Feature | active | binary |
-| Presence or absence of cardiovascular disease | Target Variable | cardio | binary |
+|                      Особливість                      |       Тип змінної       |    Змінна     |                   Тип значення                    |
+|:-----------------------------------------------------:|:-----------------------:|:-------------:|:-------------------------------------------------:|
+|                          Вік                          | Об’єктивна особливість  |     `age`     |                 ціле число (дні)                  |
+|                         Зріст                         | Об’єктивна особливість  |   `height`    |                  ціле число (см)                  |
+|                         Вага                          | Об’єктивна особливість  |   `weight`    |                плаваюче число (кг)                |
+|                         Стать                         | Об’єктивна особливість  |   `gender`    |                 категоричний код                  |
+|              Систолічний кров’яний тиск               | Особливість обстеження  |    `ap_hi`    |                    ціле число                     |
+|              Діастолічний кров’яний тиск              | Особливість обстеження  |    `ap_lo`    |                    ціле число                     |
+|                      Холестерин                       | Особливість обстеження  | `cholesterol` | 1: нормально, 2: вище норми, 3: значно вище норми |
+|                        Глюкоза                        | Особливість обстеження  |    `gluc`     | 1: нормально, 2: вище норми, 3: значно вище норми |
+|                        Куріння                        | Суб’єктивна особливість |    `smoke`    |                     двійкове                      |
+|                   Вживання алкоголю                   | Суб’єктивна особливість |    `alco`     |                     двійкове                      |
+|                  Фізична активність                   | Суб’єктивна особливість |   `active`    |                     двійкове                      |
+| Наявність чи відсутність серцево-судинних захворювань |     Цільова змінна      |   `cardio`    |                     двійкове                      |
 
-## Tasks
+## Завдання
 
-Create a chart similar to `examples/Figure_1.png`, where we show the counts of good and bad outcomes for the `cholesterol`, `gluc`, `alco`, `active`, and `smoke` variables for patients with cardio=1 and cardio=0 in different panels.
+Створіть діаграму, подібну до `examples/Figure_1.png`, де ми покажемо кількість хороших та поганих результатів змінних `cholesterol`, `gluc`, `alco`, `active` та `smoke` для пацієнтів з `cardio=1` та `cardio=0` на різних панелях.
 
-Use the data to complete the following tasks in `medical_data_visualizer.py`:
+Використайте дані для виконання наступних завдань у `medical_data_visualizer.py`:
 
-- Add an `overweight` column to the data. To determine if a person is overweight, first calculate their BMI by dividing their weight in kilograms by the square of their height in meters. If that value is > 25 then the person is overweight. Use the value 0 for NOT overweight and the value 1 for overweight.
-- Normalize the data by making 0 always good and 1 always bad. If the value of `cholesterol` or `gluc` is 1, make the value 0. If the value is more than 1, make the value 1.
-- Convert the data into long format and create a chart that shows the value counts of the categorical features using seaborn's `catplot()`. The dataset should be split by 'Cardio' so there is one chart for each `cardio` value. The chart should look like `examples/Figure_1.png`.
-- Clean the data. Filter out the following patient segments that represent incorrect data:
-  - diastolic pressure is higher than systolic (Keep the correct data with `(df['ap_lo'] <= df['ap_hi'])`)
-  - height is less than the 2.5th percentile (Keep the correct data with `(df['height'] >= df['height'].quantile(0.025))`)
-  - height is more than the 97.5th percentile
-  - weight is less than the 2.5th percentile
-  - weight is more than the 97.5th percentile
-- Create a correlation matrix using the dataset. Plot the correlation matrix using seaborn's `heatmap()`. Mask the upper triangle. The chart should look like `examples/Figure_2.png`.
+- Додайте стовпчик `overweight` до даних. Щоб визначити, чи має людина зайву вагу, спочатку обчисліть її ІМТ, поділивши вагу (кг) на зріст (м) у квадраті. Якщо це значення > 25, то людина має зайву вагу. Використайте значення `0` для НЕ надмірної ваги та значення `1` для надмірної ваги.
+- Нормалізуйте дані, зробивши `0` завжди хорошим, а `1` завжди поганим. Якщо значення `cholesterol` або `gluc` дорівнює `1`, зробіть значення `0`. Якщо значення більше ніж `1`, зробіть значення `1`.
+- Перетворіть дані у довгий формат та створіть діаграму, яка показує кількість підрахунків категорійних особливостей, використовуючи `catplot()` від `seaborn`. Набір даних має бути розділений `Cardio`, щоб для кожного значення `cardio` був стовпчик. Діаграма повинна виглядати так: `examples/Figure_1.png`.
+- Очистіть дані. Відфільтруйте наступні сегменти пацієнтів, які представляють неправильні дані:
+  - діастолічний тиск вищий за систолічний (збережіть правильні дані за допомогою `(df['ap_lo'] <= df['ap_hi'])`)
+  - зріст менший за 2,5-ий процентиль (збережіть правильні дані з `(df['height'] >= df['height'].quantile(0.025))`)
+  - зріст більший за 97,5-ий процентиль
+  - вага менша за 2,5-ий процентиль
+  - вага більша за 97,5-ий процентиль
+- Створіть кореляційну матрицю, використовуючи набір даних. Побудуйте кореляційну матрицю за допомогою `heatmap()` від `seaborn`. Замаскуйте верхній трикутник. Діаграма повинна виглядати так: `examples/Figure_2.png`.
 
-Any time a variable is set to `None`, make sure to set it to the correct code.
+Кожного разу, коли для змінної встановлено значення `None`, переконайтеся, що для неї встановлено правильний код.
 
-Unit tests are written for you under `test_module.py`.
+Модульні тести для цього проєкту знаходяться в `test_module.py`.
 
-## Development
+## Інструкція
+Додайте код до кожного числа у файлі `medical_data_visualizer.py` відповідно до числа з інструкції нижче.
 
-For development, you can use `main.py` to test your functions. Click the "run" button and `main.py` will run.
+1. Імпортуйте дані з `medical_examination.csv` та призначте їх до змінної `df`
+2. Створіть стовпчик `overweight` в змінній `df`
+3. Нормалізуйте дані, зробивши `0` завжди хорошим, а `1` завжди поганим. Якщо значення `cholesterol` або `gluc` дорівнює `1`, встановіть значення на `0`. Якщо значення більше ніж `1`, встановіть значення на `1`.
+4. Створіть графік категорій у функції `draw_cat_plot`
+5. Створіть DataFrame для графіка категорій, використовуючи `pd.melt` зі значеннями з `cholesterol`, `gluc`, `smoke`, `alco`, `active` та `overweight` в змінній `df_cat`.
+6. Згрупуйте та реформатуйте дані в `df_cat`, щоб розділити їх за допомогою `cardio`. Покажіть кількість усіх складових. Один зі стовпчиків потрібно перейменувати, щоб забезпечити правильну роботу `catplot`.
+7. Перетворіть дані в формат `long` та створіть діаграму, яка показує кількість підрахунків категорійних особливостей, використовуючи наступний метод з бібліотеки seaborn: `sns.catplot()`
+8. Отримайте фігуру для виведення та збережіть її в змінній `fig`
+9. Не змінюйте два наступні рядки
+10. Створіть теплову карту у функції `draw_heat_map`
+11. Очистіть дані в змінній `df_heat`, відфільтрувавши наступні сегменти пацієнтів, які представляють неправильні дані:
+    - зріст менший за 2,5-ий процентиль (збережіть правильні дані за допомогою `(df['height'] >= df['height'].quantile(0.025))`)
+    - зріст більший за 97,5-ий процентиль
+    - вага менша за 2,5-ий процентиль
+    - вага більша за 97,5-ий процентиль
+12. Обчисліть кореляційну матрицю та збережіть її в змінній `corr`
+13. Створіть маску для верхнього трикутника та збережіть його в змінній `mask`
+14. Налаштуйте фігуру `matplotlib`
+15. Побудуйте кореляційну матрицю за допомогою методу, наданого бібліотекою `seaborn`: `sns.heatmap()`
+16. Не змінюйте два наступні рядки
 
-## Testing
+## Розробка
 
-We imported the tests from `test_module.py` to `main.py` for your convenience. The tests will run automatically whenever you hit the "run" button.
+Напишіть свій код в `medical_data_visualizer.py`. Для розробки ви можете використати `main.py`, щоб протестувати свій код.
 
-## Submitting
+## Тестування
 
-Copy your project's URL and submit it to freeCodeCamp.
+Модульні тести для цього проєкту знаходяться в `test_module.py`. Ми імпортували тести з `test_module.py` до `main.py` для вашої зручності.
+
+## Надсилання
+
+Скопіюйте URL-адресу свого проєкту та відправте її до freeCodeCamp.
 
 # --hints--
 
-It should pass all Python tests.
+Проєкт повинен пройти усі тести Python.
 
 ```js
 

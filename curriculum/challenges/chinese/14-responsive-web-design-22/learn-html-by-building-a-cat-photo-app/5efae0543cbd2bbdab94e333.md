@@ -1,8 +1,8 @@
 ---
 id: 5efae0543cbd2bbdab94e333
-title: 步骤 29
+title: 步骤 30
 challengeType: 0
-dashedName: step-29
+dashedName: step-30
 ---
 
 # --description--
@@ -19,7 +19,7 @@ dashedName: step-29
 assert(document.querySelectorAll('figure').length === 2);
 ```
 
-你的 `ol` 元素应该有一个结束标签。 结束标签在 `<` 字符之后有一个 `/`。
+你的 `figure` 元素应该有一个结束标签。 结束标签在 `<` 字符之后有一个 `/`。
 
 ```js
 assert(code.match(/<\/figure>/g).length === 2);
@@ -60,12 +60,12 @@ assert(
 ```html
 <html>
   <body>
-    <h1>CatPhotoApp</h1>
     <main>
+      <h1>CatPhotoApp</h1>
       <section>
         <h2>Cat Photos</h2>
         <!-- TODO: Add link to cat photos -->
-        <p>Click here to view more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a>.</p>
+        <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
         <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
       </section>
       <section>

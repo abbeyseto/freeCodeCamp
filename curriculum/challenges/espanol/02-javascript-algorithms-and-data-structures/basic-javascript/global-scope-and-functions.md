@@ -17,7 +17,7 @@ Las variables que se declaran sin las palabras clave `let` o `const` se crean au
 
 Usando `let` o `const`, declara una variable global llamada `myGlobal` fuera de cualquier función. Inicialízala con un valor de `10`.
 
-Dentro de la función `fun1`, asigna `5` a `oopsGlobal` ***sin*** usar las palabras clave `let` o `const`.
+Dentro de la función `fun1`, asigna `5` a `oopsGlobal` ***sin usar*** las palabras clave `var`, `let` o `const`.
 
 # --hints--
 
@@ -36,7 +36,7 @@ assert(myGlobal === 10);
 `myGlobal` debe declararse usando las palabras clave `let` o `const`
 
 ```js
-assert(/(let|const)\s+myGlobal/.test(code));
+assert(/(let|const)\s+myGlobal/.test(__helpers.removeJSComments(code)));
 ```
 
 `oopsGlobal` debe ser una variable global y tener un valor de `5`
@@ -88,14 +88,14 @@ uncapture();
 
 
 function fun1() {
-  // Assign 5 to oopsGlobal Here
+  // Assign 5 to oopsGlobal here
 
 }
 
 // Only change code above this line
 
 function fun2() {
-  var output = "";
+  let output = "";
   if (typeof myGlobal != "undefined") {
     output += "myGlobal: " + myGlobal;
   }
@@ -116,7 +116,7 @@ function fun1() {
 }
 
 function fun2() {
-  var output = "";
+  let output = "";
   if(typeof myGlobal != "undefined") {
     output += "myGlobal: " + myGlobal;
   }

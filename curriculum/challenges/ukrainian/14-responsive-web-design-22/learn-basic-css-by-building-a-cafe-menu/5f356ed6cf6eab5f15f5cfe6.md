@@ -1,40 +1,44 @@
 ---
 id: 5f356ed6cf6eab5f15f5cfe6
-title: Крок 21
+title: Крок 20
 challengeType: 0
-dashedName: step-21
+dashedName: step-20
 ---
 
 # --description--
 
 Переважно елемент `div` використовують для дизайну розкладки, на відміну від вже використаних вами елементів. Додайте елемент `div` всередині елемента `body`, а потім перемістіть всі інші елементи всередину нового `div`.
 
+Inside the opening `div` tag, add the `id` attribute with a value of `menu`.
+
 # --hints--
 
-Ви повинні мати початковий теґ `<div>`.
+Your opening `<div>` tag should have an `id` attribute set to `menu`.
 
 ```js
-assert(code.match(/<div>/i));
+const div = $('div')[0];
+assert(div.id === 'menu');
 ```
 
-Ви повинні мати кінцевий теґ `</div>`.
+You should have a closing `</div>` tag.
 
 ```js
 assert(code.match(/<\/div>/i));
 ```
 
-Ви не повинні змінювати наявний елемент `body`. Переконайтеся, що не видалили кінцевий теґ.
+You should not change your existing `body` element. Make sure you did not delete the closing tag.
 
 ```js
 assert($('body').length === 1);
 ```
 
-Ваш теґ `div` повинен бути вкладеним в `body`.
+Your `div` tag should be nested in the `body`.
 
 ```js
 const div = $('div')[0];
 assert(div.parentElement.tagName === 'BODY');
 ```
+
 
 # --seed--
 
@@ -51,11 +55,9 @@ assert(div.parentElement.tagName === 'BODY');
   </head>
 --fcc-editable-region--
   <body>
-    <header>
+    <main>
       <h1>CAMPER CAFE</h1>
       <p>Est. 2020</p>
-    </header>
-    <main>
       <section>
         <h2>Coffee</h2>
       </section>

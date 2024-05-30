@@ -26,11 +26,18 @@ function TestSuite({ tests }: TestSuiteProps): JSX.Element {
 
   return (
     <>
-      <h2 className='challenge-test-suite-heading'>Tests</h2>
+      <h2 className='challenge-test-suite-heading'>
+        {t('learn.editor-tabs.tests')}
+      </h2>
       <ul className='challenge-test-suite'>
         {testSuiteTests.map(({ err, pass = false, text = '' }, index) => {
           const isInitial = !pass && !err;
-          const statusIcon = pass && !err ? <GreenPass /> : <Fail />;
+          const statusIcon =
+            pass && !err ? (
+              <GreenPass data-playwright-test-label='test-pass-icon' />
+            ) : (
+              <Fail />
+            );
           const initialText = t('icons.waiting');
           const statusText =
             pass && !err ? t('icons.passed') : t('icons.failed');
@@ -38,7 +45,11 @@ function TestSuite({ tests }: TestSuiteProps): JSX.Element {
           // status message and test text as one block.
           text = text.replace(/^<p>|<\/p>$/g, '');
           return (
-            <li className='test-result' key={text.slice(-6) + String(index)}>
+            <li
+              className='test-result'
+              data-playwright-test-label='test-result'
+              key={text.slice(-6) + String(index)}
+            >
               <div className='test-status-icon' aria-hidden='true'>
                 {isInitial ? <Initial /> : statusIcon}
               </div>

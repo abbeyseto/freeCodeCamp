@@ -1,6 +1,6 @@
 ---
 id: 587d7b8b367417b2b2512b50
-title: Напишіть стислі декларативні функції за допомогою ES6
+title: Написання стислих декларативних функцій з ES6
 challengeType: 1
 forumTopicId: 301224
 dashedName: write-concise-declarative-functions-with-es6
@@ -8,7 +8,7 @@ dashedName: write-concise-declarative-functions-with-es6
 
 # --description--
 
-При визначенні функцій у об’єктах у ES5 ми маємо використовувати ключове слово `function` наступним чином:
+Ми повинні використовувати ключове слово `function`, коли визначаємо функції в межах об’єктів у ES5:
 
 ```js
 const person = {
@@ -19,7 +19,7 @@ const person = {
 };
 ```
 
-За допомогою ES6 ви можете взагалі видалити ключове слово `function` і двокрапку під час визначення функцій в об’єктах. Ось приклад такого синтаксису:
+В ES6 ви можете взагалі видалити ключове слово `function` і двокрапку, коли визначаєте функції в об’єктах. Ось приклад такого синтаксису:
 
 ```js
 const person = {
@@ -36,24 +36,25 @@ const person = {
 
 # --hints--
 
-Традиційні вираження функцій не повинні використовуватися.
+Не використовуйте традиційні вирази функцій.
 
 ```js
-(getUserInput) => assert(!code.match(/function/));
+assert(!__helpers.removeJSComments(code).match(/function/));
 ```
 
 `setGear` повинна бути декларативною функцією.
 
 ```js
 assert(
-  typeof bicycle.setGear === 'function' && code.match(/setGear\s*\(.+\)\s*\{/)
+  typeof bicycle.setGear === 'function' && __helpers.removeJSComments(code).match(/setGear\s*\(.+\)\s*\{/)
 );
 ```
 
-`bicycle.setGear(48)` повинен змінити значення `gear` для 48.
+`bicycle.setGear(48)` має змінити значення `gear` на 48.
 
 ```js
-assert(new bicycle.setGear(48).gear === 48);
+bicycle.setGear(48);
+assert(bicycle.gear === 48);
 ```
 
 # --seed--
@@ -78,6 +79,7 @@ console.log(bicycle.gear);
 ```js
 const bicycle = {
   gear: 2,
+  // setGear: function(newGear) {
   setGear(newGear) {
     this.gear = newGear;
   }

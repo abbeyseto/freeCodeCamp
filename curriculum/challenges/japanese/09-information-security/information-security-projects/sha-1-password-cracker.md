@@ -9,13 +9,15 @@ dashedName: sha-1-password-cracker
 
 # --description--
 
-このプロジェクトは [Replit スターターコード](https://replit.com/github/freeCodeCamp/boilerplate-SHA-1-password-cracker)を使用して作業を行います。
+You will be <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-SHA-1-password-cracker" target="_blank" rel="noopener noreferrer nofollow">working on this project with our Gitpod starter code</a>.
 
 Python カリキュラムの対話式教育コンテンツを引き続き開発中です。 現在、下記の freeCodeCamp.org YouTube チャンネルで、このプロジェクトの完了に必要なすべての知識について説明する動画をいくつか公開しています。
 
-- [「みんなで Python」ビデオコース](https://www.freecodecamp.org/news/python-for-everybody/) (14 時間)
+- <a href="https://www.freecodecamp.org/news/python-for-everybody/" target="_blank" rel="noopener noreferrer nofollow">「みんなの Python」ビデオコース</a> (14 時間)
 
-- [「Python を学ぶ」ビデオコース](https://www.freecodecamp.org/news/learn-python-video-course/) (10 時間)
+- <a href="https://www.freecodecamp.org/news/learn-python-basics-in-depth-video-course/" target="_blank" rel="noopener noreferrer nofollow">Python の基礎を詳しく学ぶ</a> (4 時間)
+
+- <a href="https://www.freecodecamp.org/news/intermediate-python-course/" target="_blank" rel="noopener noreferrer nofollow">Python 中級コース</a> (6 時間)
 
 # --instructions--
 
@@ -41,15 +43,15 @@ Python カリキュラムの対話式教育コンテンツを引き続き開発�
 - `da5a4e8cf89539e66097acd2f8af128acae2f8ae` は "q1w2e3r4t5" を返す
 - `ea3f62d498e3b98557f9f9cd0d905028b3b019e1` は "bubbles1" を返す
 
-`hashlib` ライブラリをあらかじめインポートしてあります。 コードでこのライブラリを使用してみてください。 hashlib の詳細については[こちら](https://docs.python.org/3/library/hashlib.html)を参照してください。
+`hashlib` ライブラリをあらかじめインポートしてあります。 このライブラリの使用を検討してください。 <a href="https://docs.python.org/3/library/hashlib.html" target="_blank" rel="noopener noreferrer nofollow">hashlib の詳細についてはこちらを参照してください</a>。
 
 ## 開発
 
-`password_cracker.py` にコードを記述してください。 開発には `main.py` を使用してコードをテストすることができます。 「実行」ボタンをクリックすると `main.py` が実行されます。
+`password_cracker.py` にコードを記述してください。 開発には `main.py` を使用してコードをテストすることができます。
 
 ## テスト
 
-このプロジェクトの単体テストは `test_module.py` にあります。 すでに `test_module.py` から `main.py` にテストをインポートしてあります。 「実行」ボタンを押すと自動的にテストが実行されます。
+このプロジェクトの単体テストは `test_module.py` にあります。 すでに `test_module.py` から `main.py` にテストをインポートしてあります。
 
 ## 提出
 
@@ -57,7 +59,7 @@ Python カリキュラムの対話式教育コンテンツを引き続き開発�
 
 # --hints--
 
-すべての Python テストに合格する必要があります。
+すべての Python テストが成功する必要があります。
 
 ```js
 

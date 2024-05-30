@@ -8,15 +8,15 @@ dashedName: use-assert-isok-and-assert-isnotok
 
 # --description--
 
-請注意，本項目在[這個 Replit 項目](https://replit.com/github/freeCodeCamp/boilerplate-mochachai)的基礎上進行開發。你也可以從 [GitHub](https://repl.it/github/freeCodeCamp/boilerplate-mochachai) 上克隆。
+As a reminder, this project is being built upon the following starter project on <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-mochachai/" target="_blank" rel="noopener noreferrer nofollow">Gitpod</a>, or cloned from <a href="https://github.com/freeCodeCamp/boilerplate-mochachai/" target="_blank" rel="noopener noreferrer nofollow">GitHub</a>.
 
 `isOk()` 用來測試值是否爲真值，`isNotOk()` 用來測試值是否爲假值。
 
-可以在[過濾數組中的假值](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-algorithm-scripting/falsy-bouncer)這個挑戰中瞭解更多關於真值和假值的信息。
+可以在<a href="https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-algorithm-scripting/falsy-bouncer" target="_blank" rel="noopener noreferrer nofollow">過濾數組中的假值</a>這個挑戰中瞭解更多關於真值和假值的信息。
 
 # --instructions--
 
-在 `tests/1_unit-tests.js` 中，`Basic Assertions` 套件中標註爲 `#3` 的測試下，修改每個 `assert` 爲 `assert.isOk()` 或 `assert.isNotOk()`，通過測試（結果應爲 `true`）。 不要修改傳入斷言的參數。
+Within `tests/1_unit-tests.js` under the test labeled `#3` in the `Basic Assertions` suite, change each `assert` to either `assert.isOk()` or `assert.isNotOk()` to make the test pass (should evaluate to `true`). 不要修改傳入斷言的參數。
 
 # --hints--
 

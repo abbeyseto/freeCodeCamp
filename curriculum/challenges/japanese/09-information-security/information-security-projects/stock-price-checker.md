@@ -8,17 +8,15 @@ dashedName: stock-price-checker
 
 # --description--
 
-<https://stock-price-checker.freecodecamp.rocks/> と同様の機能を持つフルスタック JavaScript アプリを構築してください。
+<a href="https://stock-price-checker.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://stock-price-checker.freecodecamp.rocks/</a> と同じような機能を持つ、フルスタック JavaScript アプリを構築してください。
 
-信頼できる株価 API の利用にはすべて API キーが必要になるため、ここでは回避策を用意しました。 <https://stock-price-checker-proxy.freecodecamp.rocks/> を使用すれば、登録して自分のキーを取得しなくても最新の株価情報を得ることができます。
+信頼できる株価 API の利用にはすべて API キーが必要になるため、ここでは回避策を用意しました。 <a href="https://stock-price-checker-proxy.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://stock-price-checker-proxy.freecodecamp.rocks/</a> を使用すれば、登録して自分のキーを取得しなくても最新の株価情報を得ることができます。
 
 プロジェクトに取り組むにあたり、以下の方法のうち 1 つを用いてコードを記述します。
 
--   [ GitHub リポジトリ](https://github.com/freeCodeCamp/boilerplate-project-stockchecker/)をクローンし、ローカル環境でプロジェクトを完了させる。
--   [Replit 始動プロジェクト](https://replit.com/github/freeCodeCamp/boilerplate-project-stockchecker)を使用して、プロジェクトを完了させる。
+-   <a href="https://github.com/freeCodeCamp/boilerplate-project-stockchecker/" target="_blank" rel="noopener noreferrer nofollow">GitHub リポジトリ</a>をクローンし、ローカル環境でチャレンジを完了させる。
+-   Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-project-stockchecker/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete your project.
 -   使い慣れたサイトビルダーを使用してプロジェクトを完了させる。 必ず GitHub リポジトリのすべてのファイルを取り込む。
-
-完了したら、プロジェクトの動作デモをどこか公開の場にホストしてください。 そして、`Solution Link` フィールドでデモへの URL を送信してください。 必要に応じて、`GitHub Link` フィールドでプロジェクトのソースコードへのリンクを送信してください。
 
 # --instructions--
 
@@ -27,7 +25,7 @@ dashedName: stock-price-checker
 3.  `server.js` にセキュリティ機能を追加します。
 4.  `tests/2_functional-tests.js` にすべての機能テストを作成します。
 
-**注**: プライバシーに対する注意事項: 1 つの IP に対して 1 つの「いいね！」しか受け付けないという条件があるため、IP アドレスを保存する必要があります。 一般データ保護規則などのデータプライバシー関連の法令を遵守することが重要です。 ユーザーのデータを保存するための権限を取得するという方法もありますが、データを匿名化した方がはるかに簡単です。 このチャレンジでは、データベースに保存する前に必ず IP アドレスを匿名化してください。 その方法として、データをハッシュ化する、切り詰める、IP アドレスの一部を 0 にする、などが考えられます。
+**プライバシーに対する注意事項**: 1 つの IP に対して 1 つの「いいね！」しか受け付けないという条件があるため、IP アドレスを保存する必要があります。 GDPR (一般データ保護規則) などのデータプライバシー関連の法令を遵守することが重要です。 ユーザーのデータを保存するための権限を取得するという方法もありますが、データを匿名化する方がはるかに簡単です。 このチャレンジでは、データベースに保存する前に必ず IP アドレスを匿名化してください。 その方法として、データをハッシュ化する、切り詰める、IP アドレスの一部を 0 にする、などが考えられます。
 
 次のテストを `tests/2_functional-tests.js` に記述してください。
 
@@ -39,7 +37,7 @@ dashedName: stock-price-checker
 
 # --hints--
 
-サンプルの URL ではなく、自分で作成したプロジェクトを提供することができます。
+サンプルの URL ではなく、自分で作成したプロジェクトを提出してください。
 
 ```js
 (getUserInput) => {
@@ -49,7 +47,7 @@ dashedName: stock-price-checker
 };
 ```
 
-コンテンツセキュリティポリシーを設定して、自分のサーバーからのスクリプトや CSS の読み込みのみを許可するようにしてください。
+コンテンツセキュリティポリシーを設定して、自分のサーバーからのみスクリプトや CSS の読み込みを許可するようにしてください。
 
 ```js
 async (getUserInput) => {
@@ -97,7 +95,7 @@ async (getUserInput) => {
 
 ```
 
-2 つの株式を渡した場合、返される値は 2 つの株式に関する情報を持つ配列となります。 `likes` の代わりに、両方の `stockData` オブジェクトの `rel_likes` (両株式の「いいね！」の差) を表示します。
+2 つの株式を渡した場合、返される値は 2 つの株式に関する情報を持つ配列となります。 その場合 `likes` の代わりに、両方の `stockData` オブジェクトの `rel_likes` (両株式の「いいね！」の差) を表示します。
 
 ```js
 async (getUserInput) => {
@@ -112,7 +110,7 @@ async (getUserInput) => {
 };
 ```
 
-5 種類の機能テストがすべて完了して、合格です。
+5 件の機能テストがすべて記述され、成功する状態になっています。
 
 ```js
 async (getUserInput) => {

@@ -20,7 +20,7 @@ const myPromise = new Promise((resolve, reject) => {
 });
 ```
 
-L'esempio di cui sopra utilizza stringhe come argomento di queste funzioni, ma essi possono davvero essere qualsiasi cosa. Spesso potrebbe essere un oggetto, di cui potresti voler utilizzare i dati per metterli sul tuo sito web o altrove.
+L'esempio qui sopra utilizza stringhe come argomento di queste funzioni, ma può essere utilizzata davvero qualsiasi cosa. Spesso potrebbe essere un oggetto, di cui potresti voler utilizzare i dati per metterli sul tuo sito web o altrove.
 
 # --instructions--
 
@@ -32,7 +32,7 @@ Fai sì che la promise gestisca il successo e il fallimento. Se `responseFromSer
 
 ```js
 assert(
-  code.match(/if\s*\(\s*responseFromServer\s*\)\s*{\s*resolve\s*\(\s*('|"|`)We got the data\1\s*\)(\s*|\s*;\s*)}/g)
+  __helpers.removeJSComments(code).match(/if\s*\(\s*responseFromServer\s*\)\s*{\s*resolve\s*\(\s*('|"|`)We got the data\1\s*\)(\s*|\s*;\s*)}/g)
 );
 ```
 
@@ -40,7 +40,7 @@ assert(
 
 ```js
 assert(
-  code.match(/}\s*else\s*{\s*reject\s*\(\s*('|"|`)Data not received\1\s*\)(\s*|\s*;\s*)}/g)
+  __helpers.removeJSComments(code).match(/}\s*else\s*{\s*reject\s*\(\s*('|"|`)Data not received\1\s*\)(\s*|\s*;\s*)}/g)
 );
 ```
 

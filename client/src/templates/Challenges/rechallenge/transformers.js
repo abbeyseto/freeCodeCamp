@@ -1,30 +1,29 @@
 import protect from '@freecodecamp/loop-protect';
 import {
-  attempt,
   cond,
   flow,
   identity,
-  isError,
   matchesProperty,
   overSome,
   partial,
   stubTrue
 } from 'lodash-es';
 
-import sassData from '../../../../../config/client/sass-compile.json';
+import sassData from '../../../../../client/config/browser-scripts/sass-compile.json';
 import {
   transformContents,
   transformHeadTailAndContents,
   setExt,
   compileHeadTail
-} from '../../../../../utils/polyvinyl';
-import createWorker from '../utils/worker-executor';
+} from '../../../../../shared/utils/polyvinyl';
+import { WorkerExecutor } from '../utils/worker-executor';
 
 const { filename: sassCompile } = sassData;
 
 const protectTimeout = 100;
 const testProtectTimeout = 1500;
-const loopsPerTimeoutCheck = 2000;
+const loopsPerTimeoutCheck = 100;
+const testLoopsPerTimeoutCheck = 2000;
 
 function loopProtectCB(line) {
   console.log(
@@ -38,11 +37,11 @@ function testLoopProtectCB(line) {
   );
 }
 
-// hold Babel, presets and options so we don't try to import them multiple times
+// hold Babel and presets so we don't try to import them multiple times
 
 let Babel;
 let presetEnv, presetReact;
-let babelOptionsJSBase, babelOptionsJS, babelOptionsJSX, babelOptionsJSPreview;
+let presetsJS, presetsJSX;
 
 async function loadBabel() {
   if (Babel) return;
@@ -53,11 +52,11 @@ async function loadBabel() {
   /* eslint-enable no-inline-comments */
   Babel.registerPlugin(
     'loopProtection',
-    protect(protectTimeout, loopProtectCB)
+    protect(protectTimeout, loopProtectCB, loopsPerTimeoutCheck)
   );
   Babel.registerPlugin(
     'testLoopProtection',
-    protect(testProtectTimeout, testLoopProtectCB, loopsPerTimeoutCheck)
+    protect(testProtectTimeout, testLoopProtectCB, testLoopsPerTimeoutCheck)
   );
 }
 
@@ -69,16 +68,8 @@ async function loadPresetEnv() {
     );
   /* eslint-enable no-inline-comments */
 
-  babelOptionsJSBase = {
+  presetsJS = {
     presets: [presetEnv]
-  };
-  babelOptionsJS = {
-    ...babelOptionsJSBase,
-    plugins: ['testLoopProtection']
-  };
-  babelOptionsJSPreview = {
-    ...babelOptionsJSBase,
-    plugins: ['loopProtection']
   };
 }
 
@@ -93,8 +84,7 @@ async function loadPresetReact() {
       /* webpackChunkName: "@babel/preset-env" */ '@babel/preset-env'
     );
   /* eslint-enable no-inline-comments */
-  babelOptionsJSX = {
-    plugins: ['loopProtection'],
+  presetsJSX = {
     presets: [presetEnv, presetReact]
   };
 }
@@ -108,9 +98,8 @@ const testJS = matchesProperty('ext', 'js');
 const testJSX = matchesProperty('ext', 'jsx');
 const testHTML = matchesProperty('ext', 'html');
 const testHTML$JS$JSX = overSome(testHTML, testJS, testJSX);
-export const testJS$JSX = overSome(testJS, testJSX);
 
-export const replaceNBSP = cond([
+const replaceNBSP = cond([
   [
     testHTML$JS$JSX,
     partial(transformContents, contents => contents.replace(NBSPReg, ' '))
@@ -118,32 +107,18 @@ export const replaceNBSP = cond([
   [stubTrue, identity]
 ]);
 
-function tryTransform(wrap = identity) {
-  return function transformWrappedPoly(source) {
-    const result = attempt(wrap, source);
-    if (isError(result)) {
-      // note(Bouncey): Error thrown here to collapse the build pipeline
-      // At the minute, it will not bubble up
-      // We collapse the pipeline so the app doesn't fall over trying
-      // parse bad code (syntax/type errors etc...)
-      throw result;
-    }
-    return result;
-  };
-}
-
-const babelTransformer = options => {
+const babelTransformer = loopProtectOptions => {
   return cond([
     [
       testJS,
       async code => {
         await loadBabel();
         await loadPresetEnv();
-        const babelOptions = getBabelOptions(options);
-        return partial(
-          transformHeadTailAndContents,
-          tryTransform(babelTransformCode(babelOptions))
-        )(code);
+        const babelOptions = getBabelOptions(presetsJS, loopProtectOptions);
+        return transformHeadTailAndContents(
+          babelTransformCode(babelOptions),
+          code
+        );
       }
     ],
     [
@@ -151,10 +126,11 @@ const babelTransformer = options => {
       async code => {
         await loadBabel();
         await loadPresetReact();
+        const babelOptions = getBabelOptions(presetsJSX, loopProtectOptions);
         return flow(
           partial(
             transformHeadTailAndContents,
-            tryTransform(babelTransformCode(babelOptionsJSX))
+            babelTransformCode(babelOptions)
           ),
           partial(setExt, 'js')
         )(code);
@@ -164,19 +140,24 @@ const babelTransformer = options => {
   ]);
 };
 
-function getBabelOptions({ preview = false, protect = true }) {
-  let options = babelOptionsJSBase;
-  // we always protect the preview, since it evaluates as the user types and
-  // they may briefly have infinite looping code accidentally
-  if (protect) {
-    options = preview ? babelOptionsJSPreview : babelOptionsJS;
-  } else {
-    options = preview ? babelOptionsJSPreview : options;
+function getBabelOptions(
+  presets,
+  { preview, disableLoopProtectTests, disableLoopProtectPreview } = {
+    preview: false,
+    disableLoopProtectTests: false,
+    disableLoopProtectPreview: false
   }
-  return options;
+) {
+  // we protect the preview unless specifically disabled, since it evaluates as
+  // the user types and they may briefly have infinite looping code accidentally
+  if (preview && !disableLoopProtectPreview)
+    return { ...presets, plugins: ['loopProtection'] };
+  if (!disableLoopProtectTests)
+    return { ...presets, plugins: ['testLoopProtection'] };
+  return presets;
 }
 
-const sassWorker = createWorker(sassCompile);
+const sassWorkerExecutor = new WorkerExecutor(sassCompile);
 async function transformSASS(documentElement) {
   // we only teach scss syntax, not sass. Also the compiler does not seem to be
   // able to deal with sass.
@@ -187,7 +168,8 @@ async function transformSASS(documentElement) {
   await Promise.all(
     [].map.call(styleTags, async style => {
       style.type = 'text/css';
-      style.innerHTML = await sassWorker.execute(style.innerHTML, 5000).done;
+      style.innerHTML = await sassWorkerExecutor.execute(style.innerHTML, 5000)
+        .done;
     })
   );
 }
@@ -197,7 +179,7 @@ async function transformScript(documentElement) {
   await loadPresetEnv();
   const scriptTags = documentElement.querySelectorAll('script');
   scriptTags.forEach(script => {
-    script.innerHTML = tryTransform(babelTransformCode(babelOptionsJS))(
+    script.innerHTML = babelTransformCode(getBabelOptions(presetsJS))(
       script.innerHTML
     );
   });
@@ -307,9 +289,14 @@ const htmlTransformer = cond([
   [stubTrue, identity]
 ]);
 
-export const getTransformers = options => [
+export const getTransformers = loopProtectOptions => [
   replaceNBSP,
-  babelTransformer(options ? options : {}),
+  babelTransformer(loopProtectOptions),
   partial(compileHeadTail, ''),
   htmlTransformer
+];
+
+export const getPythonTransformers = () => [
+  replaceNBSP,
+  partial(compileHeadTail, '')
 ];

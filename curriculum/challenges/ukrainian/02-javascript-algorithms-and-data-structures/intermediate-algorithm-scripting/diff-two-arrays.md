@@ -8,19 +8,19 @@ dashedName: diff-two-arrays
 
 # --description--
 
-Порівняти два масиви і повернути новий масив з елементами, знайденими лише в одному з двох зазначених масивів, але не в обох. Іншими словами, повернути симетричну різницю двох масивів.
+Порівняйте два масиви і поверніть новий масив з елементами, знайденими лише в одному з двох наданих масивів. Іншими словами, поверніть симетричну різницю двох масивів.
 
-**Примітка:** Ви можете повернути масив з його елементами в будь-якому порядку.
+**Примітка:** ви можете повернути масив з його елементами в будь-якому порядку.
 
 # --hints--
 
-`diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])` потрібно повернути масив.
+`diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])` має повертати масив.
 
 ```js
 assert(typeof diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) === 'object');
 ```
 
-`["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` потрібно повернути `["pink wool"]`.
+`["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` має повертати `["pink wool"]`.
 
 ```js
 assert.sameMembers(
@@ -32,7 +32,7 @@ assert.sameMembers(
 );
 ```
 
-`["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` потрібно повернути масив з одним елементом.
+`["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` має повертати масив з одним елементом.
 
 ```js
 assert(
@@ -43,7 +43,7 @@ assert(
 );
 ```
 
-`["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` потрібно повернути `["diorite", "pink wool"]`.
+`["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` має повертати `["diorite", "pink wool"]`.
 
 ```js
 assert.sameMembers(
@@ -55,7 +55,7 @@ assert.sameMembers(
 );
 ```
 
-`["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` потрібно повернути масив з двома елементами.
+`["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]` має повертати масив з двома елементами.
 
 ```js
 assert(
@@ -66,7 +66,7 @@ assert(
 );
 ```
 
-`["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]` потрібно повернути `[]`.
+`["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]` має повертати `[]`.
 
 ```js
 assert.sameMembers(
@@ -78,7 +78,7 @@ assert.sameMembers(
 );
 ```
 
-`["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]` потрібно повернути пустий масив.
+`["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]` має повертати порожній масив.
 
 ```js
 assert(
@@ -89,19 +89,19 @@ assert(
 );
 ```
 
-`[1, 2, 3, 5], [1, 2, 3, 4, 5]` потрібно повернути `[4]`.
+`[1, 2, 3, 5], [1, 2, 3, 4, 5]` має повертати `[4]`.
 
 ```js
 assert.sameMembers(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]), [4]);
 ```
 
-`[1, 2, 3, 5], [1, 2, 3, 4, 5]` потрібно повернути масив з одним елементом.
+`[1, 2, 3, 5], [1, 2, 3, 4, 5]` має повертати масив з одним елементом.
 
 ```js
 assert(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]).length === 1);
 ```
 
-`[1, "calf", 3, "piglet"], [1, "calf", 3, 4]` потрібно повернути `["piglet", 4]`.
+`[1, "calf", 3, "piglet"], [1, "calf", 3, 4]` має повертати `["piglet", 4]`.
 
 ```js
 assert.sameMembers(diffArray([1, 'calf', 3, 'piglet'], [1, 'calf', 3, 4]), [
@@ -110,13 +110,13 @@ assert.sameMembers(diffArray([1, 'calf', 3, 'piglet'], [1, 'calf', 3, 4]), [
 ]);
 ```
 
-`[1, "calf", 3, "piglet"], [1, "calf", 3, 4]` потрібно повернути масив з двома елементами.
+`[1, "calf", 3, "piglet"], [1, "calf", 3, 4]` має повертати масив з двома елементами.
 
 ```js
 assert(diffArray([1, 'calf', 3, 'piglet'], [1, 'calf', 3, 4]).length === 2);
 ```
 
-`[], ["snuffleupagus", "cookie monster", "elmo"]` потрібно повернути `["snuffleupagus", "cookie monster", "elmo"]`.
+`[], ["snuffleupagus", "cookie monster", "elmo"]` має повертати `["snuffleupagus", "cookie monster", "elmo"]`.
 
 ```js
 assert.sameMembers(diffArray([], ['snuffleupagus', 'cookie monster', 'elmo']), [
@@ -126,13 +126,13 @@ assert.sameMembers(diffArray([], ['snuffleupagus', 'cookie monster', 'elmo']), [
 ]);
 ```
 
-`[], ["snuffleupagus", "cookie monster", "elmo"]` потрібно повернути масив з трьома елементами.
+`[], ["snuffleupagus", "cookie monster", "elmo"]` має повертати масив з трьома елементами.
 
 ```js
 assert(diffArray([], ['snuffleupagus', 'cookie monster', 'elmo']).length === 3);
 ```
 
-`[1, "calf", 3, "piglet"], [7, "filly"]` потрібно повернути `[1, "calf", 3, "piglet", 7, "filly"]`.
+`[1, "calf", 3, "piglet"], [7, "filly"]` має повертати `[1, "calf", 3, "piglet", 7, "filly"]`.
 
 ```js
 assert.sameMembers(diffArray([1, 'calf', 3, 'piglet'], [7, 'filly']), [
@@ -145,7 +145,7 @@ assert.sameMembers(diffArray([1, 'calf', 3, 'piglet'], [7, 'filly']), [
 ]);
 ```
 
-`[1, "calf", 3, "piglet"], [7, "filly"]` потрібно повернути масив з шістьма елементами.
+`[1, "calf", 3, "piglet"], [7, "filly"]` має повертати масив з шістьма елементами.
 
 ```js
 assert(diffArray([1, 'calf', 3, 'piglet'], [7, 'filly']).length === 6);
@@ -168,22 +168,26 @@ diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
 ```js
 function diffArray(arr1, arr2) {
+  if (arr1.length === 0) return arr2;
+  if (arr2.length === 0) return arr1;
+
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+
   const newArr = [];
-  const h1 = Object.create(null);
-  arr1.forEach(function(e) {
-    h1[e] = e;
-  });
-  const h2 = Object.create(null);
-  arr2.forEach(function(e) {
-    h2[e] = e;
+
+  set1.forEach(element => {
+    if (!set2.has(element)) newArr.push(element);
+
   });
 
-  Object.keys(h1).forEach(function(e) {
-     if (!(e in h2)) newArr.push(h1[e]);
+  set2.forEach(element => {
+    if (!set1.has(element)) newArr.push(element);
+
   });
-  Object.keys(h2).forEach(function(e) {
-     if (!(e in h1)) newArr.push(h2[e]);
-  });
+
   return newArr;
+
 }
+
 ```

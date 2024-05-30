@@ -13,12 +13,20 @@ L’operatore <dfn>resto</dfn> `%` fornisce il resto della divisione di due nume
 
 **Esempio**
 
-<blockquote>5 % 2 = 1 perché<br>Math.floor(5 / 2) = 2 (Quoziente)<br>2 * 2 = 4<br>5 - 4 = 1 (Resto)</blockquote>
+<pre>
+5 % 2 = 1
+5 / 2 = 2 resto 1
+2 * 2 = 4
+5 - 4 = 1
+</pre>
 
 **Uso**  
-In matematica si può verificare se un numero è pari o dispari controllando il resto della divisione del numero per `2`.
+In matematica si può verificare se un numero è pari o dispari controllando il resto della divisione del numero per `2`. I numeri pari hanno un resto di `0`, mentre i numeri dispari un resto di `1`.
 
-<blockquote>17 % 2 = 1 (17 è dispari)<br>48 % 2 = 0 (48 è pari)</blockquote>
+<pre>
+17 % 2 = 1
+48 % 2 = 0
+</pre>
 
 **Nota:** L'operatore <dfn>resto</dfn> è a volte erroneamente indicato come l'operatore del modulo. Esso è molto simile al modulo, ma non funziona correttamente con numeri negativi.
 
@@ -31,7 +39,7 @@ Imposta `remainder` pari al resto di `11` diviso per `3` utilizzando l'operatore
 La variabile `remainder` dovrebbe essere inizializzata
 
 ```js
-assert(/(const|let|var)\s+?remainder/.test(code));
+assert(/(const|let|var)\s+?remainder/.test(__helpers.removeJSComments(code)));
 ```
 
 Il valore di `remainder` dovrebbe essere `2`
@@ -43,7 +51,7 @@ assert(remainder === 2);
 Dovresti utilizzare l'operatore `%`
 
 ```js
-assert(/\s+?remainder\s*?=\s*?.*%.*;?/.test(code));
+assert(/\s+?remainder\s*?=\s*?.*%.*;?/.test(__helpers.removeJSComments(code)));
 ```
 
 # --seed--
@@ -51,7 +59,9 @@ assert(/\s+?remainder\s*?=\s*?.*%.*;?/.test(code));
 ## --after-user-code--
 
 ```js
-(function(y){return 'remainder = '+y;})(remainder);
+(function (y) {
+  return 'remainder = ' + y;
+})(remainder);
 ```
 
 ## --seed-contents--

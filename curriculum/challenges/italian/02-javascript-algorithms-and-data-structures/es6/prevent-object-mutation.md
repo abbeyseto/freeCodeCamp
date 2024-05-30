@@ -23,36 +23,32 @@ obj.newProp = "Test";
 console.log(obj); 
 ```
 
-Gli assegnamenti `obj.review` e `obj.newProp` provocheranno errori, perché il nostro editor viene eseguito in modalità rigorosa per impostazione predefinita, e la console visualizzerà il valore `{ name: "FreeCodeCamp", review: "Awesome" }`.
+Gli assegnamenti `obj.review` e `obj.newProp` provocheranno errori, perché il nostro editor viene eseguito in modalità rigorosa per impostazione predefinita e la console mostrerà il valore `{ name: "FreeCodeCamp", review: "Awesome" }`.
 
 # --instructions--
 
-In questa utilizzerai `Object.freeze` per impedire di cambiare le costanti matematiche. È necessario congelare l'oggetto `MATH_CONSTANTS` in modo che nessuno sia in grado di modificare il valore di `PI`, aggiungere o eliminare proprietà.
+In questa sfida utilizzerai `Object.freeze` per impedire di cambiare le costanti matematiche. È necessario congelare l'oggetto `MATH_CONSTANTS` in modo che nessuno sia in grado di modificare il valore di `PI`, aggiungere o eliminare proprietà.
 
 # --hints--
 
 Non dovresti sostituire la parola chiave `const`.
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const/g));
+assert(__helpers.removeJSComments(code).match(/const/g));
 ```
 
 `MATH_CONSTANTS` dovrebbe essere una variabile costante (usando `const`).
 
 ```js
-(getUserInput) =>
-  assert(getUserInput('index').match(/const\s+MATH_CONSTANTS/g));
+assert(__helpers.removeJSComments(code).match(/const\s+MATH_CONSTANTS/g));
 ```
 
 Non dovresti cambiare la dichiarazione originale di `MATH_CONSTANTS`.
 
 ```js
-(getUserInput) =>
-  assert(
-    getUserInput('index').match(
-      /const\s+MATH_CONSTANTS\s+=\s+{\s+PI:\s+3.14\s+};/g
-    )
-  );
+assert(__helpers.removeJSComments(code).match(
+   /const\s+MATH_CONSTANTS\s+=\s+{\s+PI:\s+3.14\s+};/g
+));
 ```
 
 `PI` dovrebbe essere uguale `3.14`.

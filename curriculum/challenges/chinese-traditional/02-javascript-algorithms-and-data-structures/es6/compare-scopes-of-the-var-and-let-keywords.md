@@ -8,7 +8,7 @@ dashedName: compare-scopes-of-the-var-and-let-keywords
 
 # --description--
 
-如果你不熟悉 `let`，請查看 [這個挑戰](/learn/javascript-algorithms-and-data-structures/basic-javascript/explore-differences-between-the-var-and-let-keywords)。
+如果你不熟悉 `let`的話, 請查看 <a href="/learn/javascript-algorithms-and-data-structures/basic-javascript/explore-differences-between-the-var-and-let-keywords" target="_blank" rel="noopener noreferrer nofollow">這個介紹 <code>let</code>和 <code>var</code> 關鍵字之間的差異的挑戰</a>
 
 使用 `var` 關鍵字聲明變量時，它是全局聲明的，如果在函數內部聲明則是局部聲明的。
 
@@ -87,13 +87,13 @@ console.log(i);
 代碼中不應該出現 `var`。
 
 ```js
-assert(!code.match(/var/g));
+assert(!__helpers.removeJSComments(code).match(/var/g));
 ```
 
 `if` 語句中聲明的變量 `i` 應該等於字符串 `block scope`。
 
 ```js
-assert(code.match(/(i\s*=\s*).*\s*.*\s*.*\1('|")block\s*scope\2/g));
+assert(__helpers.removeJSComments(code).match(/(i\s*=\s*).*\s*.*\s*.*\1('|")block\s*scope\2/g));
 ```
 
 `checkScope()` 應該返回字符串 `function scope`。

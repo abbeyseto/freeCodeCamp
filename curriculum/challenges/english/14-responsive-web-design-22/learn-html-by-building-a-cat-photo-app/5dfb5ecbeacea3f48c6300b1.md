@@ -1,13 +1,15 @@
 ---
 id: 5dfb5ecbeacea3f48c6300b1
-title: Step 20
+title: Step 21
 challengeType: 0
-dashedName: step-20
+dashedName: step-21
 ---
 
 # --description--
 
-Use list item (`li`) elements to create items in a list. Here is an example of list items in an unordered list:
+The `li` element is used to create a list item in an ordered or unordered list.
+
+Here is an example of list items in an unordered list:
 
 ```html
 <ul>
@@ -58,12 +60,12 @@ assert(
 ```html
 <html>
   <body>
-    <h1>CatPhotoApp</h1>
     <main>
+      <h1>CatPhotoApp</h1>
       <section>
         <h2>Cat Photos</h2>
         <!-- TODO: Add link to cat photos -->
-        <p>Click here to view more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a>.</p>
+        <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
         <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
       </section>
       <section>
@@ -71,6 +73,7 @@ assert(
         <h3>Things cats love:</h3>
 --fcc-editable-region--
         <ul>
+          
         </ul>
 --fcc-editable-region--
       </section>

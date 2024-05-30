@@ -1,6 +1,6 @@
 ---
 id: 5ccfad82bb2dc6c965a848e5
-title: Отримання JSON fetch-методом JavaScript
+title: Отримайте JSON за допомогою методу fetch від JavaScript
 challengeType: 6
 forumTopicId: 301501
 dashedName: get-json-with-the-javascript-fetch-method
@@ -8,43 +8,67 @@ dashedName: get-json-with-the-javascript-fetch-method
 
 # --description--
 
-Щоб зробити запит зовнішніх даних використовуйте метод `fetch()`. Він еквівалентний методу `XMLHttpRequest`, проте синтаксис вважається простішим.
+Інший спосіб запросити зовнішні дані — використати метод `fetch()` від JavaScript. Він еквівалентний методу `XMLHttpRequest`, проте синтаксис вважається простішим.
 
-Ось код для створення запиту GET для `/json/cats.json`
+Ось код створення запиту GET до `/json/cats.json`
 
 ```js
 
 fetch('/json/cats.json')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('message').innerHTML = JSON.stringify(data);
-    })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('message').innerHTML = JSON.stringify(data);
+  })
 
 ```
 
 Зверніть увагу на кожен фрагмент коду.
 
-Запит надсилає саме перший рядок. Так `fetch(URL)` робить запит `GET` на конкретну URL-адресу. Так створюється Promise.
+Перший рядок здійснює запит. Таким чином `fetch(URL)` робить запит `GET` до конкретної URL-адреси. Метод повертає проміс.
 
-Після створення Promise та успішного запиту, методом `then` код адаптується та перетворюється у формат JSON.
+Після повернення промісу, якщо запит був успішним, виконується метод `then`, який приймає відповідь та конвертує її у формат JSON.
 
-Метод `then` також створює Promise, що так само проходить обробку наступним `then` методом. Аргумент у другому `then` і є об'єктом JSON, який вам потрібен!
+Метод `then` також повертає проміс, який обробляється наступним методом `then`. Аргумент в другому `then` — це потрібний об’єкт JSON!
 
-Тепер цим методом обирається елемент, який отримає дані за допомогою `document.getElementById()`. Далі код HTML елемента змінюється через додавання рядка з об'єктом JSON, поверненим за запитом.
+Тепер він обирає елемент, який отримає дані, використовуючи `document.getElementById()`. Потім він змінює HTML елемента через додавання рядка, який створений з об’єкта JSON, поверненого з запиту.
 
 # --instructions--
 
-Щоб створити та надіслати запит `GET` до freeCodeCamp Cat Photo API, оновіть код. Використайте цього разу метод `fetch` замість `XMLHttpRequest`.
+Оновіть код, щоб створити та надіслати запит `GET` до API freeCodeCamp Cat Photo. Цього разу використайте метод `fetch`, а не `XMLHttpRequest`.
 
 # --hints--
 
-Щоб надіслати запит `GET`, використовуйте метод `fetch`.
+
+Код має використати отримані дані, щоб замінити внутрішній HTML
+
+```js
+const catData = "dummy data";
+const ref = fetch;
+fetch = () => Promise.resolve({ json: () => catData });
+async () => {
+  try {
+    document.getElementById("getMessage").click();
+    await new Promise((resolve, reject) => setTimeout(() => resolve(), 250));
+  } catch (error) {
+    console.log(error);
+  } finally {
+    fetch = ref;
+    assert.equal(
+      document.getElementById("message").textContent,
+      JSON.stringify(catData)
+    );
+  }
+};
+```
+
+
+Код має зробити запит `GET` за допомогою `fetch`.
 
 ```js
 assert(code.match(/fetch\s*\(\s*('|")\/json\/cats\.json\1\s*\)/g));
 ```
 
-Щоб конвертувати вхідні дані в JSON, використовуйте метод `then`.
+Код має використати `then`, щоб конвертувати відповідь в JSON.
 
 ```js
 assert(
@@ -54,13 +78,13 @@ assert(
 );
 ```
 
-Щоб обробити конвертовані дані JSON методом `then`, використайте `then` у коді двічі.
+Код має використати `then`, щоб обробити дані, конвертовані в JSON, іншим `then`.
 
 ```js
 assert(__helpers.removeWhiteSpace(code).match(/\.then\(\(?\w+\)?=>{[^}]*}\)/g));
 ```
 
-Щоб змінити внутрішній HTML на рядок з даними JSON, використовуйте у коді елемент з id `message`.
+Код має отримати елемент з id `message` та змінити його внутрішній HTML на рядок даних JSON.
 
 ```js
 assert(

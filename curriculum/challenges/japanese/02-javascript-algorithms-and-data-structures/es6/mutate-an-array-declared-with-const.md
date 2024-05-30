@@ -23,7 +23,7 @@ s[2] = 45;
 console.log(s);
 ```
 
-`s = [1, 2, 3]` はエラーになります。 `console.log` には値 `[5, 6, 45]` が表示されます。
+`s = [1, 2, 3]` はエラーになります。 この行をコメントアウトすると、`console.log` に値 `[5, 6, 45]` が表示されます。
 
 ご覧のように、オブジェクト `[5, 6, 7]` それ自体をミューテートさせることができ、その場合も変数 `s` は変更された配列 `[5, 6, 45]` を指し示します。 あらゆる配列と同様に、`s` 内の配列要素はミュータブルですが、`const` を使用したため、代入演算子を使用して異なる配列を指し示すように変数識別子 `s` を使用することはできません。
 
@@ -36,24 +36,21 @@ console.log(s);
 `const` キーワードを置き換えないでください。
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const/g));
+assert(__helpers.removeJSComments(code).match(/const/g));
 ```
 
 `s` は (`const` を使用して宣言した) 定数変数である必要があります。
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const\s+s/g));
+assert(__helpers.removeJSComments(code).match(/const\s+s/g));
 ```
 
 元の配列宣言を変更しないでください。
 
 ```js
-(getUserInput) =>
-  assert(
-    getUserInput('index').match(
-      /const\s+s\s*=\s*\[\s*5\s*,\s*7\s*,\s*2\s*\]\s*;?/g
-    )
-  );
+assert(__helpers.removeJSComments(code).match(
+/const\s+s\s*=\s*\[\s*5\s*,\s*7\s*,\s*2\s*\]\s*;?/g
+));
 ```
 
 `s` が `[2, 5, 7]` と等しくなるようにする必要があります。

@@ -15,7 +15,7 @@ Se os valores sendo comparados não são do mesmo tipo, o operador de igualdade 
 
 **Exemplos**
 
-`3 == '3'` retorna `true` porque JavaScript faz a conversão de tipo de string para número. `3 === '3'` retorna falso porque os tipos são diferentes e não é feita a conversão de tipo.
+`3 == '3'` retorna `true` porque JavaScript faz a conversão de tipo de string para número. `3 === '3'` retorna `false` porque os tipos são diferentes e não é feita a conversão de tipo.
 
 **Observação:** em JavaScript, você pode determinar o tipo de uma variável ou de um valor, com o operador `typeof`, como vemos a seguir:
 
@@ -47,7 +47,7 @@ assert(compareEquality('20', 20) === 'Not Equal');
 Você deve usar o operador `===`
 
 ```js
-assert(code.match(/===/g));
+assert(__helpers.removeJSComments(code).match(/===/g));
 ```
 
 # --seed--

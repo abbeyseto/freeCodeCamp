@@ -26,16 +26,10 @@ Define una variable `a` con `var` e inicialízala con un valor de `9`.
 Debes inicializar `a` con un valor de `9`.
 
 ```js
-assert(/var\s+a\s*=\s*9(\s*;?\s*)$/.test(code));
+assert(/var\s+a\s*=\s*9(\s*;?\s*)$/.test(__helpers.removeJSComments(code)));
 ```
 
 # --seed--
-
-## --after-user-code--
-
-```js
-if(typeof a !== 'undefined') {(function(a){return "a = " + a;})(a);} else { (function() {return 'a is undefined';})(); }
-```
 
 ## --seed-contents--
 

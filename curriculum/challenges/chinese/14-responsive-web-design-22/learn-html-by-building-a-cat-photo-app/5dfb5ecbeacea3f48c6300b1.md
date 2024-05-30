@@ -1,13 +1,15 @@
 ---
 id: 5dfb5ecbeacea3f48c6300b1
-title: 步骤 20
+title: 步骤 21
 challengeType: 0
-dashedName: step-20
+dashedName: step-21
 ---
 
 # --description--
 
-使用列表项（`li`）元素在列表中创建项目。 以下是无序列表中列表项的示例：
+`li` 元素用于在有序或无序列表中创建一个列表项。
+
+这是一个无序列表中列表项的示例：
 
 ```html
 <ul>
@@ -56,12 +58,12 @@ assert(
 ```html
 <html>
   <body>
-    <h1>CatPhotoApp</h1>
     <main>
+      <h1>CatPhotoApp</h1>
       <section>
         <h2>Cat Photos</h2>
         <!-- TODO: Add link to cat photos -->
-        <p>Click here to view more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a>.</p>
+        <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
         <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
       </section>
       <section>
@@ -69,6 +71,7 @@ assert(
         <h3>Things cats love:</h3>
 --fcc-editable-region--
         <ul>
+
         </ul>
 --fcc-editable-region--
       </section>

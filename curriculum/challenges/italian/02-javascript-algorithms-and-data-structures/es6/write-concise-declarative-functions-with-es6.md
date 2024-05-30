@@ -8,7 +8,7 @@ dashedName: write-concise-declarative-functions-with-es6
 
 # --description--
 
-Quando si definiscono le funzioni all'interno degli oggetti in ES5, dobbiamo usare la parola chiave `function` come segue:
+Quando si definiscono le funzioni all'interno degli oggetti in ES5, occorre usare la parola chiave `function` come segue:
 
 ```js
 const person = {
@@ -39,21 +39,22 @@ Riscrivi la funzione `setGear` all'interno dell'oggetto `bicycle` usando la scor
 La dichiarazione di funzione tradizionale non deve essere utilizzata.
 
 ```js
-(getUserInput) => assert(!code.match(/function/));
+assert(!__helpers.removeJSComments(code).match(/function/));
 ```
 
 `setGear` dovrebbe essere una funzione dichiarativa.
 
 ```js
 assert(
-  typeof bicycle.setGear === 'function' && code.match(/setGear\s*\(.+\)\s*\{/)
+  typeof bicycle.setGear === 'function' && __helpers.removeJSComments(code).match(/setGear\s*\(.+\)\s*\{/)
 );
 ```
 
 `bicycle.setGear(48)` dovrebbe cambiare il valore della marcia (`gear`) a 48.
 
 ```js
-assert(new bicycle.setGear(48).gear === 48);
+bicycle.setGear(48);
+assert(bicycle.gear === 48);
 ```
 
 # --seed--
@@ -78,6 +79,7 @@ console.log(bicycle.gear);
 ```js
 const bicycle = {
   gear: 2,
+  // setGear: function(newGear) {
   setGear(newGear) {
     this.gear = newGear;
   }

@@ -1,6 +1,6 @@
 ---
 id: 5cdafbe72913098997531682
-title: Обробка винятків відхиленої Promise
+title: Обробка відхилених промісів за допомогою catch
 challengeType: 1
 forumTopicId: 301204
 dashedName: handle-a-rejected-promise-with-catch
@@ -8,7 +8,7 @@ dashedName: handle-a-rejected-promise-with-catch
 
 # --description--
 
-`catch` - це метод, який використовується коли ваша Promise була відхилена. Це буде виконано одразу після запуску алгоритму `reject`. Ось синтаксис:
+`catch` — це метод, який використовують тоді, коли проміс було відхилено. Він виконується одразу після виклику методу `reject`. Ось синтаксис:
 
 ```js
 myPromise.catch(error => {
@@ -16,35 +16,35 @@ myPromise.catch(error => {
 });
 ```
 
-`error` передана в метод `reject`.
+`error` є аргументом, переданим до методу `reject`.
 
 # --instructions--
 
-Додайте до вашого Promise метод `catch`. Використовуйте `error` у якості параметра для функції зворотного виклику та зазначте `error` у консолі.
+Додайте метод `catch` до свого промісу. Використайте `error` як параметр функції зворотного виклику та виведіть `error` на консолі.
 
 # --hints--
 
-Слід використати метод `catch` для Promise.
+Ви повинні викликати метод `catch` на промісі.
 
 ```js
 assert(
-  __helpers.removeWhiteSpace(code).match(/(makeServerRequest|\))\.catch\(/g)
+  __helpers.removeWhiteSpace(__helpers.removeJSComments(code)).match(/(makeServerRequest|\))\.catch\(/g)
 );
 ```
 
-Ваш метод `catch` повинен мати функцію зворотнього виклику з `error` у якості параметра.
+Ваш метод `catch` повинен мати функцію зворотного виклику з параметром `error`.
 
 ```js
 assert(errorIsParameter);
 ```
 
-Ви маєте зазначити `error` у консолі.
+Ви повинні вивести `error` на консолі.
 
 ```js
 assert(
   errorIsParameter &&
     __helpers
-      .removeWhiteSpace(code)
+      .removeWhiteSpace(__helpers.removeJSComments(code))
       .match(/\.catch\(.*?error.*?console.log\(error\).*?\)/)
 );
 ```
@@ -54,7 +54,7 @@ assert(
 ## --after-user-code--
 
 ```js
-const errorIsParameter = /\.catch\((function\(error\){|error|\(error\)=>)/.test(__helpers.removeWhiteSpace(code));
+const errorIsParameter = /\.catch\((function\(error\){|error|\(error\)=>)/.test(__helpers.removeWhiteSpace(__helpers.removeJSComments(code)));
 ```
 
 ## --seed-contents--

@@ -1,64 +1,60 @@
 import { omit } from 'lodash-es';
 import {
   call,
+  debounce,
   put,
   select,
-  takeLatest,
   takeEvery,
-  debounce
+  takeLatest
 } from 'redux-saga/effects';
 import store from 'store';
 
+import {
+  certTypeIdMap,
+  certTypes
+} from '../../../../shared/config/certification-settings';
 import { createFlashMessage } from '../../components/Flash/redux';
+import { liveCerts } from '../../../config/cert-and-project-map';
 import {
   getUsernameExists,
   putUpdateMyAbout,
-  putUpdateMyProfileUI,
-  putUpdateMyUsername,
-  putUpdateUserFlag,
-  putUpdateMySocials,
   putUpdateMyHonesty,
-  putUpdateMyQuincyEmail,
-  putVerifyCert,
+  putUpdateMyKeyboardShortcuts,
   putUpdateMyPortfolio,
+  putUpdateMyProfileUI,
+  putUpdateMyQuincyEmail,
+  putUpdateMySocials,
   putUpdateMyTheme,
-  putUpdateMySound,
-  putUpdateMyKeyboardShortcuts
+  putUpdateMyUsername,
+  putVerifyCert
 } from '../../utils/ajax';
-import { certMap } from '../../resources/cert-and-project-map';
-import { completedChallengesSelector } from '..';
+import { completedChallengesSelector } from '../selectors';
 import {
-  certTypes,
-  certTypeIdMap
-} from '../../../../config/certification-settings';
-import {
-  updateUserFlagComplete,
-  updateUserFlagError,
-  validateUsernameComplete,
-  validateUsernameError,
   submitNewAboutComplete,
   submitNewAboutError,
   submitNewUsernameComplete,
   submitNewUsernameError,
   submitProfileUIComplete,
   submitProfileUIError,
-  verifyCertComplete,
-  verifyCertError,
-  updateMySocialsComplete,
-  updateMySocialsError,
-  updateMyHonestyError,
   updateMyHonestyComplete,
+  updateMyHonestyError,
+  updateMyKeyboardShortcutsComplete,
+  updateMyKeyboardShortcutsError,
+  updateMyPortfolioComplete,
+  updateMyPortfolioError,
   updateMyQuincyEmailComplete,
   updateMyQuincyEmailError,
-  updateMyPortfolioError,
-  updateMyPortfolioComplete,
-  updateMyThemeComplete,
-  updateMyThemeError,
+  updateMySocialsComplete,
+  updateMySocialsError,
   updateMySoundComplete,
   updateMySoundError,
-  updateMyKeyboardShortcutsComplete,
-  updateMyKeyboardShortcutsError
-} from './';
+  updateMyThemeComplete,
+  updateMyThemeError,
+  validateUsernameComplete,
+  validateUsernameError,
+  verifyCertComplete,
+  verifyCertError
+} from './actions';
 
 function* submitNewAboutSaga({ payload }) {
   try {
@@ -90,18 +86,6 @@ function* submitProfileUISaga({ payload }) {
   }
 }
 
-function* updateUserFlagSaga({ payload: update }) {
-  try {
-    const { data } = yield call(putUpdateUserFlag, update);
-    yield put(updateUserFlagComplete({ ...data, payload: update }));
-    yield put(
-      createFlashMessage({ ...data, variables: { theme: update.theme } })
-    );
-  } catch (e) {
-    yield put(updateUserFlagError(e));
-  }
-}
-
 function* updateMySocialsSaga({ payload: update }) {
   try {
     const { data } = yield call(putUpdateMySocials, update);
@@ -115,7 +99,10 @@ function* updateMySocialsSaga({ payload: update }) {
 function* updateMySoundSaga({ payload: update }) {
   try {
     store.set('fcc-sound', !!update.sound);
-    const { data } = yield call(putUpdateMySound, update);
+    const data = {
+      message: 'flash.updated-sound',
+      type: 'success'
+    };
     yield put(updateMySoundComplete({ ...data, payload: update }));
     yield put(createFlashMessage({ ...data }));
   } catch (e) {
@@ -186,7 +173,7 @@ function* validateUsernameSaga({ payload }) {
 
 function* verifyCertificationSaga({ payload }) {
   // check redux if can claim cert before calling backend
-  const currentCert = certMap.find(cert => cert.certSlug === payload);
+  const currentCert = liveCerts.find(cert => cert.certSlug === payload);
   const completedChallenges = yield select(completedChallengesSelector);
   const certTitle = currentCert?.title || payload;
 
@@ -235,7 +222,6 @@ function* verifyCertificationSaga({ payload }) {
 
 export function createSettingsSagas(types) {
   return [
-    takeEvery(types.updateUserFlag, updateUserFlagSaga),
     takeEvery(types.updateMySocials, updateMySocialsSaga),
     takeEvery(types.updateMyHonesty, updateMyHonestySaga),
     takeEvery(types.updateMySound, updateMySoundSaga),

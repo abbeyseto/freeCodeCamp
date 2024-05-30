@@ -1,16 +1,18 @@
 const { root } = require('mdast-builder');
+const find = require('unist-util-find');
 const getAllBetween = require('./utils/between-headings');
+const getAllBefore = require('./utils/before-heading');
 const mdastToHtml = require('./utils/mdast-to-html');
 
 const { splitOnThematicBreak } = require('./utils/split-on-thematic-break');
 
 function plugin() {
   return transformer;
-
   function transformer(tree, file) {
     const questionNodes = getAllBetween(tree, '--question--');
     if (questionNodes.length > 0) {
       const questionTree = root(questionNodes);
+
       const textNodes = getAllBetween(questionTree, '--text--');
       const answersNodes = getAllBetween(questionTree, '--answers--');
       const solutionNodes = getAllBetween(questionTree, '--video-solution--');
@@ -31,13 +33,32 @@ function getQuestion(textNodes, answersNodes, solutionNodes) {
   if (!answers) throw Error('answers are missing from question');
   if (!solution) throw Error('solution is missing from question');
 
-  // console.log({ text, answers, solution });
   return { text, answers, solution };
 }
 
 function getAnswers(answersNodes) {
   const answerGroups = splitOnThematicBreak(answersNodes);
-  return answerGroups.map(answer => mdastToHtml(answer));
+
+  return answerGroups.map(answerGroup => {
+    const answerTree = root(answerGroup);
+    const feedback = find(answerTree, { value: '--feedback--' });
+
+    if (feedback) {
+      const answerNodes = getAllBefore(answerTree, '--feedback--');
+      const feedbackNodes = getAllBetween(answerTree, '--feedback--');
+
+      if (answerNodes.length < 1) {
+        throw Error('Answer missing');
+      }
+
+      return {
+        answer: mdastToHtml(answerNodes),
+        feedback: mdastToHtml(feedbackNodes)
+      };
+    }
+
+    return { answer: mdastToHtml(answerGroup), feedback: null };
+  });
 }
 
 function getSolution(solutionNodes) {

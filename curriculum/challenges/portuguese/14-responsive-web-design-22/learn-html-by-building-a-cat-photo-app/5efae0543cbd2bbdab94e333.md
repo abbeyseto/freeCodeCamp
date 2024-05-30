@@ -1,13 +1,13 @@
 ---
 id: 5efae0543cbd2bbdab94e333
-title: Passo 29
+title: Passo 30
 challengeType: 0
-dashedName: step-29
+dashedName: step-30
 ---
 
 # --description--
 
-Para melhorar a acessibilidade da imagem que você acabou de adicionar, adicione um atributo `alt` com o texto:
+Para melhorar a acessibilidade da imagem que você adicionou, insira um atributo `alt` com o texto:
 
 `Five cats looking around a field.`
 
@@ -60,12 +60,12 @@ assert(
 ```html
 <html>
   <body>
-    <h1>CatPhotoApp</h1>
     <main>
+      <h1>CatPhotoApp</h1>
       <section>
         <h2>Cat Photos</h2>
         <!-- TODO: Add link to cat photos -->
-        <p>Click here to view more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a>.</p>
+        <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
         <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
       </section>
       <section>

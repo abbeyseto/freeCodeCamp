@@ -8,7 +8,7 @@ dashedName: compare-scopes-of-the-var-and-let-keywords
 
 # --description--
 
-如果你不熟悉 `let`，请查看 [这个挑战](/learn/javascript-algorithms-and-data-structures/basic-javascript/explore-differences-between-the-var-and-let-keywords)。
+如果你不熟悉 `let`的话, 请查看 <a href="/learn/javascript-algorithms-and-data-structures/basic-javascript/explore-differences-between-the-var-and-let-keywords" target="_blank" rel="noopener noreferrer nofollow">这个介绍 <code>let</code>和 <code>var</code> 关键字之间的差异的挑战</a>
 
 使用 `var` 关键字声明变量时，它是全局声明的，如果在函数内部声明则是局部声明的。
 
@@ -87,13 +87,13 @@ console.log(i);
 代码中不应该出现 `var`。
 
 ```js
-assert(!code.match(/var/g));
+assert(!__helpers.removeJSComments(code).match(/var/g));
 ```
 
 `if` 语句中声明的变量 `i` 应该等于字符串 `block scope`。
 
 ```js
-assert(code.match(/(i\s*=\s*).*\s*.*\s*.*\1('|")block\s*scope\2/g));
+assert(__helpers.removeJSComments(code).match(/(i\s*=\s*).*\s*.*\s*.*\1('|")block\s*scope\2/g));
 ```
 
 `checkScope()` 应该返回字符串 `function scope`。

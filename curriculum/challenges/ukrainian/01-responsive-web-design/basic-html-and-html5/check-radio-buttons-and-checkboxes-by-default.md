@@ -11,7 +11,7 @@ dashedName: check-radio-buttons-and-checkboxes-by-default
 
 Ви можете автоматично вмикати прапорець чи радіокнопку завдяки атрибуту `checked`.
 
-Для цього просто додайте слово `checked` всередину елемента input. Наприклад:
+Для цього просто додайте слово `checked` всередину елемента `input`. Наприклад:
 
 ```html
 <input type="radio" name="test-name" checked>
@@ -60,7 +60,7 @@ assert.equal(document.querySelector('label[for="loving"]')?.innerText?.trim(), '
 
   <p>Things cats love:</p>
   <ul>
-    <li>cat nip</li>
+    <li>catnip</li>
     <li>laser pointers</li>
     <li>lasagna</li>
   </ul>
@@ -93,7 +93,7 @@ assert.equal(document.querySelector('label[for="loving"]')?.innerText?.trim(), '
 
   <p>Things cats love:</p>
   <ul>
-    <li>cat nip</li>
+    <li>catnip</li>
     <li>laser pointers</li>
     <li>lasagna</li>
   </ul>

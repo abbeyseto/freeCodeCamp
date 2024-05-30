@@ -9,7 +9,7 @@ dashedName: inform-with-the-paragraph-element
 
 # --description--
 
-Елементи `p` найчастіше використовуються в абзацах тексту на сайтах. `p` скорочено від "paragraph".
+Елемент `p` найчастіше використовують в абзацах тексту на сайтах. `p` скорочено від "paragraph".
 
 Ось як ви можете створити елемент paragraph:
 
@@ -37,7 +37,7 @@ assert($('p').length > 0);
 assert.isTrue(/hello(\s)+paragraph/gi.test($('p').text()));
 ```
 
-Ваш елемент `p` повинен містити кінцевий теґ.
+Елемент `p` повинен мати кінцевий тег.
 
 ```js
 assert(

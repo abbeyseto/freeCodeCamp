@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { mainPreviewId } from '../utils/frame';
+import { mainPreviewId, scrollManager } from '../utils/frame';
 
 import './preview.css';
 
-interface PreviewProps {
+export interface PreviewProps {
   className?: string;
   disableIframe?: boolean;
   previewMounted: () => void;
@@ -29,10 +29,19 @@ function Preview({
     setIframeStatus(disableIframe);
   }, [disableIframe]);
 
+  useEffect(() => {
+    return () => {
+      scrollManager.setPreviewScrollPosition(0);
+    };
+  }, []);
+
   const id = previewId ?? mainPreviewId;
 
   return (
-    <div className={`notranslate challenge-preview ${iframeToggle}-iframe`}>
+    <div
+      data-playwright-test-label='preview-iframe'
+      className={`notranslate challenge-preview ${iframeToggle}-iframe`}
+    >
       <iframe
         className={'challenge-preview-frame'}
         id={id}

@@ -7,7 +7,7 @@ dashedName: step-10
 
 # --description--
 
-Далі додайте інший елемент `div` в `div` та надайте йому клас `marker`.
+Потім додайте інший елемент `div` в межах елемента `div` та надайте йому клас `marker`.
 
 # --hints--
 
@@ -17,7 +17,7 @@ dashedName: step-10
 assert([...code.matchAll(/<div.*?>/gi)][1]);
 ```
 
-Ваш новий елемент `div` повинен мати кінцевий теґ.
+Новий елемент `div` повинен мати кінцевий тег.
 
 ```js
 assert([...code.matchAll(/<\/div\s*>/gi)][1]);

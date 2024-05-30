@@ -26,7 +26,7 @@ assert(Array.isArray(rangeOfNumbers(5, 10)));
 
 ```js
 assert(
-  !code.match(/for|while|forEach|map|filter|reduce/g)
+  !__helpers.removeJSComments(code).match(/for|while|forEach|map|filter|reduce/g)
 );
 ```
 
@@ -54,6 +54,13 @@ assert.deepStrictEqual(rangeOfNumbers(6, 9), [6, 7, 8, 9]);
 
 ```js
 assert.deepStrictEqual(rangeOfNumbers(4, 4), [4]);
+```
+
+不应使用全局变量来缓存数组。
+
+```js
+rangeOfNumbers(1, 3)
+assert.deepStrictEqual(rangeOfNumbers(6, 9), [6, 7, 8, 9]);
 ```
 
 # --seed--

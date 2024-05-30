@@ -1,20 +1,22 @@
-import { Grid, Row, Col } from '@freecodecamp/react-bootstrap';
 import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
+import { Container, Col, Row } from '@freecodecamp/ui';
 
 import Intro from '../components/Intro';
 import Map from '../components/Map';
 import { Spacer } from '../components/helpers';
 import LearnLayout from '../components/layouts/learn';
 import {
-  userFetchStateSelector,
   isSignedInSelector,
-  userSelector
-} from '../redux';
+  userSelector,
+  userFetchStateSelector
+} from '../redux/selectors';
+
+import callGA from '../analytics/call-ga';
 
 interface FetchState {
   pending: boolean;
@@ -26,6 +28,7 @@ interface User {
   name: string;
   username: string;
   completedChallengeCount: number;
+  isDonating: boolean;
 }
 
 const mapStateToProps = createSelector(
@@ -60,7 +63,7 @@ interface LearnPageProps {
 function LearnPage({
   isSignedIn,
   fetchState: { pending, complete },
-  user: { name = '', completedChallengeCount = 0 },
+  user: { name = '', completedChallengeCount = 0, isDonating = false },
   data: {
     challengeNode: {
       challenge: {
@@ -71,10 +74,16 @@ function LearnPage({
 }: LearnPageProps) {
   const { t } = useTranslation();
 
+  const onLearnDonationAlertClick = () => {
+    callGA({
+      event: 'donation_related',
+      action: `Learn Donation Alert Click`
+    });
+  };
   return (
     <LearnLayout>
       <Helmet title={t('metaTags:title')} />
-      <Grid>
+      <Container>
         <Row>
           <Col md={8} mdOffset={2} sm={10} smOffset={1} xs={12}>
             <Intro
@@ -84,23 +93,31 @@ function LearnPage({
               name={name}
               pending={pending}
               slug={slug}
+              onLearnDonationAlertClick={onLearnDonationAlertClick}
+              isDonating={isDonating}
             />
             <Map />
-            <Spacer size={2} />
+            <Spacer size='large' />
           </Col>
         </Row>
-      </Grid>
+      </Container>
     </LearnLayout>
   );
 }
 
 LearnPage.displayName = 'LearnPage';
 
-export default connect(mapStateToProps, null)(LearnPage);
+export default connect(mapStateToProps)(LearnPage);
 
 export const query = graphql`
   query FirstChallenge {
-    challengeNode(challenge: { order: { eq: 0 }, challengeOrder: { eq: 0 } }) {
+    challengeNode(
+      challenge: {
+        superOrder: { eq: 0 }
+        order: { eq: 0 }
+        challengeOrder: { eq: 0 }
+      }
+    ) {
       challenge {
         fields {
           slug

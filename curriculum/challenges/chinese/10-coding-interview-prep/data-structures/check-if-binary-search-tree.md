@@ -18,7 +18,7 @@ In this challenge, you will create a utility for your tree. Write a JavaScript m
 
 # --hints--
 
-Your Binary Search Tree should return true when checked with `isBinarySearchTree()`.
+你的二叉搜索树如果使用 `isBinarySearchTree()` 进行检查，应该返回 true。
 
 ```js
 assert(
@@ -35,6 +35,24 @@ assert(
     test.push(2);
     test.push(4);
     return isBinarySearchTree(test) == true;
+  })()
+);
+```
+
+`isBinarySearchTree()` should return false when checked with a tree that is not a binary search tree.
+
+```js
+assert(
+  (function () {
+    var test = false;
+    if (typeof BinarySearchTree !== 'undefined') {
+      test = new BinarySearchTree();
+    } else {
+      return false;
+    }
+    test.push(1);
+    test.root.left = new Node(1);
+    return isBinarySearchTree(test) == false;
   })()
 );
 ```
@@ -114,7 +132,7 @@ function isBinarySearchTree(tree) {
     function checkTree(node) {
       if (node.left != null) {
         const left = node.left;
-        if (left.value > node.value) {
+        if (left.value >= node.value) {
           isBST = false;
         } else {
           checkTree(left);

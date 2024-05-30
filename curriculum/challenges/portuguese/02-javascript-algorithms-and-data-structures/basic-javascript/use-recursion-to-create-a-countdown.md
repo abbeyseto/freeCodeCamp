@@ -59,7 +59,7 @@ O código não deve depender de nenhum laço (`for` ou `while` ou funções de o
 
 ```js
 assert(
-  !code.match(/for|while|forEach|map|filter|reduce/g)
+  !__helpers.removeJSComments(code).match(/for|while|forEach|map|filter|reduce/g)
 );
 ```
 
@@ -69,6 +69,13 @@ Você deve usar recursão para resolver o problema.
 assert(
   countdown.toString().match(/countdown\s*\(.+\)/)
 );
+```
+
+As variáveis globais não devem ser usadas para armazenar em cache o array.
+
+```js
+countdown(1)
+assert.deepStrictEqual(countdown(5), [5, 4, 3, 2, 1]);
 ```
 
 # --seed--

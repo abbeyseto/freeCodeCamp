@@ -26,22 +26,16 @@ assert(quotient === 2.2);
 Dovresti usare l'operatore `/` per dividere 4.4 per 2
 
 ```js
-assert(/4\.40*\s*\/\s*2\.*0*/.test(code));
+assert(/4\.40*\s*\/\s*2\.*0*/.test(__helpers.removeJSComments(code)));
 ```
 
 La variabile quotient deve essere assegnata solo una volta
 
 ```js
-assert(code.match(/quotient/g).length === 1);
+assert(__helpers.removeJSComments(code).match(/quotient\s*=/g).length === 1);
 ```
 
 # --seed--
-
-## --after-user-code--
-
-```js
-(function(y){return 'quotient = '+y;})(quotient);
-```
 
 ## --seed-contents--
 

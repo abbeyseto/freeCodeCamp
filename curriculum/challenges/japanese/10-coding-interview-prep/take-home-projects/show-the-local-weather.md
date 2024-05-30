@@ -8,11 +8,11 @@ dashedName: show-the-local-weather
 
 # --description--
 
-**目標:** <https://codepen.io/freeCodeCamp/full/bELRjV> と同じような機能を持つ、[CodePen.io](https://codepen.io) アプリを構築してください。
+**目標:** こちらと似た機能を持つアプリを構築してください: <a href="https://codepen.io/freeCodeCamp/full/bELRjV" target="_blank" rel="noopener noreferrer nofollow">https://codepen.io/freeCodeCamp/full/bELRjV</a>
 
 **ルール #1:** 模範プロジェクトのコードを見ないようにしてください。 自分の力で解いてみてください。
 
-**ルール #2:** 以下の[ユーザーストーリー](https://en.wikipedia.org/wiki/User_story)を実装してください。 必要に応じて、どのようなライブラリあるいは API を使用してもかまいません。 あなたの独自のスタイルにしましょう。
+**ルール #2:** 下記のユーザーストーリーを満たし、すべてのテストを成功させてください。 必要に応じて、どのようなライブラリあるいは API を使用してもかまいません。 あなた独自のアレンジを加えましょう。
 
 **ユーザーストーリー:** 現在地の天気を見ることができます。
 
@@ -20,11 +20,11 @@ dashedName: show-the-local-weather
 
 **ユーザーストーリー:** ボタンを押して華氏と摂氏の間を切り替えることができます。
 
-**注:** 多くのインターネットブラウザーは現在、HTML5 Geolocation 経由でユーザーのロケールを取得するために、HTTP セキュア (`https://`) 接続を必要とするようになっています。 このため、HTML5 Geolocation を使用してユーザーの場所を取得し、それから HTTP セキュア接続を使用して天気情報を取得する freeCodeCamp の Weather API <https://weather-proxy.freecodecamp.rocks/> を使用することをお勧めします。 また、必ず `https://` 経由で [CodePen.io](https://codepen.io) に接続してください。
+**注:** 多くのインターネットブラウザーは現在、HTML5 Geolocation 経由でユーザーのロケールを取得するために、HTTP セキュア (`https://`) 接続を必要とするようになっています。 このため、HTML5 Geolocation を使用してユーザーの場所を取得し、それから HTTP セキュア接続を使用して天気情報を取得する freeCodeCamp の Weather API <a href="https://weather-proxy.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://weather-proxy.freecodecamp.rocks/</a> を使用することをお勧めします。 また、必ず `https://` 経由で <a href="https://codepen.io" target="_blank" rel="noopener noreferrer nofollow">CodePen.io</a> に接続してください。
 
 完了したら、CodePen のプロジェクトへのリンクを入れて、「このチャレンジを完了しました」ボタンをクリックしてください。
 
-[freeCodeCamp フォーラム](https://forum.freecodecamp.org/c/project-feedback/409)でプロジェクトを共有することにより、フィードバックを得ることができます。
+<a href="https://forum.freecodecamp.org/c/project-feedback/409" target="_blank" rel="noopener noreferrer nofollow">freeCodeCamp フォーラム</a>でプロジェクトを共有することにより、フィードバックを得ることができます。
 
 # --solutions--
 

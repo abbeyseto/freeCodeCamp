@@ -8,9 +8,20 @@ dashedName: build-the-game-of-life
 
 # --description--
 
-**目標:** <https://codepen.io/freeCodeCamp/full/BpwMZv/> と同じような機能を持つ、[CodePen.io](https://codepen.io) アプリを構築してください。
+**目標:** こちらと似た機能を持つアプリを構築してください: <a href="https://codepen.io/freeCodeCamp/full/BpwMZv/" target="_blank" rel="noopener noreferrer nofollow">https://codepen.io/freeCodeCamp/full/BpwMZv/</a>
 
-以下の[ユーザーストーリー](https://en.wikipedia.org/wiki/User_story)を実装してください。 必要に応じて、どのようなライブラリあるいは API を使用してもかまいません。 あなたの独自のスタイルにしましょう。
+「ライフゲーム (Game of Life)」は、イギリスの数学者ジョン・ホートン・コンウェイが考案したセルオートマトンです。 これは<em>プレイヤーのいないゲーム</em>です。つまり、その進化は初期状態によって決定され、それ以上の入力は必要ありません。 初期構成を作成して、それがどのように進化するかを眺めるのが、このライフゲームの楽しみ方です。
+
+ライフゲームを構成する宇宙は、四角いセルからなる無限の二次元の直交格子で、それぞれのセルは「生」か「死」の 2 つの状態のいずれかになることができます。 すべてのセルは、縦、横、または斜めに隣接する 8 つのセルと互いに作用します。
+
+各ステップ時間で、次の遷移が起こります:
+
+- 生きたセルのうち、隣接する生きたセルの数が 2 つ未満になったものはすべて、人口過疎が原因であるかのように死んでしまいます。
+- 生きたセルのうち、隣接する生きたセルの数が 2 つまたは 3 つになったものはすべて、次の世代まで生き続けます。
+- 生きたセルのうち、隣接する生きたセルの数が 3 つを超えたものはすべて、人口過密が原因であるかのように死んでしまいます。
+- 死んだセルのうち、隣接する生きたセルの数がちょうど 3 つになったものはすべて、生殖が原因であるかのように、生きたセルになります。
+
+以下のユーザーストーリーを満たし、すべてのテストが成功するようにしてください。 必要に応じて、どのようなライブラリあるいは API を使用してもかまいません。 あなた独自のアレンジを加えましょう。
 
 **ユーザーストーリー:** 最初にゲームを訪れたときから、ボードがランダムに生成され、自由に動き始めます。
 
@@ -24,13 +35,9 @@ dashedName: build-the-game-of-life
 
 **ユーザーストーリー:** ボードが変化するごとに、どれだけの世代が過ぎ去ったかを見ることができます。
 
-**ヒント:** John Conway 自身によるライフゲームの説明はこちらです: <https://www.youtube.com/watch?v=E8kUJL04ELA>
+完了したら、プロジェクトへのリンクを入れて、「このチャレンジを完了しました」ボタンをクリックしてください。
 
-**ヒント:** ルールを含めたライフゲームの概要についてはこちらを参照してください: [https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
-
-完了したら、CodePen のプロジェクトへのリンクを入れて、「このチャレンジを完了しました」ボタンをクリックしてください。
-
-[freeCodeCamp フォーラム](https://forum.freecodecamp.org/c/project-feedback/409)でプロジェクトを共有することにより、フィードバックを得ることができます。
+<a href="https://forum.freecodecamp.org/c/project-feedback/409" target="_blank" rel="noopener noreferrer nofollow">freeCodeCamp フォーラム</a>でプロジェクトを共有することにより、フィードバックを得ることができます。
 
 # --solutions--
 

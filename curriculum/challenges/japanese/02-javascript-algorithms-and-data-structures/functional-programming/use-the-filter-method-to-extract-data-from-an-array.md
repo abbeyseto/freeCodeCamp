@@ -10,7 +10,7 @@ dashedName: use-the-filter-method-to-extract-data-from-an-array
 
 もう一つの便利な配列関数に、`Array.prototype.filter()`、または単に `filter()` があります。
 
-`filter` は配列の各要素に対して関数を呼び出し、その関数が `true` を返す要素のみを含む新しい配列を返します。 つまり、渡された関数に基づいて配列をフィルターで絞り込みます。 `map` と同様に、元の配列を変更せずにこうした操作を実行します。
+`filter` は配列の各要素に対して関数を呼び出し、その関数が真値 (Truthy な値) を返す要素のみを含む新しい配列を返します。真値とは、`Boolean()` コンストラクターに渡されたとき `true` を返す値です。 つまり、渡された関数に基づいて配列をフィルターで絞り込みます。 `map` と同様に、元の配列を変更せずにこうした操作を実行します。
 
 コールバック関数は 3 つの引数を受け取ります。 最初の引数は、現在処理中の要素です。 2 つ目は、その要素のインデックスです。3 つ目は、`filter` メソッドを呼び出した対象の配列です。
 
@@ -46,13 +46,13 @@ assert(
 コードで `filter` メソッドを使用する必要があります。
 
 ```js
-assert(code.match(/\s*\.\s*filter/g));
+assert(__helpers.removeJSComments(code).match(/\s*\.\s*filter/g));
 ```
 
 コードで `for` ループを使用しないでください。
 
 ```js
-assert(!code.match(/for\s*?\([\s\S]*?\)/g));
+assert(!__helpers.removeJSComments(code).match(/for\s*?\([\s\S]*?\)/g));
 ```
 
 `filteredList` は `[{"title": "Inception", "rating": "8.8"}, {"title": "Interstellar", "rating": "8.6"}, {"title": "The Dark Knight", "rating": "9.0"}, {"title": "Batman Begins", "rating": "8.3"}]` と等しくなる必要があります。

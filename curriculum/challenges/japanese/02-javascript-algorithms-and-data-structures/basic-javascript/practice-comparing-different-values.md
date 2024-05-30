@@ -15,7 +15,7 @@ dashedName: practice-comparing-different-values
 
 **例**
 
-`3 == '3'` では、JavaScript によって文字列から数値への型変換が行われるため、`true` を返します。 `3 === '3'` では、型が異なり、型変換も行われないため false を返します。
+`3 == '3'` では、JavaScript によって文字列から数値への型変換が行われるため、`true` を返します。 `3 === '3'` では、型が異なり、型変換も行われないため `false` を返します。
 
 **注:** JavaScript では次のように `typeof` 演算子を使用して、変数または値の型を判断することができます。
 
@@ -47,7 +47,7 @@ assert(compareEquality('20', 20) === 'Not Equal');
 `===` 演算子を使用してください。
 
 ```js
-assert(code.match(/===/g));
+assert(__helpers.removeJSComments(code).match(/===/g));
 ```
 
 # --seed--

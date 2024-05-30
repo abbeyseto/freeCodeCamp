@@ -8,13 +8,13 @@ dashedName: use-the-triple-equals-to-assert-strict-equality
 
 # --description--
 
-请注意，本项目在[这个 Replit 项目](https://replit.com/github/freeCodeCamp/boilerplate-mochachai)的基础上进行开发。你也可以从 [GitHub](https://repl.it/github/freeCodeCamp/boilerplate-mochachai) 上克隆。
+As a reminder, this project is being built upon the following starter project on <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-mochachai/" target="_blank" rel="noopener noreferrer nofollow">Gitpod</a>, or cloned from <a href="https://github.com/freeCodeCamp/boilerplate-mochachai/" target="_blank" rel="noopener noreferrer nofollow">GitHub</a>.
 
 `strictEqual()` 使用 `===` 比较对象。
 
 # --instructions--
 
-在 `tests/1_unit-tests.js` 中，在 `Equality` 套件里标有 `#6` 的测试下，将每个 `assert` 改为 `assert.strictEqual` 或 `assert.notStrictEqual`，让测试通过（应该返回 `true`）。 不要修改传给断言的参数。
+Within `tests/1_unit-tests.js` under the test labeled `#6` in the `Equality` suite, change each `assert` to either `assert.strictEqual` or `assert.notStrictEqual` to make the test pass (should evaluate to `true`). 不要修改传给断言的参数。
 
 # --hints--
 

@@ -23,7 +23,7 @@ s[2] = 45;
 console.log(s);
 ```
 
-`s = [1, 2, 3]` resultará em um erro. `console.log` exibirá o valor `[5, 6, 45]`.
+`s = [1, 2, 3]` resultará em um erro. Depois de comentar essa linha, o `console.log` exibirá o valor `[5, 6, 45]`.
 
 Como você pode ver, você pode alterar o objeto `[5, 6, 7]` e a variável `s` ainda apontará para o array alterado `[5, 6, 45]`. Assim como em qualquer outro array, os elementos dentro de `s` também são mutáveis. Mas como `const` foi usado, você não pode usar o identificador da variável `s` para apontar para uma matriz diferente (ou qualquer outro valor) usando o operador de atribuição.
 
@@ -36,24 +36,21 @@ Um array é declarado: `const s = [5, 7, 2]`. Modifique o array para `[2, 5, 7]`
 Você não deve substituir a palavra-chave `const`.
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const/g));
+assert(__helpers.removeJSComments(code).match(/const/g));
 ```
 
 `s` deve ser uma variável constante (use `const`).
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const\s+s/g));
+assert(__helpers.removeJSComments(code).match(/const\s+s/g));
 ```
 
 Você não deve alterar modificar o array original manualmente.
 
 ```js
-(getUserInput) =>
-  assert(
-    getUserInput('index').match(
-      /const\s+s\s*=\s*\[\s*5\s*,\s*7\s*,\s*2\s*\]\s*;?/g
-    )
-  );
+assert(__helpers.removeJSComments(code).match(
+/const\s+s\s*=\s*\[\s*5\s*,\s*7\s*,\s*2\s*\]\s*;?/g
+));
 ```
 
 A variável `s` deve ser igual a `[2, 5, 7]`.

@@ -11,25 +11,23 @@ dashedName: issue-tracker
 Costruisci un'app JavaScript full-stack che sia funzionalmente simile a questa: <a href="https://issue-tracker.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://issue-tracker.freecodecamp.rocks/</a>. Lavorare su questo progetto ti porterà a scrivere il tuo codice utilizzando uno dei seguenti metodi:
 
 -   Clonare <a href="https://github.com/freeCodeCamp/boilerplate-project-issuetracker/" target="_blank" rel="noopener noreferrer nofollow">questo repository GitHub</a> e completare il tuo progetto localmente.
--   Usare <a href="https://replit.com/github/freeCodeCamp/boilerplate-project-issuetracker" target="_blank" rel="noopener noreferrer nofollow">la nostra bozza di progetto su Replit</a> per completare il tuo progetto.
+-   Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-project-issuetracker/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete your project.
 -   Usare un costruttore di siti a tua scelta per completare il progetto. Assicurati di incorporare tutti i file del nostro repository GitHub.
-
-Quando hai finito, assicurati che una demo funzionante del tuo progetto sia ospitata in qualche percorso pubblico. Quindi invia l'URL nel campo `Solution Link`. Facoltativamente, invia anche un link al codice sorgente del tuo progetto nel campo `GitHub Link`.
 
 # --instructions--
 
 -   Completa le rotte necessarie in `/routes/api.js`
 -   Crea tutti i test funzionali in `tests/2_functional-tests.js`
 -   Copia il file `sample.env` su `.env` e imposta le variabili in modo appropriato
--   Per eseguire i test togli i commenti dalla riga `NODE_ENV=test` nel tuo file `.env`
--   Per eseguire i test nella console, utilizza il comando `npm run test`. Per aprire la console di Replit, premi Ctrl+Maiusc+P (Cmd se su un Mac) e digita "open shell"
+-   To run the tests automatically, add `NODE_ENV=test` in your `.env` file
+-   To run the tests in the console, use the command `npm run test`
 
 Scrivi i seguenti test in `tests/2_functional-tests.js`:
 
--   Crea un'issue con ogni campo: richiesta POST a `/api/issues/{project}`
--   Crea un'issue con soli campi obbligatori: richiesta POST a `/api/issues/{project}`
--   Crea un'issue con i campi obbligatori mancanti: richiesta POST a `/api/issues/{project}`
--   Visualizza i gli issue di un progetto: richiesta GET a `/api/issues/{project}`
+-   Crea un issue con ogni campo: richiesta POST a `/api/issues/{project}`
+-   Crea un issue con soli campi obbligatori: richiesta POST a `/api/issues/{project}`
+-   Crea un issue con i campi obbligatori mancanti: richiesta POST a `/api/issues/{project}`
+-   Visualizza gli issue di un progetto: richiesta GET a `/api/issues/{project}`
 -   Visualizza gli issue di un progetto con un filtro: richiesta GET a `/api/issues/{project}`
 -   Visualizza gli issue di un progetto con più filtri: richiesta GET a `/api/issues/{project}`
 -   Aggiorna un campo in un issue: richiesta PUT a `/api/issues/{project}`
@@ -213,7 +211,7 @@ async (getUserInput) => {
 };
 ```
 
-Puoi inviare una richiesta `PUT` a `/api/issues/{projectname}` con un `_id` e uno o più campi da aggiornare. Al successo, il campo `updated_on` dovrebbe essere aggiornato, e dovrebbe essere restituito `{  result: 'successfully updated', '_id': _id }`.
+Puoi inviare una richiesta `PUT` a `/api/issues/{projectname}` con un `_id` e uno o più campi da aggiornare. Al successo, il campo `updated_on` dovrebbe essere aggiornato e dovrebbe essere restituito `{  result: 'successfully updated', '_id': _id }`.
 
 ```js
 async (getUserInput) => {
@@ -225,13 +223,13 @@ async (getUserInput) => {
     };
     const url = getUserInput('url') + '/api/issues/fcc-project';
     const itemToUpdate = await $.post(url, initialData);
-    const updateSucccess = await $.ajax({
+    const updateSuccess = await $.ajax({
       url: url,
       type: 'PUT',
       data: { _id: itemToUpdate._id, issue_text: 'New Issue Text' }
     });
-    assert.isObject(updateSucccess);
-    assert.deepEqual(updateSucccess, {
+    assert.isObject(updateSuccess);
+    assert.deepEqual(updateSuccess, {
       result: 'successfully updated',
       _id: itemToUpdate._id
     });
@@ -248,7 +246,7 @@ async (getUserInput) => {
 };
 ```
 
-Quando la richiesta `PUT` inviata a `/api/issues/{projectname}` non include un `_id`, deve essere restuito `{ error: 'missing _id' }`.
+Quando la richiesta `PUT` inviata a `/api/issues/{projectname}` non include un `_id`, deve essere restituito `{ error: 'missing _id' }`.
 
 ```js
 async (getUserInput) => {
@@ -264,7 +262,7 @@ async (getUserInput) => {
 };
 ```
 
-Quando la richiesta `PUT` inviata a `/api/issues/{projectname}` non include campi da aggiornare, deve essere restuito `{ error: 'no update field(s) sent', '_id': _id }`. Su qualsiasi altro errore, il valore restituito deve essere `{ error: 'could not update', '_id': _id }`.
+Quando la richiesta `PUT` inviata a `/api/issues/{projectname}` non include campi da aggiornare, deve essere restituito `{ error: 'no update field(s) sent', '_id': _id }`. Su qualsiasi altro errore, il valore restituito deve essere `{ error: 'could not update', '_id': _id }`.
 
 ```js
 async (getUserInput) => {
@@ -294,7 +292,7 @@ async (getUserInput) => {
 };
 ```
 
-Puoi inviare una richiesta `DELETE` a `/api/issues/{projectname}` con un `_id` per eliminare un issue. Se non viene inviato un `_id` , deve essere restuito `{ error: 'missing _id' }`. Al successo, deve essere restituito `{ result: 'successfully deleted', '_id': _id }`. Al fallimento, il valore restituito deve essere `{ error: 'could not delete', '_id': _id }`.
+Puoi inviare una richiesta `DELETE` a `/api/issues/{projectname}` con un `_id` per eliminare un issue. Se non viene inviato un `_id`, deve essere restituito `{ error: 'missing _id' }`. Al successo, deve essere restituito `{ result: 'successfully deleted', '_id': _id }`. Al fallimento, il valore restituito deve essere `{ error: 'could not delete', '_id': _id }`.
 
 ```js
 async (getUserInput) => {
@@ -336,7 +334,7 @@ async (getUserInput) => {
 };
 ```
 
-Tutti i 14 test funzionali sono completi e passano.
+Tutti i 14 test funzionali richiesti sono completi e superati.
 
 ```js
 async (getUserInput) => {

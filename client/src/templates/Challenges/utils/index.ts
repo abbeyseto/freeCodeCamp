@@ -1,4 +1,5 @@
-import envData from '../../../../../config/env.json';
+import i18next from 'i18next';
+import envData from '../../../../config/env.json';
 
 const { forumLocation } = envData;
 
@@ -30,4 +31,81 @@ export function transformEditorLink(url: string): string {
       /(\/\/)(?<projectname>[^.]+)\.glitch\.me\/?/,
       '//glitch.com/edit/#!/$<projectname>'
     );
+}
+
+// Adds region role and accessible name to PrismJS code blocks
+export function enhancePrismAccessibility(
+  prismEnv: Prism.hooks.ElementHighlightedEnvironment
+): void {
+  const langs: { [key: string]: string } = {
+    js: 'JavaScript',
+    javascript: 'JavaScript',
+    css: 'CSS',
+    html: 'HTML',
+    python: 'python',
+    py: 'python',
+    xml: 'XML',
+    jsx: 'JSX',
+    scss: 'SCSS',
+    sql: 'SQL',
+    http: 'HTTP',
+    json: 'JSON',
+    pug: 'pug'
+  };
+  const parent = prismEnv?.element?.parentElement;
+  if (
+    !parent ||
+    parent.nodeName !== 'PRE' ||
+    parent.tabIndex !== 0 ||
+    parent.dataset.noAria === 'true'
+  ) {
+    return;
+  }
+
+  parent.setAttribute('role', 'region');
+  const codeType = prismEnv.element?.className
+    .replace(/language-(.*)/, '$1')
+    .toLowerCase();
+  const codeName = langs[codeType] || '';
+  parent.setAttribute(
+    'aria-label',
+    i18next.t('aria.code-example', {
+      codeName
+    })
+  );
+}
+
+// Adjusts scrollbar arrows based on scrollbar width
+export function setScrollbarArrowStyles(scrollbarWidth: number): void {
+  const root = document.documentElement;
+
+  // make the arrow box a square
+  root.style.setProperty(
+    '--monaco-scrollbar-arrow-box-size',
+    `${scrollbarWidth}px`
+  );
+
+  // adjust arrow icon size to fit arrow box
+  const iconSize = scrollbarWidth < 11 ? scrollbarWidth : scrollbarWidth - 5;
+  const iconFontSize =
+    scrollbarWidth < 11 ? scrollbarWidth : scrollbarWidth - 5;
+  root.style.setProperty('--monaco-scrollbar-arrow-icon-size', `${iconSize}px`);
+  root.style.setProperty(
+    '--monaco-scrollbar-arrow-icon-font-size',
+    `${iconFontSize}px`
+  );
+
+  // position arrow icon in arrow box
+  const iconTopBottom =
+    scrollbarWidth < 11 ? 0 : scrollbarWidth / 2 - iconFontSize / 2 - 1;
+  const iconLeftPosition =
+    scrollbarWidth < 11 ? 0 : (scrollbarWidth - iconFontSize) / 2;
+  root.style.setProperty(
+    '--monaco-scrollbar-arrow-icon-top-bottom',
+    `${iconTopBottom}px`
+  );
+  root.style.setProperty(
+    '--monaco-scrollbar-arrow-icon-left',
+    `${iconLeftPosition}px`
+  );
 }

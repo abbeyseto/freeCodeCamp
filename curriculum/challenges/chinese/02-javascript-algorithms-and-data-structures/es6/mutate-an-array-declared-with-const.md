@@ -8,7 +8,7 @@ dashedName: mutate-an-array-declared-with-const
 
 # --description--
 
-如果你不熟悉 `const`，请查看[这个挑战](/learn/javascript-algorithms-and-data-structures/basic-javascript/declare-a-read-only-variable-with-the-const-keyword)。
+如果你不熟悉 `const`，请查看 <a href="/learn/javascript-algorithms-and-data-structures/basic-javascript/declare-a-read-only-variable-with-the-const-keyword" target="_blank" rel="noopener noreferrer nofollow">这个 <code>const</code> 关键词的挑战</a>。
 
 `const` 声明在现代 JavaScript 中有很多用例。
 
@@ -23,7 +23,7 @@ s[2] = 45;
 console.log(s);
 ```
 
-`s = [1, 2, 3]` 将导致错误。 `console.log` 将显示值 `[5, 6, 45]`。
+`s = [1, 2, 3]` 将导致错误。 注释掉该行后，`console.log` 将显示值 `[5, 6, 45]`。
 
 如你所见，你可以改变对象 `[5, 6, 7]` 本身，变量 `s` 仍将指向更改后的数组 `[5, 6, 45]`。 像所有数组一样，`s` 中的数组元素是可变的，但是因为使用了 `const`，所以不能使用变量标识符 `s` 来指向一个使用赋值运算符的不同数组。
 
@@ -36,24 +36,21 @@ console.log(s);
 不要替换 `const` 关键字。
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const/g));
+assert(__helpers.removeJSComments(code).match(/const/g));
 ```
 
 `s` 应该是一个常量变量（通过使用 `const`）。
 
 ```js
-(getUserInput) => assert(getUserInput('index').match(/const\s+s/g));
+assert(__helpers.removeJSComments(code).match(/const\s+s/g));
 ```
 
 不要改变原数组的声明。
 
 ```js
-(getUserInput) =>
-  assert(
-    getUserInput('index').match(
-      /const\s+s\s*=\s*\[\s*5\s*,\s*7\s*,\s*2\s*\]\s*;?/g
-    )
-  );
+assert(__helpers.removeJSComments(code).match(
+/const\s+s\s*=\s*\[\s*5\s*,\s*7\s*,\s*2\s*\]\s*;?/g
+));
 ```
 
 `s` 应该等于 `[2, 5, 7]`。

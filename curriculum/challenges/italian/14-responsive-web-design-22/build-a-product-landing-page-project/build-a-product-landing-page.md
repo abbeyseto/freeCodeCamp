@@ -8,7 +8,7 @@ dashedName: build-a-product-landing-page
 
 # --description--
 
-**Obiettivo:** crea un'app funzionalmente simile a <a href="https://product-landing-page.freecodecamp.rocks" target="_blank" rel="noopener noreferrer nofollow">https://product-landing-page.freecodecamp.rocks</a>
+**Objective:** Build an app that is functionally similar to <a href="https://product-landing-page.freecodecamp.rocks" target="_blank" rel="noopener noreferrer nofollow">https://product-landing-page.freecodecamp.rocks</a>. **Do not copy this demo project**.
 
 **User story:**
 
@@ -25,7 +25,7 @@ dashedName: build-a-product-landing-page
 1. Dentro il modulo, dovrebbe esserci un `input` per inviare il modulo con un corrispondente `id="submit"`
 1. Cliccando l'elemento `#submit`, l'email dovrebbe essere inviata a una pagina statica (usa l'URL non funzionante: `https://www.freecodecamp.com/email-submit`)
 1. La barra di navigazione dovrebbe essere sempre in cima al viewport
-1. La landing page dovrebbe avere almeno un media query
+1. La landing page dovrebbe avere almeno una media query
 1. La landing page dovrebbe utilizzare CSS flexbox almeno una volta
 
 Soddisfa le user story e supera tutti i test qui sotto per completare questo progetto. Usa il tuo stile personale. Buon divertimento!
@@ -154,7 +154,7 @@ const els = document.querySelectorAll('#form #email')
 assert(els.length > 0)
 ```
 
-L'elemento `#email`dovrebbe avere un attributo `placeholder` con del testo segnaposto.
+L'elemento `#email` dovrebbe avere un attributo `placeholder` con del testo segnaposto.
 
 ```js
 const el = document.getElementById('email')
@@ -254,12 +254,15 @@ assert(cssCheck.length > 0 || htmlSourceAttr.length > 0);
 La tua pagina dovrebbe usare CSS Flexbox almeno una volta.
 
 ```js
+const hasFlex = (rule) => ["flex", "inline-flex"].includes(rule.style?.display)
 const stylesheet = new __helpers.CSSHelp(document).getStyleSheet()
 const cssRules = new __helpers.CSSHelp(document).styleSheetToCssRulesArray(stylesheet)
-const usesFlex = cssRules.find(rule => {
-  return rule.style?.display === 'flex' || rule.style?.display === 'inline-flex'
+const mediaRules = new __helpers.CSSHelp(document).getCSSRules('media')
+const usesFlex = cssRules.find(rule => hasFlex(rule))
+const usesFlexMedia = mediaRules.find(mediaRule => {
+  return [...mediaRule.cssRules].find(rule => hasFlex(rule))
 })
-assert(usesFlex)
+assert(usesFlex || usesFlexMedia)
 ```
 
 # --seed--
@@ -274,7 +277,7 @@ assert(usesFlex)
 
 ```
 
-## --solutions--
+# --solutions--
 
 ```html
 <!DOCTYPE html>

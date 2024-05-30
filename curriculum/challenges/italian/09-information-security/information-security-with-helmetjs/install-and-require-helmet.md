@@ -11,16 +11,14 @@ dashedName: install-and-require-helmet
 Lavorare su queste sfide ti porterà a scrivere il tuo codice utilizzando uno dei seguenti metodi:
 
 - Clonare <a href="https://github.com/freeCodeCamp/boilerplate-infosec/" target="_blank" rel="noopener noreferrer nofollow">questo repository GitHub</a> e completare queste sfide localmente.
-- Usare <a href="https://replit.com/github/freeCodeCamp/boilerplate-infosec" target="_blank" rel="noopener noreferrer nofollow">la nostra bozza di progetto su Replit</a> per completare queste sfide.
+- Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-infosec/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete these challenges.
 - Usare un costruttore di siti a tua scelta per completare il progetto. Assicurati di incorporare tutti i file del nostro repository GitHub.
-
-Quando hai finito, assicurati che una demo funzionante del tuo progetto sia ospitata in qualche percorso pubblico. Quindi invia l'URL nel campo `Solution Link`.
 
 Helmet ti aiuta a proteggere le tue app Express impostando varie intestazioni HTTP.
 
 # --instructions--
 
-Tutto il tuo codice per queste lezioni va nel file `myApp.js` tra le righe di codice con cui ti abbiamo avviato. Non modificare o eliminare il codice che abbiamo aggiunto per te.
+Tutto il tuo codice per queste lezioni va nel file `myApp.js` tra le righe di codice con cui hai iniziato. Non modificare o eliminare il codice che abbiamo aggiunto per te.
 
 Helmet versione `3.21.3` è già stato installato, quindi richiedilo come `helmet` in `myApp.js`.
 

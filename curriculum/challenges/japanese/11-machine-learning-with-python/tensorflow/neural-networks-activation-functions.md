@@ -14,7 +14,7 @@ dashedName: neural-networks-activation-functions
 
 ## --text--
 
--1 ～ 1 の間で値が切り替わる活性化関数はどれですか？
+値を -1～1 の間に圧縮する活性化関数はどれですか？
 
 ## --answers--
 

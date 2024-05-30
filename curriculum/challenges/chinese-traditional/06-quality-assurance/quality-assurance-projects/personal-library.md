@@ -8,13 +8,11 @@ dashedName: personal-library
 
 # --description--
 
-構建一個 JavaScript 的全棧應用，在功能上與這個應用相似：<https://personal-library.freecodecamp.rocks/>。 可以採用下面的任意一種方式完成這個挑戰：
+構建一個 JavaScript 全棧應用，在功能上與 <a href="https://personal-library.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://personal-library.freecodecamp.rocks/</a> 類似。 可以採用下面的任意一種方式完成這個挑戰：
 
--   克隆 [這個 GitHub 倉庫](https://github.com/freeCodeCamp/boilerplate-project-library) 並在本地完成項目。
--   使用[我們的 Replit 初始化項目](https://replit.com/github/freeCodeCamp/boilerplate-project-library)來完成你的項目。
+-   克隆<a href="https://github.com/freeCodeCamp/boilerplate-project-library" target="_blank" rel="noopener noreferrer nofollow">這個 GitHub 倉庫</a>，並在本地完成你的項目。
+-   Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-project-library" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete your project.
 -   使用一個你喜歡的站點生成器來完成項目。 需要確定包含了我們 GitHub 倉庫的所有文件。
-
-完成本項目後，請將一個正常運行的 demo（項目演示）託管在可以公開訪問的平臺。 然後在 `Solution Link` 框中提交你的項目 URL。 此外，還可以將項目的源碼提交到 `GitHub Link` 中。
 
 # --instructions--
 
@@ -25,7 +23,7 @@ dashedName: personal-library
 
 # --hints--
 
-提交自己的項目，而不是示例的 URL。
+你可以提交你自己的項目，而不是示例的 URL。
 
 ```js
 (getUserInput) => {
@@ -56,7 +54,7 @@ async (getUserInput) => {
 };
 ```
 
-可以向 `/api/books` 發送 <b>GET</b> 請求，並返回代表所有書的 JSON 響應。 JSON 響應應該是一個包含有 `title`、`_id` 和 `commentcount` 屬性的對象數組 。
+你可以向 `/api/books` 發送 <b>GET</b> 請求，並返回代表所有書的 JSON 響應。 JSON 響應應該是一個對象數組，每個對象（書）包含 `title`、`_id` 和 `commentcount` 屬性。
 
 ```js
 async (getUserInput) => {
@@ -84,7 +82,7 @@ async (getUserInput) => {
 };
 ```
 
-可以發送 <b>GET</b> 請求到 `/api/books/{_id}` 來檢索一本書的單個對象，返回屬性 `title`、`_id` 和 `comments` 數組 (如果沒有評論，則展示空數組)。 如果找不到書, 返回字符串 `no book exists`。
+你可以發送 <b>GET</b> 請求到 `/api/books/{_id}` 來檢索一本書的單個對象，返回屬性 `title`、`_id` 和 `comments` 數組（如果沒有評論，則展示空數組）。 如果找不到書，返回字符串 `no book exists`。
 
 ```js
 async (getUserInput) => {
@@ -108,7 +106,7 @@ async (getUserInput) => {
 };
 ```
 
-可以發送一個 <b>POST</b> 請求，其中包含 `comment` 作爲表單正文數據，請求到 `/api/books/{_id}` 以便將評論添加到書中。 返回的響應將是書對象，在先前測試中 <b>GET</b> `/api/books/{_id}` 類似。 如果請求中沒有包含 `comment` ，返回字符串 `missing required field comment`。 如果找不到書, 返回字符串 `no book exists`。
+你可以發送一個 <b>POST</b> 請求，其中包含 `comment` 作爲表單正文數據，請求到 `/api/books/{_id}` 以便將評論添加到書中。 返回的響應將是書對象，與先前測試中 <b>GET</b> `/api/books/{_id}` 請求類似。 如果請求中沒有包含 `comment`，返回字符串 `missing required field comment`。 如果找不到書，返回字符串 `no book exists`。
 
 ```js
 async (getUserInput) => {
@@ -146,7 +144,7 @@ async (getUserInput) => {
 };
 ```
 
-可以向 `/api/books/{_id}` 發送 <b>DELETE</b> 請求，從收藏中刪除一本書。 如果成功，返回的響應將是字符串 `delete successful`。 如果找不到書, 返回字符串 `no book exists`。
+你可以向 `/api/books/{_id}` 發送 <b>DELETE</b> 請求，從收藏中刪除一本書。 如果成功，返回的響應將是字符串 `delete successful`。 如果找不到書，返回字符串 `no book exists`。
 
 ```js
 async (getUserInput) => {
@@ -170,7 +168,7 @@ async (getUserInput) => {
 };
 ```
 
-可以向 `/api/books` 發送 <b>DELETE</b> 請求來刪除數據庫中的所有書籍。 如果成功，返回的響應將是字符串 `'complete delete successful`。
+你可以向 `/api/books` 發送 <b>DELETE</b> 請求來刪除數據庫中的所有書籍。 如果成功，返回的響應將是字符串 `complete delete successful`。
 
 ```js
 async (getUserInput) => {

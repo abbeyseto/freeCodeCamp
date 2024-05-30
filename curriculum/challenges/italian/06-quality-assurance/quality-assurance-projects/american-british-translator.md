@@ -11,10 +11,8 @@ dashedName: american-british-translator
 Costruisci un'app JavaScript full-stack che sia funzionalmente simile a questa: <a href="https://american-british-translator.freecodecamp.rocks/" target="_blank" rel="noopener noreferrer nofollow">https://american-british-translator.freecodecamp.rocks/</a>. Lavorare su questo progetto ti porterà a scrivere il tuo codice utilizzando uno dei seguenti metodi:
 
 -   Clonare <a href="https://github.com/freeCodeCamp/boilerplate-project-american-british-english-translator/" target="_blank" rel="noopener noreferrer nofollow">questo repository GitHub</a> e completare il tuo progetto localmente.
--   Usare <a href="https://replit.com/github/freeCodeCamp/boilerplate-project-american-british-english-translator" target="_blank" rel="noopener noreferrer nofollow">la nostra bozza di progetto su Replit</a> per completare il tuo progetto.
+-   Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-project-american-british-english-translator/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete your project.
 -   Usare un costruttore di siti a tua scelta per completare il progetto. Assicurati di incorporare tutti i file del nostro repository GitHub.
-
-Quando hai finito, assicurati che una demo funzionante del tuo progetto sia ospitata in qualche percorso pubblico. Quindi invia l'URL nel campo `Solution Link`. Facoltativamente, invia anche un link al codice sorgente del tuo progetto nel campo `GitHub Link`.
 
 # --instructions--
 
@@ -22,8 +20,8 @@ Quando hai finito, assicurati che una demo funzionante del tuo progetto sia ospi
 -   Completa la rotta `/api/translate` in `/routes/api.js`
 -   Crea tutti i test delle unità/funzionali in `tests/1_unit-tests.js` e `tests/2_functional-tests.js`
 -   Vedi i file JavaScript in `/components` per la diversa ortografia e i termini che la tua applicazione dovrebbe tradurre
--   Per eseguire i test su Replit, imposta `NODE_ENV` a `test` senza virgolette nel file `.env`
--   Per eseguire i test nella console, utilizza il comando `npm run test`. Per aprire la console di Replit, premi Ctrl+Maiusc+P (Cmd se su un Mac) e digita "open shell"
+-   To run the tests automatically, set `NODE_ENV` to `test` without quotes in the `.env` file
+-   Per eseguire i test nella console, utilizza il comando `npm run test`.
 
 Scrivi i seguenti test in `tests/1_unit-tests.js`:
 
@@ -63,7 +61,7 @@ Scrivi i seguenti test in `tests/2_functional-tests.js`:
 
 # --hints--
 
-È necessario fornire il proprio progetto, non l'URL di esempio.
+Dovresti fornire il tuo progetto, non l'URL di esempio.
 
 ```js
 (getUserInput) => {
@@ -130,7 +128,7 @@ async (getUserInput) => {
 };
 ```
 
-Il percorso `/api/translate` dovrebbe gestire anche la differenza di come i titoli onorifici sono abbreviati in inglese americano o britannico. Per esempio, Doctor Wright è appreviato come "Dr Wright" in inglese britannico e "Dr. Wright" in inglese americano. Vedi `/components/american-to-british-titles.js` per sapere quali titoli la tua applicazione dpvrebbe essere in grado di gestire.
+Il percorso `/api/translate` dovrebbe gestire anche la differenza di come i titoli onorifici sono abbreviati in inglese americano o britannico. Per esempio, Doctor Wright è appreviato come "Dr Wright" in inglese britannico e "Dr. Wright" in inglese americano. Vedi `/components/american-to-british-titles.js` per sapere quali titoli la tua applicazione dovrebbe essere in grado di gestire.
 
 ```js
 async (getUserInput) => {
@@ -157,7 +155,7 @@ async (getUserInput) => {
 };
 ```
 
-Racchiudi ogni traduzione di spelling o termini con tag `<span class="highlight">...</span>` affinchè appaiano in verde.
+Racchiudi ogni traduzione di spelling o termini con tag `<span class="highlight">...</span>` affinché appaiano in verde.
 
 ```js
 async (getUserInput) => {
@@ -206,7 +204,7 @@ async (getUserInput) => {
 };
 ```
 
-Se `text` è vuoto restuisci `{ error: 'No text to translate' }`
+Se `text` è vuoto restituisci `{ error: 'No text to translate' }`
 
 ```js
 async (getUserInput) => {
@@ -276,7 +274,7 @@ async (getUserInput) => {
 };
 ```
 
-Tutti i 24 test unitari sono completati e superati. Vedi `/tests/1_unit-tests.js` per il comportamento previsto per il quale dovresti scrivere dei test.
+Tutti i 24 test unitari sono completati e superati.
 
 ```js
 async (getUserInput) => {
@@ -301,7 +299,7 @@ async (getUserInput) => {
 };
 ```
 
-Tutti i 6 test funzionali sono completi e superati. Vedi `/tests/2_functional-tests.js` per le funzionalità per le quali dovresti scrivere dei test.
+Tutti i 6 test funzionali sono completati e superati.
 
 ```js
 async (getUserInput) => {

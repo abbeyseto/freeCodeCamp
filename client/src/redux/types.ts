@@ -1,12 +1,21 @@
-import { FlashApp, FlashMessageArg } from '../components/Flash/redux';
-import { MainApp } from '.';
+import { FlashMessages } from '../components/Flash/redux/flash-messages';
+import { ns as MainApp } from './action-types';
+
+export const FlashApp = 'flash';
+
+export type FlashMessageArg = {
+  type: string;
+  message: FlashMessages;
+  variables?: Record<string, unknown>;
+};
 
 export interface State {
   [FlashApp]: FlashState;
   [MainApp]: {
     appUsername: string;
     recentlyClaimedBlock: null | string;
-    canRequestProgressDonation: boolean;
+    completionCountWhenShownProgressModal: number | null;
+    showMultipleProgressModals: boolean;
     completionCount: number;
     currentChallengId: string;
     showCert: Record<string, unknown>;
@@ -14,10 +23,8 @@ export interface State {
     user: Record<string, unknown>;
     userFetchState: DefaultFetchState;
     userProfileFetchState: DefaultFetchState;
-    sessionMeta: {
-      activeDonations: number;
-    };
     showDonationModal: boolean;
+    showSignoutModal: boolean;
     isOnline: boolean;
     donationFormState: DefaultDonationFormState;
   };
@@ -27,30 +34,33 @@ export interface FlashState {
   message: { id: string } & FlashMessageArg;
 }
 
-export interface DefaultFetchState {
+interface DefaultFetchState {
   pending: boolean;
   complete: boolean;
   errored: boolean;
   error: null | string;
 }
 
-export interface DefaultDonationFormState {
+interface DefaultDonationFormState {
   redirecting: boolean;
   processing: boolean;
   success: boolean;
   error: null | string;
 }
 
-export const defaultFetchState = {
-  pending: true,
-  complete: false,
-  errored: false,
-  error: null
-};
+export interface DonateFormState {
+  processing: boolean;
+  redirecting: boolean;
+  success: boolean;
+  error: string;
+  loading: {
+    stripe: boolean;
+    paypal: boolean;
+  };
+}
 
-export const defaultDonationFormState = {
-  redirecting: false,
-  processing: false,
-  success: false,
-  error: ''
-};
+export interface UpdateCardState {
+  redirecting: boolean;
+  success: boolean;
+  error: string;
+}

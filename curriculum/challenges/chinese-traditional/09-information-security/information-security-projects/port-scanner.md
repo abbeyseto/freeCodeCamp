@@ -9,13 +9,15 @@ dashedName: port-scanner
 
 # --description--
 
-你將通過使用我們的 [Replit 入門代碼](https://replit.com/github/freeCodeCamp/boilerplate-port-scanner) 來完成本項目。
+You will be <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-port-scanner" target="_blank" rel="noopener noreferrer nofollow">working on this project with our Gitpod starter code</a>.
 
 我們仍在開發 Python 課程的交互式教學部分。 目前，你可以在 YouTube 上通過 freeCodeCamp.org 上傳的一些視頻學習這個項目相關的知識。
 
-- [Python for Everybody 視頻課程](https://www.freecodecamp.org/news/python-for-everybody/)（14 小時）
+- <a href="https://www.freecodecamp.org/news/python-for-everybody/" target="_blank" rel="noopener noreferrer nofollow">每個人視頻課程的 Python</a> (14小時)
 
-- [Learn Python 視頻課程](https://www.freecodecamp.org/news/learn-python-video-course/)（10 小時）
+- <a href="https://www.freecodecamp.org/news/learn-python-basics-in-depth-video-course/" target="_blank" rel="noopener noreferrer nofollow">深入學習 Python 基礎知識</a>（4 小時）
+
+- <a href="https://www.freecodecamp.org/news/intermediate-python-course/" target="_blank" rel="noopener noreferrer nofollow">Python 中級課程</a>（6 小時）
 
 # --instructions--
 
@@ -68,11 +70,11 @@ PORT     SERVICE
 
 ## 開發
 
-在 `port_scanner.py` 中編寫你的代碼。 對於開發，你可以使用 `main.py` 來測試你的代碼。 單擊“運行”按鈕，`main.py` 將運行。
+在 `port_scanner.py` 中編寫你的代碼。 對於開發，你可以使用 `main.py` 來測試你的代碼。
 
 ## 測試
 
-這個項目的單元測試在 `test_module.py` 中。 爲了你的方便，我們將測試從 `test_module.py` 導入到 `main.py`。 只要你點擊“運行”按鈕，測試就會自動運行。
+這個項目的單元測試在 `test_module.py` 中。 爲了你的方便，我們將測試從 `test_module.py` 導入到 `main.py`。
 
 ## 提交
 

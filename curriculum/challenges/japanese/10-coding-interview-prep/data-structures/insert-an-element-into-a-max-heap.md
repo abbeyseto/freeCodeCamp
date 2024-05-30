@@ -48,7 +48,7 @@ dashedName: insert-an-element-into-a-max-heap
 
 # --hints--
 
-MaxHeap データ構造が存在する必要があります。
+`MaxHeap` データ構造を用意する必要があります。
 
 ```js
 assert(
@@ -62,7 +62,7 @@ assert(
 );
 ```
 
-MaxHeap に insert というメソッドが必要です。
+`MaxHeap` には `insert` というメソッドが必要です。
 
 ```js
 assert(
@@ -78,7 +78,7 @@ assert(
 );
 ```
 
-MaxHeap に print というメソッドが必要です。
+`MaxHeap` には `print` というメソッドが必要です。
 
 ```js
 assert(
@@ -94,7 +94,7 @@ assert(
 );
 ```
 
-insert メソッドは最大ヒーププロパティに従って要素を追加する必要があります。
+`insert` メソッドは最大ヒーププロパティに従って要素を追加する必要があります。
 
 ```js
 assert(

@@ -10,17 +10,23 @@ dashedName: meet-the-node-console
 
 你可以採用下面的任意一種編寫代碼的方式來完成這些挑戰：
 
-- 克隆 [這個 GitHub 倉庫](https://github.com/freeCodeCamp/boilerplate-express/) 並在本地完成項目。
-- 使用[我們的 Repl.it 上的初始化項目](https://replit.com/github/freeCodeCamp/boilerplate-express)來完成項目。
+- 克隆<a href="https://github.com/freeCodeCamp/boilerplate-express/" target="_blank" rel="noopener noreferrer nofollow">這個 GitHub 倉庫</a>，並在本地完成這些挑戰。
+- Use <a href="https://gitpod.io/?autostart=true#https://github.com/freeCodeCamp/boilerplate-express/" target="_blank" rel="noopener noreferrer nofollow">our Gitpod starter project</a> to complete these challenges.
 - 使用你選擇的網站生成器來完成項目。 需要包含我們 GitHub 倉庫的所有文件。
-
-完成本項目後，請將一個正常運行的 demo（項目演示）託管在可以公開訪問的平臺。 然後在 `Solution Link` 字段中提交它的 URL。
 
 在開發過程中，能夠隨時看到代碼的運行結果是非常重要的。
 
-Node 只是一個 JavaScript 環境。 與客戶端 JavaScript 一樣，你可以使用控制檯顯示有用的調試信息。 在本地計算機上，你可以在終端中輸出調試信息。 在 Replit 上，右側邊欄會默認打開一個終端。
+Node 只是一個 JavaScript 環境。 與客戶端 JavaScript 一樣，你可以使用控制檯顯示有用的調試信息。 在你的本地計算機上，你可以在終端中看到控制檯輸出。 On Gitpod, a terminal is open at the bottom of the editor by default.
 
-我們建議在做這些挑戰題時保持終端打開的狀態。 通過這些終端的輸出，你可能會發現這些錯誤的本質原因。
+我們建議在做這些挑戰題時保持終端打開的狀態。 通過閱讀終端的輸出，你可以看到可能發生的任何錯誤。
+
+The server must be restarted after making changes to its files.
+
+You can stop the server from the terminal using `Ctrl + C` and start it using Node directly (`node mainEntryFile.js`) or using a run script in the `package.json` file with `npm run`.
+
+For example, the `"start": "node server.js"` script would be run from the terminal using `npm run start`.
+
+To implement server auto restarting on file save Node provides the `--watch` flag you can add to your start script `"start": "node --watch server.js"` or you can install an npm package like `nodemon`. We will leave this to you as an exercise.
 
 # --instructions--
 
@@ -28,7 +34,7 @@ Node 只是一個 JavaScript 環境。 與客戶端 JavaScript 一樣，你可�
 
 # --hints--
 
-控制檯應該輸出 `"Hello World"`
+控制檯應該輸出 `"Hello World"`。
 
 ```js
 (getUserInput) =>

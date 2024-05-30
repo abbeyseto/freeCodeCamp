@@ -8,7 +8,7 @@ dashedName: build-a-survey-form
 
 # --description--
 
-**目标：** 构建一个功能类似于 <a href="https://survey-form.freecodecamp.rocks" target="_blank" rel="noopener noreferrer nofollow">https://survey-form.freecodecamp.rocks</a> 的应用程序
+**目标：** 构建一个应用，它在功能上类似于 <a href="https://survey-form.freecodecamp.rocks" target="_blank" rel="noopener noreferrer nofollow">https://survey-form.freecodecamp.rocks</a>。 **不要复制这个演示项目**。
 
 **需求：**
 
@@ -19,7 +19,7 @@ dashedName: build-a-survey-form
 1. 在表单元素内，你**需要**在 `input` 字段中输入你的邮箱，该字段的 `id` 为 `email`
 1. 如果你输入了格式不正确的邮箱，你将会看见 HTML5 验证错误信息
 1. 在表单中，你可以在 `input` 字段中输入一个数字，该字段的 `id` 为 `number`
-1. 如果你在数字输入框内输入非数字内容，你会看到 HTML5 验证错误信息
+1. 数字输入不应接受非数字，或是阻止你输入它们，或是显示一个 HTML5 验证错误（取决于你的浏览器）。
 1. 如果你输入的数字超出了范围（使用 `min` 和 `max` 属性定义），你将会看见 HTML5 验证错误信息
 1. 表单中的名字、邮箱和数字输入框需有对应的包含描述输入框用途的 `label` 元素，id 应分别为 `id="name-label"`、`id="email-label"` 和 `id="number-label"`
 1. 在表单中的名字、邮箱和数字输入框中，你能看到各自的描述文字作为占位符
@@ -373,7 +373,7 @@ assert(!!el)
 
 ```
 
-## --solutions--
+# --solutions--
 
 ```html
 <!DOCTYPE html>

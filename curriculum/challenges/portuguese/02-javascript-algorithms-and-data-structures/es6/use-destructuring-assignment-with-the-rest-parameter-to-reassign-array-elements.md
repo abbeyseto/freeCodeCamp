@@ -1,7 +1,7 @@
 ---
 id: 587d7b8a367417b2b2512b4c
 title: >-
-  Usar atribuição de desestruturação com o parâmetro rest para reatribuir elementos de array
+  Desestruturação por meio de elementos com rest
 challengeType: 1
 forumTopicId: 301218
 dashedName: >-
@@ -22,40 +22,38 @@ console.log(arr);
 
 O console exibiria os valores `1, 2` e `[3, 4, 5, 7]`.
 
-As variáveis `a` e `b` pegam o primeiro e o segundo valores do array. Depois disso, por causa da presença do parâmetro rest, `arr` pega o resto dos valores na forma de um array. O elemento rest só funciona corretamente como a última variável na lista. De momento, você não pode usar o parâmetro rest para capturar um sub-array que deixa de fora o último elemento do array original.
+As variáveis `a` e `b` pegam o primeiro e o segundo valores do array. Depois disso, por causa da presença da sintaxe do rest, `arr` pega o resto dos valores na forma de um array. O elemento rest só funciona corretamente como a última variável na lista. De momento, você não pode usar a sintaxe do rest para capturar um sub-array que deixa de fora o último elemento do array original.
 
 # --instructions--
 
-Use atribuição de desestruturação com o parâmetro rest para executar `Array.prototype.slice()` de forma eficaz para que `arr` seja um sub array do array original `source` com os dois primeiros elementos omitidos.
+Use uma atribuição de desestruturação com a sintaxe do rest para simular o comportamento de `Array.prototype.slice()`. `removeFirstTwo()` deve retornar um sub-array do array original `list` com os dois primeiros elementos omitidos.
 
 # --hints--
 
-`arr` deve ser `[3,4,5,6,7,8,9,10]`
+`removeFirstTwo([1, 2, 3, 4, 5])` deve retornar `[3, 4, 5]`
 
 ```js
-assert(arr.every((v, i) => v === i + 3) && arr.length === 8);
+assert.deepEqual(removeFirstTwo([1, 2, 3, 4, 5]), [3, 4, 5]);
 ```
 
-`source` deve ser `[1,2,3,4,5,6,7,8,9,10]`
+`removeFirstTwo()` não deve modificar `list`
 
 ```js
-assert(source.every((v, i) => v === i + 1) && source.length === 10);
+const _testArr = [1, 2, 3, 4, 5];
+removeFirstTwo(_testArr);
+assert.deepEqual(_testArr, [1, 2, 3, 4, 5])
 ```
 
 `Array.slice()` não deve ser usado.
 
 ```js
-(getUserInput) => assert(!getUserInput('index').match(/slice/g));
+assert(!__helpers.removeJSComments(code).match(/\.\s*slice\s*\(/));
 ```
 
-Desestruturação na `list` deve ser usada.
+Você deve usar a sintaxe de rest.
 
 ```js
-assert(
-  __helpers
-    .removeWhiteSpace(code)
-    .match(/\[(([_$a-z]\w*)?,){1,}\.\.\.arr\]=list/i)
-);
+assert.match(code, /\.\.\./);
 ```
 
 # --seed--
@@ -63,23 +61,23 @@ assert(
 ## --seed-contents--
 
 ```js
-const source = [1,2,3,4,5,6,7,8,9,10];
 function removeFirstTwo(list) {
-  // Only change code below this line
-  const arr = list; // Change this line
-  // Only change code above this line
-  return arr;
+  return list;
 }
-const arr = removeFirstTwo(source);
+
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const sourceWithoutFirstTwo = removeFirstTwo(source);
 ```
 
 # --solutions--
 
 ```js
-const source = [1,2,3,4,5,6,7,8,9,10];
 function removeFirstTwo(list) {
-  const [, , ...arr] = list;
-  return arr;
+  // comment with 'slice' to check comments are removed in tests
+  const [, , ...shorterList] = list;
+  return shorterList;
 }
-const arr = removeFirstTwo(source);
+
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const sourceWithoutFirstTwo = removeFirstTwo(source);
 ```
